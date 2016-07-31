@@ -1,0 +1,29 @@
+@import 'settings';
+
+.js-validate{
+	input.invalid {
+		@include animation(invalid-input1 2s);
+	}
+}
+.js-validate-house-sett {
+	input.invalid {
+		@include animation(invalid-input2 2s);
+	}
+}
+
+@include keyframes(invalid-input1) {
+	0% {border-color: #e6e7e7;}
+	20% {border-color: #ff0000;}
+	40% {border-color: #e6e7e7;}
+	60% {border-color: #ff0000;}
+	80% {border-color: #e6e7e7;}
+	100% {border-color: #ff0000;}
+}
+@include keyframes(invalid-input2) {
+	0% {border-color: #4aa6d0;}
+	20% {border-color: #ff0000;}
+	40% {border-color: #4aa6d0;}
+	60% {border-color: #ff0000;}
+	80% {border-color: #4aa6d0;}
+	100% {border-color: #ff0000;}
+}

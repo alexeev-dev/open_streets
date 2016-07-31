@@ -1,0 +1,24 @@
+@import 'settings';
+
+// FONTS
+@include font-face('FedraSansProBold', FedraSansProBold);
+@include font-face('FedraSansProBookItalic', FedraSansProBookItalic);
+@include font-face('FedraSansProLight', FedraSansProLight);
+@include font-face('FedraSansProLightItalic', FedraSansProLightItalic);
+@include font-face('FedraSansProMedium', FedraSansProMedium);
+@include font-face('FedraSansProMediumItalic', FedraSansProMediumItalic);
+@include font-face('FedraSansProNormal', FedraSansProNormal);
+@include font-face('GothamProBold', GothamProBold);
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+
+// VARIABLES
+$FedraSansProBold: 'FedraSansProBold', sans-serif;
+$FedraSansProBookItalic: 'FedraSansProBookItalic', sans-serif;
+$FedraSansProLight: 'FedraSansProLight', sans-serif;
+$FedraSansProLightItalic: 'FedraSansProLightItalic', sans-serif;
+$FedraSansProMedium: 'FedraSansProMedium', sans-serif;
+$FedraSansProMediumItalic: 'FedraSansProMediumItalic', sans-serif;
+$FedraSansProNormal: 'FedraSansProNormal', sans-serif;
+$GothamProBold: 'GothamProBold', sans-serif;
+$OpenSans: 'Open Sans', sans-serif;

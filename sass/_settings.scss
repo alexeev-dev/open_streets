@@ -1,0 +1,180 @@
+/* Подключаем компасс */
+@import "compass";
+@import "compass/reset";
+
+/* Включаем спрайты и загружаем иконки */
+//$mysprite-layout:smart;
+//@import "icons/*.png";
+//@include all-icons-sprites;
+//
+//$icons: ('picture1','picture2');
+//
+//@each $icons in $icons {
+//  .icons-#{$icons} {
+//    display: inline-block;
+//    position: relative;
+//    width: icons-sprite-width(#{$icons});
+//    height: icons-sprite-height(#{$icons});
+//    
+//    vertical-align: top;
+//    display: -moz-inline-stack;
+//    zoom: 1;
+//        *display: inline;
+//  }
+//}
+
+/* Импортируем гугл-шрифты */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic);
+
+/* Импортируем локальные шрифты */
+@mixin font-face($font-family, $file-path) {
+  
+  // Мы используем http://everythingfonts.com/font-face конвертер
+    @font-face {
+    font-family: $font-family;
+    src: url('../fonts/' + $file-path + '/' + $file-path + '.eot');
+    src: url('../fonts/' + $file-path + '/' + $file-path + '.eot') format('embedded-opentype'),
+       url('../fonts/' + $file-path + '/' + $file-path + '.woff2') format('woff2'),
+       url('../fonts/' + $file-path + '/' + $file-path + '.woff') format('woff'),
+       url('../fonts/' + $file-path + '/' + $file-path + '.ttf') format('truetype'),
+       url('../fonts/' + $file-path + '/' + $file-path + '.svg#TTDrugsThin') format('svg');      
+       
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  // Chrome для Windows фикс: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+      src: url('../fonts/' + $file-path + '/' + $file-path + '.svg##{$font-family}') format('svg');
+    }
+  }
+}
+
+// Подключаем локальный шрифты из Миксина
+@include font-face(DroidSerifRegular, 'DroidSerifRegular');
+@include font-face(RalewayExtraBold, 'RalewayExtraBold');
+
+
+// Используй это миксин для всего конфига!
+@mixin font($color, $font-family, $font-size, $line-height, $letter-spacing) {
+  color: $color;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+html {
+  /* height hack */
+  min-height:100%; 
+  height:auto !important; 
+  height:100%;
+}
+
+body {
+  /* height hack */
+  min-height:100%; 
+  height:auto !important; 
+  height:100%;
+  
+  /* устанавливаем оптимальный вертикальный ритм */
+  // @include font(#cccccc, $main-font, 14px, 20px, 0px);
+  
+  /* сглаживание шрифтов в вебките */
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body.onload {overflow:hidden;}
+button, select {-webkit-appearance: none;}
+
+/* выделение текста */
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+h1, h2, h3 {margin: 0;}
+
+/* В дополнение от Bootstrap, <p> (параграфы) получают нижний отступ в половину калькулируемой высоты строки (изначально 10px) */
+p {
+  margin-bottom: 0; /* для правильного вертикального ритма */
+  
+}
+  /* <p> в виде заголовка */
+  .lead {}
+
+a {
+  text-decoration: underline;
+  
+  &:hover {}
+  &:active {}
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* System */
+.np {padding: 0;} /* no padding */
+.np-l {padding-left:0;} /* no padding left */
+.np-r {padding-right:0;} /* no padding right */
+.dp {padding:0 30px;} /* double padding */
+.nm {margin:0;} /* no margin */
+.nm-b {margin-bottom:0;} /* no margin bottom */
+.p_small {padding: 5px;}
+
+/* Общий сброс базовых настроек */
+.navbar-default .navbar-toggle {border:none;}
+
+/* Сообщение об устаревшем броузере */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+
+// =======================================================================// 
+//                                  Адаптация                             //        
+// =======================================================================// 
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+  @else if $media == xs {
+    @media only screen and (max-width: 481px) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (max-width: 767px) { @content; }
+  }
+  @else if $media == md {
+   @media only screen and(max-width: 991px) { @content; }
+  }
+  @else if $media == lg {
+   @media only screen and (max-width: 1199px) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (max-width: 1300px) { @content; }
+  }
+}

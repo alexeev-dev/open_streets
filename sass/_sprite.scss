@@ -1,0 +1,22 @@
+@import 'settings';
+
+/* Включаем спрайты и загружаем иконки */
+$mysprite-layout:smart;
+@import "icons/*.png";
+@include all-icons-sprites;
+
+$icons: ('socials-ok','socials-vk','socials-fb','close-popup','close-popup-2','clock','gallery-mark','gallery-mark-big','gallery-play','gallery-resize','map-delete-district-1','map-delete-district-2');
+
+@each $icons in $icons {
+	.icons-#{$icons} {
+		display: inline-block;
+		position: relative;
+		width: icons-sprite-width(#{$icons});
+		height: icons-sprite-height(#{$icons});
+
+		vertical-align: top;
+		display: -moz-inline-stack;
+		zoom: 1;
+		*display: inline;
+	}
+}
