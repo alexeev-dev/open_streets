@@ -588,7 +588,7 @@ function bindCarousels() {
 		sync2.owlCarousel({
 			loop: true,
 			items: 3,
-		    afterInit: function(el) {
+			afterInit: function(el) {
 				el.find(".owl-item").eq(0).addClass("synced");
 				el.find(".owl-item > div").eq(0).addClass("active");
 			}
@@ -780,22 +780,227 @@ function processSlider(ui, withAjax, inp, el) {
 function initStations() {
 	var stations = [
 		// в центре - на кольце - название - стиль надписи - стиль галки
-		[true, false, 'Борисово', 'left: 720px; top: 813px; width: 56px; height: 12px; background-position: -720px -813px', 'left: 707px; top: 811px; width: 15px; height: 15px; background-position: -707px -811px'],
-		[true, true, 'Шипиловская', 'left: 720px; top: 840px; width: 79px; height: 12px; background-position: -720px -840px;', 'left: 707px; top: 838px; width: 15px; height: 15px; background-position: -707px -838px;'],
-		[false, true, 'Зябликово', 'left: 720px; top: 865px; width: 62px; height: 12px; background-position: -720px -865px;', 'left: 707px; top: 863px; width: 15px; height: 15px; background-position: -707px -863px;'],
-		[false, true, 'Чертановская', 'left: 464px; top: 835px; width: 78px; height: 16px; background-position: -464px -835px;', 'left: 451px; top: 834px; width: 15px; height: 15px; background-position: -451px -834px;'],
-		[true, false, 'Южная', 'left: 453px; top: 868px; width: 44px; height: 15px; background-position: -453px -868px;', 'left: 444px; top: 856px; width: 15px; height: 15px; background-position: -444px -856px;'],
-	];
-	
-	for (var i = 0; i < stations.length; i++) {
-		var dataCenter = "";
-		var dataRing = "";
-		if (stations[i][0] == true) {
-			dataCenter = ' data-center="1"';
+		[false, false, 'Борисово', 'left: 720px; top: 813px; width: 56px; height: 12px; background-position: -720px -813px', 'left: 707px; top: 811px; width: 15px; height: 15px; background-position: -707px -811px'],
+		[false, false, 'Шипиловская', 'left: 720px; top: 840px; width: 79px; height: 12px; background-position: -720px -840px;', 'left: 707px; top: 838px; width: 15px; height: 15px; background-position: -707px -838px;'],
+		[false, false, 'Зябликово', 'left: 720px; top: 865px; width: 62px; height: 12px; background-position: -720px -865px;', 'left: 707px; top: 863px; width: 15px; height: 15px; background-position: -707px -863px;'],
+		[false, false, 'Чертановская', 'left: 464px; top: 835px; width: 78px; height: 16px; background-position: -464px -835px;', 'left: 451px; top: 834px; width: 15px; height: 15px; background-position: -451px -834px;'],
+		[false, false, 'Южная', 'left: 453px; top: 868px; width: 44px; height: 15px; background-position: -453px -868px;', 'left: 444px; top: 856px; width: 15px; height: 15px; background-position: -444px -856px;'],
+		[false, false, 'Пражская', 'left: 434px; top: 887px; width: 57px; height: 15px; background-position: -434px -887px;', 'left: 426px; top: 876px; width: 15px; height: 15px; background-position: -426px -876px;'],
+		[false, false, 'Улица Академика Янгеля', 'left: 415px; top: 907px; width: 135px; height: 15px; background-position: -415px -907px;', 'left: 407px; top: 894px; width: 15px; height: 15px; background-position: -407px -894px;'],
+		[false, false, 'Аннино', 'left: 348px; top: 893px; width: 47px; height: 15px; background-position: -348px -893px;', 'left: 365px; top: 906px; width: 15px; height: 15px; background-position: -365px -906px;'],
+		[false, false, 'Алтуфьево', 'left: 339px; top: 5px; width: 63px; height: 16px; background-position: -339px -5px;', 'left: 326px; top: 5px; width: 15px; height: 15px; background-position: -326px -5px;'],
+		[false, false, 'Бибирево', 'left: 338px; top: 23px; width: 59px; height: 16px; background-position: -338px -23px;', 'left: 326px; top: 23px; width: 15px; height: 15px; background-position: -326px -23px;'],
+		[false, false, 'Отрадное', 'left: 338px; top: 43px; width: 57px; height: 15px; background-position: -338px -43px;', 'left: 326px; top: 42px; width: 15px; height: 15px; background-position: -326px -42px;'],
+		[false, false, 'Владыкино', 'left: 338px; top: 62px; width: 65px; height: 16px; background-position: -338px -62px;', 'left: 326px; top: 61px; width: 15px; height: 15px; background-position: -326px -61px;'],
+		[false, false, 'Петровско-Разумовская', 'left: 338px; top: 81px; width: 131px; height: 15px; background-position: -338px -81px;', 'left: 326px; top: 81px; width: 15px; height: 15px; background-position: -326px -81px;'],
+		[false, false, 'Дмитровская', 'left: 338px; top: 158px; width: 76px; height: 12px; background-position: -338px -158px;', 'left: 326px; top: 156px; width: 15px; height: 15px; background-position: -326px -156px;'],
+		[false, false, 'Марьина Роща', 'left: 447px; top: 167px; width: 82px; height: 12px; background-position: -447px -167px;', 'left: 435px; top: 165px; width: 15px; height: 15px; background-position: -435px -165px;'],
+		[false, false, 'Достоевская', 'left: 447px; top: 193px; width: 71px; height: 12px; background-position: -447px -193px;', 'left: 435px; top: 191px; width: 15px; height: 15px; background-position: -435px -191px;'],
+		[true, false, 'Трубная', 'left: 421px; top: 312px; width: 50px; height: 12px; background-position: -421px -312px;', 'left: 409px; top: 309px; width: 15px; height: 15px; background-position: -409px -309px;'],
+		[true, false, 'Сретенский бульвар', 'left: 492px; top: 313px; width: 61px; height: 21px; background-position: -492px -313px;', 'left: 515px; top: 333px; width: 15px; height: 15px; background-position: -515px -333px;'],
+		[false, true, 'Менделеевская', 'left: 348px; top: 212px; width: 86px; height: 17px; background-position: -348px -212px;', 'left: 347px; top: 226px; width: 15px; height: 15px; background-position: -347px -226px;'],
+		[true, false, 'Чеховская', 'left: 395px; top: 365px; width: 59px; height: 15px; background-position: -395px -365px;', 'left: 383px; top: 357px; width: 15px; height: 15px; background-position: -383px -357px;'],
+		[true, false, 'Полянка', 'left: 463px; top: 601px; width: 51px; height: 15px; background-position: -463px -601px;', 'left: 451px; top: 601px; width: 15px; height: 15px; background-position: -451px -601px;'],
+		[false, true, 'Серпуховская', 'left: 462px; top: 648px; width: 80px; height: 16px; background-position: -462px -648px;', 'left: 451px; top: 646px; width: 15px; height: 15px; background-position: -451px -646px;'],
+		[false, false, 'Тульская', 'left: 464px; top: 676px; width: 52px; height: 16px; background-position: -464px -676px;', 'left: 438px; top: 633px; width: 15px; height: 15px; background-position: -438px -633px;'],
+		[false, false, 'Нагатинская', 'left: 464px; top: 700px; width: 71px; height: 15px; background-position: -464px -700px;', 'left: 451px; top: 675px; width: 15px; height: 15px; background-position: -451px -675px;'],
+		[false, false, 'Нагорная', 'left: 464px; top: 725px; width: 56px; height: 15px; background-position: -464px -725px;', 'left: 451px; top: 700px; width: 15px; height: 15px; background-position: -451px -700px;'],
+		[false, false, 'Нахимовский проспект', 'left: 464px; top: 750px; width: 77px; height: 24px; background-position: -464px -750px;', 'left: 451px; top: 724px; width: 15px; height: 15px; background-position: -451px -724px;'],
+		[false, false, 'Севастопольская', 'left: 464px; top: 807px; width: 94px; height: 15px; background-position: -464px -807px;', 'left: 451px; top: 750px; width: 15px; height: 15px; background-position: -451px -750px;'],
+		[true, false, 'Цветной бульвар', 'left: 350px; top: 299px; width: 45px; height: 21px; background-position: -350px -299px;', 'left: 451px; top: 806px; width: 15px; height: 15px; background-position: -451px -806px;'],
+		[false, false, 'Тимирязевская', 'left: 341px; top: 102px; width: 85px; height: 15px; background-position: -341px -102px;', 'left: 396px; top: 295px; width: 15px; height: 15px; background-position: -396px -295px;'],
+		[false, false, 'Тимирязевская', 'left: 352px; top: 117px; width: 73px; height: 10px; background-position: -352px -117px;', 'left: 326px; top: 102px; width: 15px; height: 15px; background-position: -326px -102px;'],
+		[false, false, 'Римская', 'left: 712px; top: 483px; width: 50px; height: 12px; background-position: -712px -483px;', 'left: 347px; top: 123px; width: 15px; height: 15px; background-position: -347px -123px;'],
+		[false, false, 'Крестьянская Застава', 'left: 724px; top: 543px; width: 69px; height: 19px; background-position: -724px -543px;', 'left: 700px; top: 480px; width: 15px; height: 15px; background-position: -700px -480px;'],
+		[false, false, 'Дубровка', 'left: 720px; top: 627px; width: 57px; height: 12px; background-position: -720px -627px;', 'left: 707px; top: 559px; width: 15px; height: 15px; background-position: -707px -559px;'],
+		[false, false, 'Кожуховская', 'left: 720px; top: 654px; width: 72px; height: 12px; background-position: -720px -654px;', 'left: 707px; top: 625px; width: 15px; height: 15px; background-position: -707px -625px;'],
+		[false, false, 'Печатники', 'left: 720px; top: 680px; width: 63px; height: 12px; background-position: -720px -680px;', 'left: 707px; top: 651px; width: 15px; height: 15px; background-position: -707px -651px;'],
+		[false, false, 'Волжская', 'left: 720px; top: 707px; width: 56px; height: 12px; background-position: -720px -707px;', 'left: 707px; top: 678px; width: 15px; height: 15px; background-position: -707px -678px;'],
+		[false, false, 'Люблино', 'left: 720px; top: 733px; width: 55px; height: 12px; background-position: -720px -733px;', 'left: 707px; top: 704px; width: 15px; height: 15px; background-position: -707px -704px;'],
+		[false, false, 'Каширская', 'left: 597px; top: 721px; width: 64px; height: 12px; background-position: -597px -721px;', 'left: 707px; top: 731px; width: 15px; height: 15px; background-position: -707px -731px;'],
+		[false, false, 'Красногвардейская', 'left: 589px; top: 888px; width: 108px; height: 12px; background-position: -589px -888px;', 'left: 584px; top: 720px; width: 15px; height: 15px; background-position: -584px -720px;'],
+		[false, false, 'Орехово', 'left: 651px; top: 817px; width: 49px; height: 12px; background-position: -651px -817px;', 'left: 598px; top: 732px; width: 15px; height: 15px; background-position: -598px -732px;'],
+		[false, false, 'Царицыно', 'left: 626px; top: 793px; width: 62px; height: 12px; background-position: -626px -793px;', 'left: 694px; top: 877px; width: 15px; height: 15px; background-position: -694px -877px;'],
+		[false, false, 'Кантемировская', 'left: 602px; top: 768px; width: 93px; height: 12px; background-position: -602px -768px;', 'left: 641px; top: 825px; width: 15px; height: 15px; background-position: -641px -825px;'],
+		[false, false, 'Коломенская', 'left: 596px; top: 687px; width: 74px; height: 12px; background-position: -596px -687px;', 'left: 618px; top: 801px; width: 15px; height: 15px; background-position: -618px -801px;'],
+		[false, false, 'Автозаводская', 'left: 584px; top: 630px; width: 92px; height: 12px; background-position: -584px -630px;', 'left: 593px; top: 775px; width: 15px; height: 15px; background-position: -593px -775px;'],
+		[false, true, 'Павелецкая', 'left: 585px; top: 596px; width: 67px; height: 12px; background-position: -585px -596px;', 'left: 584px; top: 685px; width: 15px; height: 15px; background-position: -584px -685px;'],
+		[true, false, 'Театральная', 'left: 456px; top: 453px; width: 72px; height: 12px; background-position: -456px -453px;', 'left: 584px; top: 627px; width: 15px; height: 15px; background-position: -584px -627px;'],
+		[true, false, 'Тверская', 'left: 311px; top: 367px; width: 53px; height: 12px; background-position: -311px -367px;', 'left: 574px; top: 584px; width: 15px; height: 15px; background-position: -574px -584px;'],
+		[false, false, 'Аэропорт', 'left: 243px; top: 219px; width: 54px; height: 12px; background-position: -243px -219px;', 'left: 574px; top: 602px; width: 15px; height: 15px; background-position: -574px -602px;'],
+		[false, false, 'Сокол', 'left: 228px; top: 189px; width: 37px; height: 12px; background-position: -228px -189px;', 'left: 447px; top: 459px; width: 15px; height: 15px; background-position: -447px -459px;'],
+		[false, false, 'Войковская', 'left: 228px; top: 157px; width: 66px; height: 12px; background-position: -228px -157px;', 'left: 362px; top: 357px; width: 15px; height: 15px; background-position: -362px -357px;'],
+		[false, false, 'Братиславская', 'left: 720px; top: 760px; width: 81px; height: 12px; background-position: -720px -760px;', 'left: 231px; top: 227px; width: 15px; height: 15px; background-position: -231px -227px;'],
+		[false, false, 'Марьино', 'left: 720px; top: 787px; width: 54px; height: 12px; background-position: -720px -787px;', 'left: 215px; top: 186px; width: 15px; height: 15px; background-position: -215px -186px;'],
+		[false, false, 'Домодедовская', 'left: 582px; top: 860px; width: 89px; height: 12px; background-position: -582px -860px;', 'left: 215px; top: 154px; width: 15px; height: 15px; background-position: -215px -154px;'],
+		[false, true, 'Белорусская', 'left: 216px; top: 289px; width: 68px; height: 12px; background-position: -216px -289px;', 'left: 707px; top: 758px; width: 15px; height: 15px; background-position: -707px -758px;'],
+		[false, false, 'Савеловская', 'left: 338px; top: 186px; width: 72px; height: 12px; background-position: -338px -186px;', 'left: 707px; top: 784px; width: 15px; height: 15px; background-position: -707px -784px;'],
+		[false, false, 'Варшавская', 'left: 477px; top: 781px; width: 70px; height: 12px; background-position: -477px -781px;', 'left: 665px; top: 849px; width: 15px; height: 15px; background-position: -665px -849px;'],
+		[true, false, 'Кузнецкий Мост', 'left: 418px; top: 393px; width: 56px; height: 17px; background-position: -418px -393px;', 'left: 326px; top: 183px; width: 15px; height: 15px; background-position: -326px -183px;'],
+		[true, false, 'Лубянка', 'left: 483px; top: 410px; width: 51px; height: 12px; background-position: -483px -410px;', 'left: 506px; top: 792px; width: 15px; height: 15px; background-position: -506px -792px;'],
+		[true, false, 'Китай-город', 'left: 477px; top: 431px; width: 71px; height: 12px; background-position: -477px -431px;', 'left: 464px; top: 376px; width: 15px; height: 15px; background-position: -464px -376px;'],
+		[true, false, 'Библиотека им. Ленина', 'left: 403px; top: 497px; width: 64px; height: 21px; background-position: -403px -497px;', 'left: 541px; top: 418px; width: 15px; height: 15px; background-position: -541px -418px;'],
+		[true, false, 'Сухаревская', 'left: 481px; top: 284px; width: 71px; height: 12px; background-position: -481px -284px;', 'left: 548px; top: 436px; width: 15px; height: 15px; background-position: -548px -436px;'],
+		[true, false, 'Тургеневская', 'left: 434px; top: 354px; width: 69px; height: 11px; background-position: -434px -354px;', 'left: 469px; top: 282px; width: 15px; height: 15px; background-position: -469px -282px;'],
+		[false, true, 'Октябрьская', 'left: 374px; top: 611px; width: 73px; height: 12px; background-position: -374px -611px;', 'left: 505px; top: 352px; width: 15px; height: 15px; background-position: -505px -352px;'],
+		[false, false, 'Шаболовская', 'left: 327px; top: 659px; width: 77px; height: 12px; background-position: -327px -659px;', 'left: 366px; top: 600px; width: 15px; height: 15px; background-position: -366px -600px;'],
+		[false, false, 'Ленинский проспект', 'left: 306px; top: 680px; width: 116px; height: 12px; background-position: -306px -680px;', 'left: 366px; top: 619px; width: 15px; height: 15px; background-position: -366px -619px;'],
+		[false, true, 'Парк культуры', 'left: 324px; top: 573px; width: 54px; height: 21px; background-position: -324px -573px;', 'left: 319px; top: 647px; width: 15px; height: 15px; background-position: -319px -647px;'],
+		[false, true, 'Добрынинская', 'left: 357px; top: 644px; width: 85px; height: 12px; background-position: -357px -644px;', 'left: 299px; top: 666px; width: 15px; height: 15px; background-position: -299px -666px;'],
+		[false, true, 'Курская', 'left: 650px; top: 382px; width: 48px; height: 12px; background-position: -650px -382px;', 'left: 438px; top: 633px; width: 15px; height: 15px; background-position: -438px -633px;'],
+		[false, false, 'Проспект Вернадского', 'left: 102px; top: 703px; width: 123px; height: 12px; background-position: -102px -703px;', 'left: 634px; top: 382px; width: 15px; height: 15px; background-position: -634px -382px;'],
+		[false, false, 'Университет', 'left: 124px; top: 680px; width: 73px; height: 12px; background-position: -124px -680px;', 'left: 644px; top: 394px; width: 15px; height: 15px; background-position: -644px -394px;'],
+		[false, false, 'Воробьевы горы', 'left: 146px; top: 655px; width: 93px; height: 17px; background-position: -146px -655px;', 'left: 90px; top: 692px; width: 15px; height: 15px; background-position: -90px -692px;'],
+		[false, false, 'Спортивная', 'left: 176px; top: 634px; width: 69px; height: 12px; background-position: -176px -634px;', 'left: 113px; top: 669px; width: 15px; height: 15px; background-position: -113px -669px;'],
+		[false, false, 'Фрунзенская', 'left: 200px; top: 596px; width: 77px; height: 13px; background-position: -200px -596px;', 'left: 136px; top: 646px; width: 15px; height: 15px; background-position: -136px -646px;'],
+		[true, false, 'Охотный Ряд', 'left: 385px; top: 432px; width: 48px; height: 21px; background-position: -385px -432px;', 'left: 205px; top: 618px; width: 15px; height: 15px; background-position: -205px -618px;'],
+		[false, false, 'Сокольники', 'left: 654px; top: 216px; width: 68px; height: 12px; background-position: -654px -216px;', 'left: 272px; top: 605px; width: 15px; height: 15px; background-position: -272px -605px;'],
+		[false, false, 'Преображенская площадь', 'left: 654px; top: 169px; width: 95px; height: 21px; background-position: -654px -169px;', 'left: 641px; top: 214px; width: 15px; height: 15px; background-position: -641px -214px;'],
+		[false, false, 'Черкизовская', 'left: 653px; top: 134px; width: 79px; height: 12px; background-position: -653px -134px;', 'left: 642px; top: 168px; width: 15px; height: 15px; background-position: -642px -168px;'],
+		[false, false, 'Бульвар Рокоссовского', 'left: 653px; top: 99px; width: 96px; height: 30px; background-position: -653px -99px;', 'left: 70px; top: 712px; width: 15px; height: 15px; background-position: -70px -712px;'],
+		[false, false, 'Юго-Западная', 'left: 82px; top: 725px; width: 82px; height: 12px; background-position: -82px -725px;', 'left: 106px; top: 162px; width: 15px; height: 15px; background-position: -106px -162px;'],
+		[false, false, 'Сходненская', 'left: 118px; top: 164px; width: 73px; height: 12px; background-position: -118px -164px;', 'left: 106px; top: 189px; width: 15px; height: 15px; background-position: -106px -189px;'],
+		[false, false, 'Тушинская', 'left: 118px; top: 191px; width: 63px; height: 12px; background-position: -118px -191px;', 'left: 106px; top: 242px; width: 15px; height: 15px; background-position: -106px -242px;'],
+		[false, false, 'Щукинская', 'left: 118px; top: 245px; width: 67px; height: 12px; background-position: -118px -245px;', 'left: 106px; top: 269px; width: 15px; height: 15px; background-position: -106px -269px;'],
+		[false, false, 'Октябрьское Поле', 'left: 118px; top: 268px; width: 104px; height: 20px; background-position: -118px -268px;', 'left: 106px; top: 296px; width: 15px; height: 15px; background-position: -106px -296px;'],
+		[false, false, 'Полежаевская', 'left: 118px; top: 296px; width: 85px; height: 19px; background-position: -118px -296px;', 'left: 122px; top: 338px; width: 15px; height: 15px; background-position: -122px -338px;'],
+		[false, false, 'Беговая', 'left: 131px; top: 327px; width: 50px; height: 18px; background-position: -131px -327px;', 'left: 187px; top: 376px; width: 15px; height: 15px; background-position: -187px -376px;'],
+		[false, false, 'Улица 1905 года', 'left: 170px; top: 354px; width: 50px; height: 21px; background-position: -170px -354px;', 'left: 671px; top: 344px; width: 15px; height: 15px; background-position: -671px -344px;'],
+		[false, false, 'Бауманская', 'left: 679px; top: 357px; width: 69px; height: 12px; background-position: -679px -357px;', 'left: 705px; top: 311px; width: 15px; height: 15px; background-position: -705px -311px;'],
+		[false, false, 'Электрозаводская', 'left: 714px; top: 323px; width: 101px; height: 12px; background-position: -714px -323px;', 'left: 736px; top: 279px; width: 15px; height: 15px; background-position: -736px -279px;'],
+		[false, false, 'Семеновская', 'left: 745px; top: 292px; width: 74px; height: 12px; background-position: -745px -292px;', 'left: 754px; top: 243px; width: 15px; height: 15px; background-position: -754px -243px;'],
+		[false, false, 'Партизанская', 'left: 765px; top: 245px; width: 81px; height: 12px; background-position: -765px -245px;', 'left: 754px; top: 209px; width: 15px; height: 15px; background-position: -754px -209px;'],
+		[false, false, 'Измайловская', 'left: 766px; top: 211px; width: 81px; height: 12px; background-position: -766px -211px;', 'left: 754px; top: 174px; width: 15px; height: 15px; background-position: -754px -174px;'],
+		[false, false, 'Первомайская', 'left: 766px; top: 176px; width: 82px; height: 12px; background-position: -766px -176px;', 'left: 754px; top: 140px; width: 15px; height: 15px; background-position: -754px -140px;'],
+		[false, false, 'Щелковская', 'left: 766px; top: 142px; width: 71px; height: 12px; background-position: -766px -142px;', 'left: 800px; top: 708px; width: 15px; height: 15px; background-position: -800px -708px;'],
+		[false, false, 'Выхино', 'left: 812px; top: 710px; width: 46px; height: 12px; background-position: -812px -710px;', 'left: 800px; top: 735px; width: 15px; height: 15px; background-position: -800px -735px;'],
+		[false, false, 'Лермонтовский проспект', 'left: 812px; top: 736px; width: 88px; height: 24px; background-position: -812px -736px;', 'left: 800px; top: 768px; width: 15px; height: 15px; background-position: -800px -768px;'],
+		[false, false, 'Жулебино', 'left: 812px; top: 770px; width: 62px; height: 12px; background-position: -812px -770px;', 'left: 800px; top: 673px; width: 15px; height: 15px; background-position: -800px -673px;'],
+		[false, false, 'Рязанский проспект', 'left: 812px; top: 674px; width: 62px; height: 21px; background-position: -812px -674px;', 'left: 787px; top: 627px; width: 15px; height: 15px; background-position: -787px -627px;'],
+		[false, false, 'Кузьминки', 'left: 796px; top: 620px; width: 65px; height: 12px; background-position: -796px -620px;', 'left: 769px; top: 609px; width: 15px; height: 15px; background-position: -769px -609px;'],
+		[false, false, 'Текстильщики', 'left: 778px; top: 601px; width: 81px; height: 12px; background-position: -778px -601px;', 'left: 731px; top: 592px; width: 15px; height: 15px; background-position: -731px -592px;'],
+		[false, false, 'Волгоградский проспект', 'left: 724px; top: 581px; width: 134px; height: 12px; background-position: -724px -581px;', 'left: 784px; top: 377px; width: 15px; height: 15px; background-position: -784px -377px;'],
+		[false, false, 'Новогиреево', 'left: 793px; top: 390px; width: 74px; height: 12px; background-position: -793px -390px;', 'left: 766px; top: 395px; width: 15px; height: 15px; background-position: -766px -395px;'],
+		[false, false, 'Перово', 'left: 774px; top: 408px; width: 45px; height: 12px; background-position: -774px -408px;', 'left: 746px; top: 415px; width: 15px; height: 15px; background-position: -746px -415px;'],
+		[false, false, 'Шоссе Энтузиастов', 'left: 755px; top: 428px; width: 106px; height: 12px; background-position: -755px -428px;', 'left: 728px; top: 434px; width: 15px; height: 15px; background-position: -728px -434px;'],
+		[false, false, 'Авиамоторная', 'left: 736px; top: 446px; width: 82px; height: 12px; background-position: -736px -446px;', 'left: 700px; top: 461px; width: 15px; height: 15px; background-position: -700px -461px;'],
+		[false, false, 'Площадь Ильича', 'left: 712px; top: 466px; width: 93px; height: 12px; background-position: -712px -466px;', 'left: 66px; top: 507px; width: 15px; height: 15px; background-position: -66px -507px;'],
+		[false, false, 'Студенческая', 'left: 39px; top: 521px; width: 74px; height: 12px; background-position: -39px -521px;', 'left: 23px; top: 449px; width: 15px; height: 15px; background-position: -23px -449px;'],
+		[false, false, 'Кутузовская', 'left: 35px; top: 452px; width: 69px; height: 12px; background-position: -35px -452px;', 'left: 23px; top: 427px; width: 15px; height: 15px; background-position: -23px -427px;'],
+		[false, false, 'Фили', 'left: 35px; top: 429px; width: 34px; height: 12px; background-position: -35px -429px;', 'left: 23px; top: 404px; width: 15px; height: 15px; background-position: -23px -404px;'],
+		[false, false, 'Багратионовская', 'left: 35px; top: 407px; width: 95px; height: 12px; background-position: -35px -407px;', 'left: 23px; top: 381px; width: 15px; height: 15px; background-position: -23px -381px;'],
+		[false, false, 'Филевский парк', 'left: 34px; top: 384px; width: 92px; height: 12px; background-position: -34px -384px;', 'left: 23px; top: 358px; width: 15px; height: 15px; background-position: -23px -358px;'],
+		[false, false, 'Пионерская', 'left: 34px; top: 361px; width: 70px; height: 12px; background-position: -34px -361px;', 'left: 6px; top: 315px; width: 15px; height: 15px; background-position: -6px -315px;'],
+		[false, false, 'Кунцевская', 'left: 21px; top: 318px; width: 66px; height: 12px; background-position: -21px -318px;', 'left: 23px; top: 332px; width: 15px; height: 15px; background-position: -23px -332px;'],
+		[false, false, 'Молодежная', 'left: 18px; top: 288px; width: 73px; height: 12px; background-position: -18px -288px;', 'left: 6px; top: 285px; width: 15px; height: 15px; background-position: -6px -285px;'],
+		[false, false, 'Крылатское', 'left: 18px; top: 258px; width: 68px; height: 12px; background-position: -18px -258px;', 'left: 6px; top: 255px; width: 15px; height: 15px; background-position: -6px -255px;'],
+		[false, false, 'Строгино', 'left: 18px; top: 228px; width: 56px; height: 12px; background-position: -18px -228px;', 'left: 6px; top: 225px; width: 15px; height: 15px; background-position: -6px -225px;'],
+		[false, false, 'Мякинино', 'left: 18px; top: 198px; width: 61px; height: 12px; background-position: -18px -198px;', 'left: 6px; top: 195px; width: 15px; height: 15px; background-position: -6px -195px;'],
+		[false, false, 'Волоколамская', 'left: 18px; top: 172px; width: 85px; height: 12px; background-position: -18px -172px;', 'left: 6px; top: 167px; width: 15px; height: 15px; background-position: -6px -167px;'],
+		[false, false, 'Митино', 'left: 18px; top: 142px; width: 49px; height: 12px; background-position: -18px -142px;', 'left: 6px; top: 140px; width: 15px; height: 15px; background-position: -6px -140px;'],
+		[false, false, 'Славянский бульвар', 'left: 40px; top: 554px; width: 67px; height: 21px; background-position: -40px -554px;', 'left: 66px; top: 538px; width: 15px; height: 15px; background-position: -66px -538px;'],
+		[false, false, 'Парк Победы', 'left: 127px; top: 558px; width: 47px; height: 22px; background-position: -127px -558px;', 'left: 128px; top: 538px; width: 15px; height: 15px; background-position: -128px -538px;'],
+		[false, false, 'Международная', 'left: 142px; top: 432px; width: 92px; height: 12px; background-position: -142px -432px;', 'left: 111px; top: 555px; width: 15px; height: 15px; background-position: -111px -555px;'],
+		[true, false, 'Кропоткинская', 'left: 342px; top: 557px; width: 86px; height: 12px; background-position: -342px -557px;', 'left: 130px; top: 429px; width: 15px; height: 15px; background-position: -130px -429px;'],
+		[false, true, 'Комсомольская', 'left: 611px; top: 290px; width: 86px; height: 12px; background-position: -611px -290px;', 'left: 461px; top: 474px; width: 15px; height: 15px; background-position: -461px -474px;'],
+		[true, false, 'Пл. Революции', 'left: 469px; top: 484px; width: 84px; height: 17px; background-position: -469px -484px;', 'left: 803px; top: 358px; width: 15px; height: 15px; background-position: -803px -358px;'],
+		[false, false, 'Красносельская', 'left: 634px; top: 265px; width: 89px; height: 12px; background-position: -634px -265px;', 'left: 438px; top: 792px; width: 15px; height: 15px; background-position: -438px -792px;'],
+		[false, false, 'Новокосино', 'left: 813px; top: 370px; width: 69px; height: 12px; background-position: -813px -370px;', 'left: 695px; top: 572px; width: 15px; height: 15px; background-position: -695px -572px;'],
+		[false, false, 'Каховская', 'left: 393px; top: 782px; width: 58px; height: 12px; background-position: -393px -782px;', 'left: 130px; top: 474px; width: 15px; height: 15px; background-position: -130px -474px;'],
+		[false, false, 'Пролетарская', 'left: 616px; top: 577px; width: 79px; height: 12px; background-position: -616px -577px;', 'left: 713px; top: 897px; width: 15px; height: 15px; background-position: -713px -897px;'],
+		[false, false, 'Выставочная', 'left: 145px; top: 475px; width: 71px; height: 12px; background-position: -145px -475px;', 'left: 6px; top: 100px; width: 15px; height: 15px; background-position: -6px -100px;'],
+		[false, false, 'Алма-Атинская', 'left: 631px; top: 908px; width: 85px; height: 12px; background-position: -631px -908px;', 'left: 215px; top: 893px; width: 15px; height: 15px; background-position: -215px -893px;'],
+		[false, false, 'Пятницкое шоссе', 'left: 22px; top: 103px; width: 57px; height: 22px; background-position: -22px -103px;', 'left: 147px; top: 906px; width: 15px; height: 15px; background-position: -147px -906px;'],
+		[false, false, 'Улица Старокачаловская', 'left: 134px; top: 880px; width: 85px; height: 19px; background-position: -134px -880px;', 'left: 90px; top: 906px; width: 15px; height: 15px; background-position: -90px -906px;'],
+		[false, false, 'Улица Скобелевская', 'left: 120px; top: 919px; width: 67px; height: 18px; background-position: -120px -919px;', 'left: 56px; top: 906px; width: 15px; height: 15px; background-position: -56px -906px;'],
+		[false, false, 'Бульвар Адмирала Ушакова', 'left: 53px; top: 891px; width: 89px; height: 18px; background-position: -53px -891px;', 'left: 19px; top: 906px; width: 15px; height: 15px; background-position: -19px -906px;'],
+		[false, false, 'Улица Горчакова', 'left: 39px; top: 919px; width: 48px; height: 18px; background-position: -39px -919px;', 'left: 106px; top: 135px; width: 15px; height: 15px; background-position: -106px -135px;'],
+		[false, false, 'Бунинская аллея', 'left: 2px; top: 891px; width: 50px; height: 17px; background-position: -2px -891px;', 'left: 538px; top: 5px; width: 15px; height: 15px; background-position: -538px -5px;'],
+		[false, false, 'Планерная', 'left: 118px; top: 137px; width: 64px; height: 12px; background-position: -118px -137px;', 'left: 538px; top: 25px; width: 15px; height: 15px; background-position: -538px -25px;'],
+		[false, false, 'Медведково', 'left: 550px; top: 7px; width: 71px; height: 12px; background-position: -550px -7px;', 'left: 538px; top: 44px; width: 15px; height: 15px; background-position: -538px -44px;'],
+		[false, false, 'Бабушкинская', 'left: 550px; top: 27px; width: 82px; height: 12px; background-position: -550px -27px;', 'left: 538px; top: 64px; width: 15px; height: 15px; background-position: -538px -64px;'],
+		[false, false, 'Свиблово', 'left: 550px; top: 46px; width: 56px; height: 12px; background-position: -550px -46px;', 'left: 585px; top: 104px; width: 15px; height: 15px; background-position: -585px -104px;'],
+		[false, false, 'Ботанический сад', 'left: 551px; top: 67px; width: 100px; height: 12px; background-position: -551px -67px;', 'left: 215px; top: 78px; width: 15px; height: 15px; background-position: -215px -78px;'],
+		[false, false, 'Ул. Сергея Эйзенштейна', 'left: 559px; top: 90px; width: 68px; height: 18px; background-position: -559px -90px;', 'left: 215px; top: 122px; width: 15px; height: 15px; background-position: -215px -122px;'],
+		[false, false, 'Речной вокзал', 'left: 228px; top: 81px; width: 80px; height: 12px; background-position: -228px -81px;', 'left: 258px; top: 253px; width: 15px; height: 15px; background-position: -258px -253px;'],
+		[false, false, 'Водный стадион', 'left: 228px; top: 125px; width: 91px; height: 12px; background-position: -228px -125px;', 'left: 334px; top: 330px; width: 15px; height: 15px; background-position: -334px -330px;'],
+		[false, false, 'Динамо', 'left: 269px; top: 245px; width: 46px; height: 12px; background-position: -269px -245px;', 'left: 237px; top: 396px; width: 15px; height: 15px; background-position: -237px -396px;'],
+		[true, false, 'Маяковская', 'left: 269px; top: 340px; width: 68px; height: 12px; background-position: -269px -340px;', 'left: 257px; top: 376px; width: 15px; height: 15px; background-position: -257px -376px;'],
+		[false, true, 'Краснопресненская', 'left: 247px; top: 407px; width: 108px; height: 12px; background-position: -247px -407px;', 'left: 340px; top: 455px; width: 15px; height: 15px; background-position: -340px -455px;'],
+		[false, true, 'Баррикадная', 'left: 259px; top: 392px; width: 77px; height: 12px; background-position: -259px -392px;', 'left: 344px; top: 486px; width: 15px; height: 15px; background-position: -344px -486px;'],
+		[true, false, 'Арбатская', 'left: 294px; top: 468px; width: 60px; height: 11px; background-position: -294px -468px;', 'left: 259px; top: 479px; width: 15px; height: 15px; background-position: -259px -479px;'],
+		[true, false, 'Арбатская', 'left: 294px; top: 479px; width: 55px; height: 11px; background-position: -294px -479px;', 'left: 321px; top: 508px; width: 15px; height: 15px; background-position: -321px -508px;'],
+		[true, false, 'Смоленская', 'left: 266px; top: 492px; width: 68px; height: 11px; background-position: -266px -492px;', 'left: 277px; top: 688px; width: 15px; height: 15px; background-position: -277px -688px;'],
+		[true, false, 'Смоленская', 'left: 258px; top: 503px; width: 70px; height: 15px; background-position: -258px -503px;', 'left: 264px; top: 718px; width: 15px; height: 15px; background-position: -264px -718px;'],
+		[false, false, 'Академическая', 'left: 285px; top: 701px; width: 86px; height: 12px; background-position: -285px -701px;', 'left: 264px; top: 738px; width: 15px; height: 15px; background-position: -264px -738px;'],
+		[false, false, 'Профсоюзная', 'left: 276px; top: 720px; width: 86px; height: 12px; background-position: -276px -720px;', 'left: 264px; top: 758px; width: 15px; height: 15px; background-position: -264px -758px;'],
+		[false, false, 'Новые Черемушки', 'left: 276px; top: 740px; width: 102px; height: 12px; background-position: -276px -740px;', 'left: 264px; top: 778px; width: 15px; height: 15px; background-position: -264px -778px;'],
+		[false, false, 'Калужская', 'left: 276px; top: 760px; width: 61px; height: 12px; background-position: -276px -760px;', 'left: 264px; top: 798px; width: 15px; height: 15px; background-position: -264px -798px;'],
+		[false, false, 'Беляево', 'left: 276px; top: 781px; width: 49px; height: 12px; background-position: -276px -781px;', 'left: 264px; top: 818px; width: 15px; height: 15px; background-position: -264px -818px;'],
+		[false, false, 'Коньково', 'left: 276px; top: 801px; width: 55px; height: 12px; background-position: -276px -801px;', 'left: 264px; top: 838px; width: 15px; height: 15px; background-position: -264px -838px;'],
+		[false, false, 'Теплый Стан', 'left: 276px; top: 821px; width: 71px; height: 12px; background-position: -276px -821px;', 'left: 264px; top: 861px; width: 15px; height: 15px; background-position: -264px -861px;'],
+		[false, false, 'Ясенево', 'left: 276px; top: 841px; width: 48px; height: 12px; background-position: -276px -841px;', 'left: 228px; top: 906px; width: 15px; height: 15px; background-position: -228px -906px;'],
+		[false, false, 'Новоясеневская', 'left: 275px; top: 863px; width: 90px; height: 12px; background-position: -275px -863px;', 'left: 518px; top: 217px; width: 15px; height: 15px; background-position: -518px -217px;'],
+		[false, false, 'Бульвар Дмитрия Донского', 'left: 237px; top: 919px; width: 105px; height: 21px; background-position: -237px -919px;', 'left: 518px; top: 237px; width: 15px; height: 15px; background-position: -518px -237px;'],
+		[true, false, 'Чистые пруды', 'left: 538px; top: 362px; width: 41px; height: 21px; background-position: -538px -362px;', 'left: 538px; top: 159px; width: 15px; height: 15px; background-position: -538px -159px;'],
+		[false, true, 'Проспект Мира', 'left: 531px; top: 231px; width: 81px; height: 11px; background-position: -531px -231px;', 'left: 538px; top: 185px; width: 15px; height: 15px; background-position: -538px -185px;'],
+		[false, false, 'ВДНХ', 'left: 551px; top: 132px; width: 36px; height: 15px; background-position: -551px -132px;', 'left: 380px; top: 455px; width: 15px; height: 15px; background-position: -380px -455px;'],
+		[false, false, 'Алексеевская', 'left: 550px; top: 158px; width: 79px; height: 17px; background-position: -550px -158px;', 'left: 347px; top: 245px; width: 15px; height: 15px; background-position: -347px -245px;'],
+		[false, false, 'Рижская', 'left: 550px; top: 185px; width: 52px; height: 16px; background-position: -550px -185px;', 'left: 622px; top: 403px; width: 15px; height: 15px; background-position: -622px -403px;'],
+		[true, false, 'Красные Ворота', 'left: 573px; top: 329px; width: 46px; height: 21px; background-position: -573px -329px;', 'left: 636px; top: 512px; width: 15px; height: 15px; background-position: -636px -512px;'],
+		[true, false, 'Александровский сад', 'left: 286px; top: 435px; width: 97px; height: 21px; background-position: -286px -435px;', 'left: 634px; top: 497px; width: 15px; height: 15px; background-position: -634px -497px;'],
+		[false, true, 'Новослободская', 'left: 350px; top: 261px; width: 89px; height: 12px; background-position: -350px -261px;', 'left: 518px; top: 546px; width: 15px; height: 15px; background-position: -518px -546px;'],
+		[false, true, 'Чкаловская', 'left: 569px; top: 417px; width: 65px; height: 12px; background-position: -569px -417px;', 'left: 496px; top: 556px; width: 15px; height: 15px; background-position: -496px -556px;'],
+		[false, true, 'Таганская', 'left: 579px; top: 506px; width: 57px; height: 12px; background-position: -579px -506px;', 'left: 507px; top: 567px; width: 15px; height: 15px; background-position: -507px -567px;'],
+		[true, false, 'Новокузнецкая', 'left: 528px; top: 541px; width: 86px; height: 12px; background-position: -528px -541px;', 'left: 231px; top: 506px; width: 15px; height: 15px; background-position: -231px -506px;'],
+		[true, false, 'Третьяковская', 'left: 424px; top: 570px; width: 82px; height: 12px; background-position: -424px -570px;', 'left: 231px; top: 538px; width: 15px; height: 15px; background-position: -231px -538px;'],
+		[false, true, 'Киевская', 'left: 205px; top: 524px; width: 52px; height: 12px; background-position: -205px -524px;', 'left: 259px; top: 523px; width: 15px; height: 15px; background-position: -259px -523px;'],
+		[false, true, 'Марксистская', 'left: 666px; top: 515px; width: 79px; height: 12px; background-position: -666px -515px;', 'left: 657px; top: 505px; width: 15px; height: 15px; background-position: -657px -505px;'],
+		[true, false, 'Пушкинская', 'left: 343px; top: 392px; width: 71px; height: 12px; background-position: -343px -392px;', 'left: 373px; top: 376px; width: 15px; height: 15px; background-position: -373px -376px;'],
+		[true, false, 'Боровицкая', 'left: 383px; top: 520px; width: 71px; height: 16px; background-position: -383px -520px;', 'left: 380px; top: 506px; width: 15px; height: 15px; background-position: -380px -506px;'],
+		[false, false, 'Деловой центр', 'left: 63px; top: 475px; width: 48px; height: 23px; background-position: -63px -475px;', 'left: 111px; top: 474px; width: 15px; height: 15px; background-position: -111px -474px;'],
+		[false, false, 'Выставочный центр', 'left: 467px; top: 104px; width: 64px; height: 18px; background-position: -467px -104px;', 'left: 523px; top: 116px; width: 15px; height: 15px; background-position: -523px -116px;'],
+		[false, false, 'Ул. Академика Королева', 'left: 460px; top: 134px; width: 66px; height: 18px; background-position: -460px -134px;', 'left: 485px; top: 121px; width: 15px; height: 15px; background-position: -485px -121px;'],
+		[false, false, 'Телецентр', 'left: 429px; top: 117px; width: 49px; height: 9px; background-position: -429px -117px;', 'left: 449px; top: 124px; width: 15px; height: 15px; background-position: -449px -124px;'],
+		[false, false, 'Ул. Милашенкова', 'left: 376px; top: 134px; width: 81px; height: 10px; background-position: -376px -134px;', 'left: 410px; top: 120px; width: 15px; height: 15px; background-position: -410px -120px;'],
+		[false, false, 'Битцевский парк', 'left: 165px; top: 863px; width: 82px; height: 10px; background-position: -165px -863px;', 'left: 247px; top: 861px; width: 15px; height: 15px; background-position: -247px -861px;'],
+		[false, false, 'Лесопарковая', 'left: 236px; top: 891px; width: 69px; height: 10px; background-position: -236px -891px;', 'left: 226px; top: 881px; width: 15px; height: 15px; background-position: -226px -881px;'],
+		[false, false, 'Спартак', 'left: 118px; top: 218px; width: 50px; height: 13px; background-position: -118px -218px;', 'left: 106px; top: 215px; width: 15px; height: 15px; background-position: -106px -215px;'],
+		[false, false, 'Тропарево', 'left: 59px; top: 746px; width: 63px; height: 12px; background-position: -59px -746px;', 'left: 50px; top: 732px; width: 15px; height: 15px; background-position: -50px -732px;'],
+		[false, false, 'Котельники', 'left: 816px; top: 795px; width: 65px; height: 12px; background-position: -816px -795px;', 'left: 800px; top: 793px; width: 15px; height: 15px; background-position: -800px -793px;'],
+		[false, false, 'Технопарк', 'left: 596px; top: 655px; width: 65px; height: 14px; background-position: -596px -655px;', 'left: 584px; top: 655px; width: 15px; height: 15px; background-position: -584px -655px;'],
+		[false, false, 'Румянцево', 'left: 37px; top: 768px; width: 63px; height: 12px; background-position: -37px -768px;', 'left: 28px; top: 754px; width: 15px; height: 15px; background-position: -28px -754px;'],
+		[false, false, 'Саларьево', 'left: 25px; top: 787px; width: 71px; height: 12px; background-position: -25px -787px;', 'left: 21px; top: 785px; width: 15px; height: 15px; background-position: -21px -785px;'],
+		];
+
+		for (var i = 0; i < stations.length; i++) {
+			var dataCenter = "";
+			var dataRing = "";
+			if (stations[i][0] == true) {
+				dataCenter = ' data-center="1"';
+			}
+			if (stations[i][1] == true) {
+				dataRing = ' data-ring="1"';
+			}
+			$('.metro-map').append('<div' + dataCenter + dataRing + ' style="' + stations[i][3] + '">' + stations[i][2] + '</div>');
 		}
-		if (stations[i][1] == true) {
-			dataRing = ' data-ring="1"';
-		}
-		$('.metro-map').append('<div' + dataCenter + dataRing + ' style="' + stations[i][3] + '">' + stations[i][2] + '</div>');
 	}
+
+// yandex карта
+ymaps.ready(init);
+var myMap, 
+	myPlacemark;
+
+function init(){ 
+	myMap = new ymaps.Map("yandex-map", {
+		center: [55.76, 37.64],
+		zoom: 10
+	}); 
+
+	myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+		hintContent: 'Москва!',
+		balloonContent: 'Столица России'
+	});
+
+	myMap.geoObjects.add(myPlacemark);
 }
