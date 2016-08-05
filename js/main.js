@@ -479,13 +479,10 @@ function bindCarousels() {
 			return false;
 		});
 		
-		$(this).find('.markplace').unbind().click(function() {
-			$('.yandex-map-popup').bPopup({
-				easing: 'easeOutBack',
-				speed:'50',
-				transition: 'slideDown',
-				amsl:0
-			});
+		$(this).find('.fancybox').fancybox();
+		
+		$(this).find('.play').unbind().click(function() {
+			
 			return false;
 		});
 		
@@ -575,6 +572,8 @@ function bindCarousels() {
 		}
 		return false;
 	});
+	
+	$('.infocard-gallery').find('.fancybox').fancybox();
 	
 	$('.infocard-gallery .markplace').unbind().click(function() {
 		$('.yandex-map-popup').bPopup({
