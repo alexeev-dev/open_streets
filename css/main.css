@@ -12432,3 +12432,60 @@ textarea {
     border-color: #ff0000;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MOVE YOUR STYLES */
+.yandex-map-popup,
+.gallery-image-popup {z-index: 99999 !important;}
+.infocard-body .infocard-item .infocard-gallery .search_rating .popup-hoverStarLine {z-index: 9;}
+.last-active {display: none !important;}
+
+.popup-map .block2 .wrapper-map .bounding_box .metro-map > div {
+  position: absolute; top: 0; left: 0;
+  opacity: 1;
+  text-indent: 0;
+  background-image: transparent;
+}
+
+.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    text-indent: -9999px;
+}
+
+.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.active {opacity: 1;}
+
+.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.one-station {
+  background-image: url("../img/metro_t.png");
+}
+
+.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.one-galka {
+  background-image: url("../img/station_selected.png");
+}
+
+.owl-carousel .owl-wrapper, .owl-carousel .owl-item:hover {cursor: pointer;}
+
+
+
+
+
+
+

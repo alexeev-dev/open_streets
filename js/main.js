@@ -69,7 +69,7 @@ $(document).ready(function() {
 	// метро
 	initStations();
 	
-	$('.metro-map div').click(function() {
+	$('.metro-map div.one-station').click(function() {
 		if (!$(this).hasClass('active')) {
 			$(this).addClass('active');
 			$('.block2-sidebar ul').append('<li>' + $(this).text() + '</li>');
@@ -82,7 +82,7 @@ $(document).ready(function() {
 	
 	$('.radio-block label').eq(0).click(function() {
 		$('.block2-sidebar ul').empty();
-		$('.metro-map div').each(function() {
+		$('.metro-map div.one-station').each(function() {
 			if ($(this).data('center') == '1') {
 				$(this).addClass('active');
 				$('.block2-sidebar ul').append('<li>' + $(this).text() + '</li>');
@@ -95,7 +95,7 @@ $(document).ready(function() {
 	});
 	$('.radio-block label').eq(1).click(function() {
 		$('.block2-sidebar ul').empty();
-		$('.metro-map div').each(function() {
+		$('.metro-map div.one-station').each(function() {
 			if ($(this).data('ring') == '1') {
 				$(this).addClass('active');
 				$('.block2-sidebar ul').append('<li>' + $(this).text() + '</li>');
@@ -110,7 +110,7 @@ $(document).ready(function() {
 	function rebindStations() {
 		$('.block2-sidebar ul li').click(function() {
 			$(this).remove();
-			$('.metro-map div:contains("' + $(this).text() + '")').removeClass('active');
+			$('.metro-map div.one-station:contains("' + $(this).text() + '")').removeClass('active');
 		})
 	}
 	
@@ -456,6 +456,7 @@ $(document).ready(function() {
 
 function bindCarousels() {
 	$('.result_item-slider').each(function() {
+		var curEl = $(this);
 		var sync1 = $(this).find('.gallery-slider');
 		var sync2 = $(this).find('.owl-inner2');
 		
@@ -479,13 +480,28 @@ function bindCarousels() {
 			return false;
 		});
 		
-		$(this).find('.fancybox').fancybox();
-		
-		$(this).find('.play').unbind().click(function() {
-			
+		$(this).find('.fancybox').fancybox({nextEffect: 'fade', prevEffect: 'fade', openEffect: 'fade'});
+
+		$(this).find('.markplace').unbind().click(function() {
+			$('.yandex-map-popup').bPopup({
+				easing: 'easeOutBack',
+				speed:'50',
+				transition: 'slideDown',
+				amsl:0
+			});
 			return false;
 		});
 		
+		$(this).find('.threeD').unbind().click(function() {
+			$('.gallery-image-popup').bPopup({
+				easing: 'easeOutBack',
+				speed:'50',
+				transition: 'slideDown',
+				amsl:0
+			});
+			return false;
+		});
+	
 		$(this).find('.nav-left').unbind().click(function() {
 			sync1.trigger('owl.prev');
 			return false;
@@ -496,6 +512,17 @@ function bindCarousels() {
 		});
 		
 		function syncPosition(el) {
+			if (this.owl.currentItem == 0) {
+				curEl.find('.nav-left').addClass('last-active');
+			} else {
+				curEl.find('.nav-left').removeClass('last-active');
+			}
+			if (this.owl.currentItem + 1 == this.owl.owlItems.length) {
+				curEl.find('.nav-right').addClass('last-active');
+			} else {
+				curEl.find('.nav-right').removeClass('last-active');
+			}
+			
 			var current = this.currentItem;
 			sync2.find(".owl-item").removeClass("synced").eq(current).addClass("synced");
 			sync2.find(".owl-item > div").removeClass('active');
@@ -573,10 +600,20 @@ function bindCarousels() {
 		return false;
 	});
 	
-	$('.infocard-gallery').find('.fancybox').fancybox();
+	$('.infocard-gallery').find('.fancybox').fancybox({nextEffect: 'fade', prevEffect: 'fade', openEffect: 'fade'});
 	
 	$('.infocard-gallery .markplace').unbind().click(function() {
 		$('.yandex-map-popup').bPopup({
+			easing: 'easeOutBack',
+			speed:'50',
+			transition: 'slideDown',
+			amsl:0
+		});
+		return false;
+	});
+	
+	$('.infocard-gallery .threeD').unbind().click(function() {
+		$('.gallery-image-popup').bPopup({
 			easing: 'easeOutBack',
 			speed:'50',
 			transition: 'slideDown',
@@ -1039,25 +1076,34 @@ function initStations() {
 			if (stations[i][1] == true) {
 				dataRing = ' data-ring="1"';
 			}
-			$('.metro-map').append('<div' + dataCenter + dataRing + ' style="' + stations[i][3] + '">' + stations[i][2] + '</div>');
+			$('.metro-map').append('<div class="wr-station"><div class="one-galka" style="' + stations[i][4] + '"></div><div' + dataCenter + dataRing + ' class="one-station" style="' + stations[i][3] + '">' + stations[i][2] + '</div></div>');
 		}
 	}
 
 // yandex карта
 ymaps.ready(init);
-var myMap, 
-	myPlacemark;
+var myMap, myMap2, 
+	myPlacemark, myPlacemark2;
 
 function init(){ 
 	myMap = new ymaps.Map("yandex-map", {
 		center: [55.76, 37.64],
 		zoom: 10
 	}); 
-
 	myPlacemark = new ymaps.Placemark([55.76, 37.64], {
 		hintContent: 'Москва!',
 		balloonContent: 'Столица России'
 	});
-
 	myMap.geoObjects.add(myPlacemark);
+	
+	//
+	myMap2 = new ymaps.Map("yandex-map2", {
+		center: [55.76, 37.64],
+		zoom: 10
+	}); 
+	myPlacemark2 = new ymaps.Placemark([55.76, 37.64], {
+		hintContent: 'Москва!',
+		balloonContent: 'Столица России'
+	});
+	myMap2.geoObjects.add(myPlacemark2);
 }
