@@ -18,18 +18,18 @@ body {background-color: #3e494a;}
 			background-color: #ffffff; border: solid 2px #f2f2f2;
 
 			p {
-				color: #373e41; font-family: $FedraSansProBookItalic; font-size: 13px; letter-spacing: -0.3px;
+				color: #373e41; font-family: $FSP-BookItalic; font-size: 13px; letter-spacing: -0.3px;
 				margin-bottom: 12px; display: block;
 			}
 
 			a.name {
-				color: #44bdde; font-family: $FedraSansProMedium; font-size: 13px; text-decoration: none; letter-spacing: -0.3px;
+				color: #44bdde; font-family: $FSP-Medium; font-size: 13px; text-decoration: none; letter-spacing: -0.3px;
 				display: block; padding-bottom: 7px; margin-bottom: 10px;
 				border-bottom: solid 1px #f2f2f2;
 			}
 
 			a.edit {
-				color: #44bdde; font-family: $FedraSansProBookItalic; font-size: 13px; letter-spacing: -0.3px;
+				color: #44bdde; font-family: $FSP-BookItalic; font-size: 13px; letter-spacing: -0.3px;
 			}
 
 			&:after {
@@ -53,7 +53,7 @@ body {background-color: #3e494a;}
 		a, p {display: inline-block; text-decoration: none;}
 
 		p.logo {
-			color: #373e41; font-size: 12px; font-family: $FedraSansProMedium; text-transform: uppercase; letter-spacing: -0.3px;
+			color: #373e41; font-size: 12px; font-family: $FSP-Medium; text-transform: uppercase; letter-spacing: -0.3px;
 			margin-right: 5px;
 			opacity: 0.502;
 
@@ -62,11 +62,11 @@ body {background-color: #3e494a;}
 		}
 
 		a.logo {
-			color: #49a5d0; font-family: $FedraSansProNormal; font-size: 24px; letter-spacing: -0.6px;
+			color: #49a5d0; font-family: $FSP-Normal; font-size: 24px; letter-spacing: -0.6px;
 			margin-right: 12px; display: inline-block;
 
 			span{
-				color: #373e41; font-family: $FedraSansProBold;
+				color: #373e41; font-family: $FSP-Bold;
 			}
 
 			@include respond-to(sm) {margin-bottom: 45px;}
@@ -75,7 +75,7 @@ body {background-color: #3e494a;}
 		.header-buttons {
 			display: inline-block; float: right;
 			a.button-header {
-				color: #49a5d0; font-size: 13px; font-family: $FedraSansProMedium; text-transform: uppercase; line-height: 34px; letter-spacing: -0.3px;
+				color: #49a5d0; font-size: 13px; font-family: $FSP-Medium; text-transform: uppercase; line-height: 34px; letter-spacing: -0.3px;
 				height: 36px; position: relative; top: -2px; padding: 0 14px; margin-right: 14px;
 				border: solid 1px #49a5d0; @include border-radius(3px);
 
@@ -95,7 +95,7 @@ body {background-color: #3e494a;}
 		
 
 		a.userInfo {
-			color: #ffffff; font-size: 13px; font-family: $FedraSansProMedium; text-transform: uppercase; line-height: 34px; text-align: center;
+			color: #ffffff; font-size: 13px; font-family: $FSP-Medium; text-transform: uppercase; line-height: 34px; text-align: center;
 			width: 35px; height: 35px; float: right;
 			background-color: #49a5d0; border: solid 1px #49a5d0; border-radius: 50%;
 
@@ -110,7 +110,7 @@ body {background-color: #3e494a;}
 		}
 
 		a.logIn {
-			color: #373e41; font-family: $FedraSansProMedium; font-size: 13px; letter-spacing: -0.1px; text-transform: uppercase;
+			color: #373e41; font-family: $FSP-Medium; font-size: 13px; letter-spacing: -0.1px; text-transform: uppercase;
 			margin-top: 9px; float: right;
 
 			&:active {opacity: 0.7;}
@@ -175,22 +175,22 @@ body {background-color: #3e494a;}
 		a {text-decoration: none;}
 
 		p {
-			color: #ffffff; font-size: 13.33px; font-family: $FedraSansProMedium; line-height: 23px; letter-spacing: -0.5px;
+			color: #ffffff; font-size: 13.33px; font-family: $FSP-Medium; line-height: 23px; letter-spacing: -0.5px;
 			margin-bottom: 33px;
 			opacity: 0.5;
 		}
 
 		a.logo {
-			color: #67a8b6; font-family: $FedraSansProNormal; font-size: 21.34px; letter-spacing: -0.5px;
+			color: #67a8b6; font-family: $FSP-Normal; font-size: 21.34px; letter-spacing: -0.5px;
 			display: inline-block; margin-right: 23px; margin-bottom: 39px;
 
 			span{
-				color: #ffffff; font-family: $FedraSansProBold;
+				color: #ffffff; font-family: $FSP-Bold;
 			}
 		}
 
 		p.logo {
-			color: #ffffff; font-size: 11.56px; font-family: $FedraSansProMedium; letter-spacing: -0.3px; text-transform: uppercase;
+			color: #ffffff; font-size: 11.56px; font-family: $FSP-Medium; letter-spacing: -0.3px; text-transform: uppercase;
 			display: inline-block;
 			opacity: 0.5;
 		}
@@ -203,7 +203,7 @@ body {background-color: #3e494a;}
 		}
 
 		a.mail {
-			color: #67a8b6; font-family: $FedraSansProNormal; font-size: 14px; letter-spacing: -0.7px;
+			color: #67a8b6; font-family: $FSP-Normal; font-size: 14px; letter-spacing: -0.7px;
 			display: block; margin-bottom: 25px;
 
 			&:hover {text-decoration: underline;}
@@ -234,7 +234,7 @@ body {background-color: #3e494a;}
 
 		.footer-menu {
 			a {
-				color: #ffffff; font-family: $FedraSansProMedium; font-size: 12px; letter-spacing: -0.6px; text-transform: uppercase;
+				color: #ffffff; font-family: $FSP-Medium; font-size: 12px; letter-spacing: -0.6px; text-transform: uppercase;
 				margin-right: 41px; display: inline-block;
 
 				@include respond-to(lg) {margin-right: 20px;font-size: 11px;}
@@ -246,7 +246,7 @@ body {background-color: #3e494a;}
 		}
 
 		small {
-			color: #ffffff; font-family: $FedraSansProMedium; font-size: 11.56px; letter-spacing: -0.6px;
+			color: #ffffff; font-family: $FSP-Medium; font-size: 11.56px; letter-spacing: -0.6px;
 			opacity: 0.25;
 
 			span {font-family: $OpenSans;}
