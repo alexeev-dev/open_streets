@@ -242,7 +242,6 @@ $(document).ready(function() {
 	// 
 	bindInfocard();	
 
-	// ЭТО НУЖНО БУДЕТ ОТРЕФАКТОРИТЬ
 	/*
 	$('.infocard-header a').click(function() {
 
@@ -293,7 +292,7 @@ $(document).ready(function() {
 		errorClass: 'invalid'
 	});
 	
-	// попап логина – ЭТО НУЖНО БУДЕТ ОТРЕФАКТОРИТЬ
+	// попап логина
 	$('.js-login').click(function() {
 		$('.popup-logIn').bPopup({
 			easing: 'easeOutBack',
@@ -308,7 +307,7 @@ $(document).ready(function() {
 		return false;
 	});
 
-	// валидация login – ЭТО НУЖНО БУДЕТ ОТРЕФАКТОРИТЬ
+	// валидация login
 	$('.js-validate-login').feelform({
 		notificationType: 'message, border, class',
 		errorMessages: {
@@ -389,8 +388,8 @@ $(document).ready(function() {
 	});
 	
 	// ******* настроить уведомления - попап
-	$('.js-settings').click(function() {
-		$('.popup-search_param').bPopup({
+	$('.js-subscribe').click(function() {
+		$('.popup-subscribe').bPopup({
 			easing: 'easeOutBack',
 			speed:'50',
 			transition: 'slideDown',
