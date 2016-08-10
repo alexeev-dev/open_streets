@@ -2852,7 +2852,7 @@ a.mouse {
 	
 }
 // SEARCH PARAM POPUP
-.popup-search_param {
+.popup-subscribe {
 	width: 649px; padding: 50px 20px 71px 45px;z-index: 10001 !important;
 	background-color: #f7f7f7;
 
@@ -2976,48 +2976,56 @@ a.mouse {
 	form {
 		margin-bottom: 21px;
 
-		a {
-			
-		}
+		div {
+			padding-bottom: 15px; position: relative; margin-bottom: 18px;
 
-		input {
-			color: #373e41;  font-family: $FSP-Normal; font-size: 15px; letter-spacing: -0.35px;
-			width: 100%; height: 37px; padding-left: 27px; padding-bottom: 4px;
-			border: solid 2px #00a8d3; @include border-radius(3px);
+			@include respond-to(sm) {padding-bottom: 0;}
 
+			a.user-not-found, p {
+				position: absolute; bottom: 0; left: 0;
 
-			&.password {
-				@include respond-to(sm) {margin-bottom: 65px;}
+				@include respond-to(sm) {position: relative;}
 			}
 
-			&::-webkit-input-placeholder {
-				font-family: $FSP-LightItalic;
-			}
-			&::-moz-placeholder {
-				font-family: $FSP-LightItalic;
-			}
-			&:-moz-placeholder {
-				font-family: $FSP-LightItalic;
-			}
-			&:-ms-input-placeholder {
-				font-family: $FSP-LightItalic;
-			}
+			input {
+				color: #373e41;  font-family: $FSP-Normal; font-size: 15px; letter-spacing: -0.35px;
+				width: 100%; height: 37px; padding-left: 27px; padding-bottom: 4px;
+				border: solid 2px #00a8d3; @include border-radius(3px);
 
-			&.invalid {
+
+				&.password {
+					@include respond-to(sm) {margin-bottom: 65px;}
+				}
+
 				&::-webkit-input-placeholder {
-					color: #ff0000;
+					font-family: $FSP-LightItalic;
 				}
 				&::-moz-placeholder {
-					color: #ff0000;
+					font-family: $FSP-LightItalic;
 				}
 				&:-moz-placeholder {
-					color: #ff0000;
+					font-family: $FSP-LightItalic;
 				}
 				&:-ms-input-placeholder {
-					color: #ff0000;
+					font-family: $FSP-LightItalic;
 				}
-			}
 
+				&.invalid {
+					&::-webkit-input-placeholder {
+						color: #ff0000;
+					}
+					&::-moz-placeholder {
+						color: #ff0000;
+					}
+					&:-moz-placeholder {
+						color: #ff0000;
+					}
+					&:-ms-input-placeholder {
+						color: #ff0000;
+					}
+				}
+
+			}
 		}
 
 		button {
@@ -3061,12 +3069,12 @@ a.mouse {
 
 	.user-not-found {
 		color: #fe0101; font-family: $FSP-LightItalic; font-size: 13px; letter-spacing: -0.3px;
-		display: block; padding-left: 28px; padding-top: 2px; margin-bottom: 18px;
+		display: block; padding-left: 28px; padding-top: 2px;
 	}
 	// INVALID PASS
 	.invalid-password {
 		color: #373e41; font-family: $FSP-LightItalic; font-size: 13px; letter-spacing: -0.33px; text-align: left;
-		padding-top: 3px; padding-left: 28px; margin-bottom: 17px;
+		padding-top: 3px; padding-left: 28px;
 
 		a {
 			color: #fe0101; font-family: $FSP-MediumItalic;

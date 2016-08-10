@@ -11183,7 +11183,7 @@ a.mouse {
 }
 
 /* line 2855, ../sass/_moduls.scss */
-.popup-search_param {
+.popup-subscribe {
   width: 649px;
   padding: 50px 20px 71px 45px;
   z-index: 10001 !important;
@@ -11191,7 +11191,7 @@ a.mouse {
   display: none;
 }
 /* line 2859, ../sass/_moduls.scss */
-.popup-search_param h2 {
+.popup-subscribe h2 {
   color: #434648;
   font-family: "FedraSansProNormal", sans-serif;
   font-size: 15px;
@@ -11199,15 +11199,15 @@ a.mouse {
   margin-bottom: 15px;
 }
 /* line 2864, ../sass/_moduls.scss */
-.popup-search_param .room-type {
+.popup-subscribe .room-type {
   margin-bottom: 23px;
 }
 /* line 2867, ../sass/_moduls.scss */
-.popup-search_param .room-type input {
+.popup-subscribe .room-type input {
   display: none;
 }
 /* line 2869, ../sass/_moduls.scss */
-.popup-search_param .room-type label {
+.popup-subscribe .room-type label {
   color: #00a8d3;
   font-family: "FedraSansProNormal", sans-serif;
   font-size: 14px;
@@ -11228,17 +11228,17 @@ a.mouse {
   cursor: pointer;
 }
 /* line 2876, ../sass/_moduls.scss */
-.popup-search_param .room-type input:checked + label {
+.popup-subscribe .room-type input:checked + label {
   color: #ffffff;
   background-color: #00a8d3;
   border-color: #00a8d3;
 }
 /* line 2884, ../sass/_moduls.scss */
-.popup-search_param .room-size input {
+.popup-subscribe .room-size input {
   display: none;
 }
 /* line 2886, ../sass/_moduls.scss */
-.popup-search_param .room-size label {
+.popup-subscribe .room-size label {
   color: #00a8d3;
   font-family: "FedraSansProNormal", sans-serif;
   font-size: 14px;
@@ -11258,27 +11258,27 @@ a.mouse {
   cursor: pointer;
 }
 /* line 2892, ../sass/_moduls.scss */
-.popup-search_param .room-size label span {
+.popup-subscribe .room-size label span {
   font-size: 11px;
   position: relative;
   top: -5px;
 }
 /* line 2898, ../sass/_moduls.scss */
-.popup-search_param .room-size input:checked + label {
+.popup-subscribe .room-size input:checked + label {
   color: #ffffff;
   background-color: #00a8d3;
   border-color: #00a8d3;
 }
 /* line 2904, ../sass/_moduls.scss */
-.popup-search_param .search-res {
+.popup-subscribe .search-res {
   margin-bottom: 31px;
 }
 /* line 2907, ../sass/_moduls.scss */
-.popup-search_param .search-res input {
+.popup-subscribe .search-res input {
   display: none;
 }
 /* line 2909, ../sass/_moduls.scss */
-.popup-search_param .search-res label {
+.popup-subscribe .search-res label {
   color: #00a8d3;
   font-family: "FedraSansProNormal", sans-serif;
   font-size: 14px;
@@ -11298,13 +11298,13 @@ a.mouse {
   cursor: pointer;
 }
 /* line 2916, ../sass/_moduls.scss */
-.popup-search_param .search-res input:checked + label {
+.popup-subscribe .search-res input:checked + label {
   color: #ffffff;
   background-color: #00a8d3;
   border-color: #00a8d3;
 }
 /* line 2921, ../sass/_moduls.scss */
-.popup-search_param .search-res p {
+.popup-subscribe .search-res p {
   color: #434648;
   font-family: "FedraSansProNormal", sans-serif;
   font-size: 12px;
@@ -11314,44 +11314,44 @@ a.mouse {
   margin-bottom: 19px;
 }
 /* line 2927, ../sass/_moduls.scss */
-.popup-search_param .search_rating {
+.popup-subscribe .search_rating {
   margin-bottom: 23px;
 }
 /* line 2930, ../sass/_moduls.scss */
-.popup-search_param .search_rating span {
+.popup-subscribe .search_rating span {
   top: 0;
   float: none;
   margin-left: 21px;
 }
 /* line 2935, ../sass/_moduls.scss */
-.popup-search_param .search_parambar.rating .floats {
+.popup-subscribe .search_parambar.rating .floats {
   width: 48%;
 }
 /* line 2938, ../sass/_moduls.scss */
-.popup-search_param .search_parambar.rating .floats:nth-child(even) {
+.popup-subscribe .search_parambar.rating .floats:nth-child(even) {
   float: left;
 }
 /* line 2939, ../sass/_moduls.scss */
-.popup-search_param .search_parambar.rating .floats:nth-child(odd) {
+.popup-subscribe .search_parambar.rating .floats:nth-child(odd) {
   float: right;
 }
 /* line 2947, ../sass/_moduls.scss */
-.popup-search_param .search-type_checkbox ul.search_type1 {
+.popup-subscribe .search-type_checkbox ul.search_type1 {
   margin-bottom: 0;
   padding-bottom: 0;
   border: none;
 }
 /* line 2951, ../sass/_moduls.scss */
-.popup-search_param .search-type_checkbox ul.search_type1 li {
+.popup-subscribe .search-type_checkbox ul.search_type1 li {
   display: inline-block;
   width: 48%;
 }
 /* line 2954, ../sass/_moduls.scss */
-.popup-search_param .search-type_checkbox ul.search_type1 li:nth-child(odd) {
+.popup-subscribe .search-type_checkbox ul.search_type1 li:nth-child(odd) {
   float: left;
 }
 /* line 2957, ../sass/_moduls.scss */
-.popup-search_param .search-type_checkbox ul.search_type1 li:nth-child(even) {
+.popup-subscribe .search-type_checkbox ul.search_type1 li:nth-child(even) {
   float: right;
 }
 
@@ -11378,8 +11378,32 @@ a.mouse {
 .popup-logIn form {
   margin-bottom: 21px;
 }
-/* line 2983, ../sass/_moduls.scss */
-.popup-logIn form input {
+/* line 2979, ../sass/_moduls.scss */
+.popup-logIn form div {
+  padding-bottom: 15px;
+  position: relative;
+  margin-bottom: 18px;
+}
+@media only screen and (max-width: 767px) {
+  /* line 2979, ../sass/_moduls.scss */
+  .popup-logIn form div {
+    padding-bottom: 0;
+  }
+}
+/* line 2984, ../sass/_moduls.scss */
+.popup-logIn form div a.user-not-found, .popup-logIn form div p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+@media only screen and (max-width: 767px) {
+  /* line 2984, ../sass/_moduls.scss */
+  .popup-logIn form div a.user-not-found, .popup-logIn form div p {
+    position: relative;
+  }
+}
+/* line 2990, ../sass/_moduls.scss */
+.popup-logIn form div input {
   color: #373e41;
   font-family: "FedraSansProNormal", sans-serif;
   font-size: 15px;
@@ -11394,44 +11418,44 @@ a.mouse {
   border-radius: 3px;
 }
 @media only screen and (max-width: 767px) {
-  /* line 2989, ../sass/_moduls.scss */
-  .popup-logIn form input.password {
+  /* line 2996, ../sass/_moduls.scss */
+  .popup-logIn form div input.password {
     margin-bottom: 65px;
   }
 }
-/* line 2993, ../sass/_moduls.scss */
-.popup-logIn form input::-webkit-input-placeholder {
+/* line 3000, ../sass/_moduls.scss */
+.popup-logIn form div input::-webkit-input-placeholder {
   font-family: "FedraSansProLightItalic", sans-serif;
 }
-/* line 2996, ../sass/_moduls.scss */
-.popup-logIn form input::-moz-placeholder {
+/* line 3003, ../sass/_moduls.scss */
+.popup-logIn form div input::-moz-placeholder {
   font-family: "FedraSansProLightItalic", sans-serif;
 }
-/* line 2999, ../sass/_moduls.scss */
-.popup-logIn form input:-moz-placeholder {
+/* line 3006, ../sass/_moduls.scss */
+.popup-logIn form div input:-moz-placeholder {
   font-family: "FedraSansProLightItalic", sans-serif;
 }
-/* line 3002, ../sass/_moduls.scss */
-.popup-logIn form input:-ms-input-placeholder {
+/* line 3009, ../sass/_moduls.scss */
+.popup-logIn form div input:-ms-input-placeholder {
   font-family: "FedraSansProLightItalic", sans-serif;
 }
-/* line 3007, ../sass/_moduls.scss */
-.popup-logIn form input.invalid::-webkit-input-placeholder {
+/* line 3014, ../sass/_moduls.scss */
+.popup-logIn form div input.invalid::-webkit-input-placeholder {
   color: #ff0000;
 }
-/* line 3010, ../sass/_moduls.scss */
-.popup-logIn form input.invalid::-moz-placeholder {
+/* line 3017, ../sass/_moduls.scss */
+.popup-logIn form div input.invalid::-moz-placeholder {
   color: #ff0000;
 }
-/* line 3013, ../sass/_moduls.scss */
-.popup-logIn form input.invalid:-moz-placeholder {
-  color: #ff0000;
-}
-/* line 3016, ../sass/_moduls.scss */
-.popup-logIn form input.invalid:-ms-input-placeholder {
+/* line 3020, ../sass/_moduls.scss */
+.popup-logIn form div input.invalid:-moz-placeholder {
   color: #ff0000;
 }
 /* line 3023, ../sass/_moduls.scss */
+.popup-logIn form div input.invalid:-ms-input-placeholder {
+  color: #ff0000;
+}
+/* line 3031, ../sass/_moduls.scss */
 .popup-logIn form button {
   color: #ffffff;
   font-family: "FedraSansProMedium", sans-serif;
@@ -11448,25 +11472,25 @@ a.mouse {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 3028, ../sass/_moduls.scss */
+/* line 3036, ../sass/_moduls.scss */
 .popup-logIn form button:hover {
   color: #00acec;
   background: #ffffff;
 }
-/* line 3033, ../sass/_moduls.scss */
+/* line 3041, ../sass/_moduls.scss */
 .popup-logIn form button:focus {
   outline: none;
 }
-/* line 3036, ../sass/_moduls.scss */
+/* line 3044, ../sass/_moduls.scss */
 .popup-logIn form input.invalid + button {
   background: #dadada;
   border-color: #dadada;
 }
-/* line 3039, ../sass/_moduls.scss */
+/* line 3047, ../sass/_moduls.scss */
 .popup-logIn form input.invalid + button:hover {
   color: #ffffff;
 }
-/* line 3044, ../sass/_moduls.scss */
+/* line 3052, ../sass/_moduls.scss */
 .popup-logIn p {
   color: #373e41;
   font-family: "FedraSansProNormal", sans-serif;
@@ -11474,11 +11498,11 @@ a.mouse {
   letter-spacing: -0.5px;
   text-align: center;
 }
-/* line 3047, ../sass/_moduls.scss */
+/* line 3055, ../sass/_moduls.scss */
 .popup-logIn p a {
   color: #00a8d3;
 }
-/* line 3052, ../sass/_moduls.scss */
+/* line 3060, ../sass/_moduls.scss */
 .popup-logIn .close-popup {
   position: absolute;
   top: 26px;
@@ -11493,7 +11517,7 @@ a.mouse {
     left: 0 !important;
   }
 }
-/* line 3062, ../sass/_moduls.scss */
+/* line 3070, ../sass/_moduls.scss */
 .popup-logIn .user-not-found {
   color: #fe0101;
   font-family: "FedraSansProLightItalic", sans-serif;
@@ -11502,9 +11526,8 @@ a.mouse {
   display: block;
   padding-left: 28px;
   padding-top: 2px;
-  margin-bottom: 18px;
 }
-/* line 3067, ../sass/_moduls.scss */
+/* line 3075, ../sass/_moduls.scss */
 .popup-logIn .invalid-password {
   color: #373e41;
   font-family: "FedraSansProLightItalic", sans-serif;
@@ -11513,15 +11536,14 @@ a.mouse {
   text-align: left;
   padding-top: 3px;
   padding-left: 28px;
-  margin-bottom: 17px;
 }
-/* line 3071, ../sass/_moduls.scss */
+/* line 3079, ../sass/_moduls.scss */
 .popup-logIn .invalid-password a {
   color: #fe0101;
   font-family: "FedraSansProMediumItalic", sans-serif;
 }
 
-/* line 3078, ../sass/_moduls.scss */
+/* line 3086, ../sass/_moduls.scss */
 .popup-map {
   width: 975px;
   height: 551px;
@@ -11530,20 +11552,20 @@ a.mouse {
   display: none;
   background: #ffffff;
 }
-/* line 3081, ../sass/_moduls.scss */
+/* line 3089, ../sass/_moduls.scss */
 .popup-map ul.tabs {
   position: absolute;
   left: 30px;
   bottom: 30px;
   z-index: 5;
 }
-/* line 3083, ../sass/_moduls.scss */
+/* line 3091, ../sass/_moduls.scss */
 .popup-map ul.tabs li {
   display: inline-block;
   padding: 0 20px;
   position: relative;
 }
-/* line 3086, ../sass/_moduls.scss */
+/* line 3094, ../sass/_moduls.scss */
 .popup-map ul.tabs li:after {
   content: '';
   display: block;
@@ -11553,23 +11575,23 @@ a.mouse {
   top: 0;
   border-right: solid 2px #6f6f6f;
 }
-/* line 3091, ../sass/_moduls.scss */
+/* line 3099, ../sass/_moduls.scss */
 .popup-map ul.tabs li:first-child {
   padding-left: 0;
 }
-/* line 3092, ../sass/_moduls.scss */
+/* line 3100, ../sass/_moduls.scss */
 .popup-map ul.tabs li:last-child {
   padding-right: 0;
 }
-/* line 3092, ../sass/_moduls.scss */
+/* line 3100, ../sass/_moduls.scss */
 .popup-map ul.tabs li:last-child:after {
   border: none;
 }
-/* line 3094, ../sass/_moduls.scss */
+/* line 3102, ../sass/_moduls.scss */
 .popup-map ul.tabs li input {
   display: none;
 }
-/* line 3095, ../sass/_moduls.scss */
+/* line 3103, ../sass/_moduls.scss */
 .popup-map ul.tabs li label {
   color: #6f6f6f;
   font-family: "FedraSansProMedium", sans-serif;
@@ -11577,26 +11599,26 @@ a.mouse {
   text-transform: uppercase;
   cursor: pointer;
 }
-/* line 3099, ../sass/_moduls.scss */
+/* line 3107, ../sass/_moduls.scss */
 .popup-map ul.tabs li label:hover {
   text-decoration: underline;
 }
-/* line 3102, ../sass/_moduls.scss */
+/* line 3110, ../sass/_moduls.scss */
 .popup-map ul.tabs li input:checked + label {
   color: #1eb5d6;
   text-decoration: none;
 }
-/* line 3106, ../sass/_moduls.scss */
+/* line 3114, ../sass/_moduls.scss */
 .popup-map .block1, .popup-map .block2, .popup-map .block3 {
   display: none;
 }
-/* line 3109, ../sass/_moduls.scss */
+/* line 3117, ../sass/_moduls.scss */
 .popup-map .block1.active, .popup-map .block2.active, .popup-map .block3.active {
   display: block;
   width: 100%;
   height: 100%;
 }
-/* line 3113, ../sass/_moduls.scss */
+/* line 3121, ../sass/_moduls.scss */
 .popup-map .block1 #map {
   position: absolute;
   top: 0;
@@ -11604,27 +11626,27 @@ a.mouse {
   width: 100%;
   height: 100%;
 }
-/* line 3118, ../sass/_moduls.scss */
+/* line 3126, ../sass/_moduls.scss */
 .popup-map .block2 {
   position: relative;
   overflow: hidden;
   background: #f5f3f3;
 }
-/* line 3122, ../sass/_moduls.scss */
+/* line 3130, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar {
   padding-top: 49px;
   width: 201px;
   float: left;
 }
-/* line 3125, ../sass/_moduls.scss */
+/* line 3133, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar .radio-block {
   margin-bottom: 50px;
 }
-/* line 3127, ../sass/_moduls.scss */
+/* line 3135, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar .radio-block input[type=radio] {
   display: none;
 }
-/* line 3129, ../sass/_moduls.scss */
+/* line 3137, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar .radio-block label {
   color: #373e41;
   font-family: "FedraSansProBold", sans-serif;
@@ -11638,7 +11660,7 @@ a.mouse {
   margin-bottom: 13px;
   cursor: pointer;
 }
-/* line 3134, ../sass/_moduls.scss */
+/* line 3142, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar .radio-block label:before {
   content: '';
   display: block;
@@ -11653,11 +11675,11 @@ a.mouse {
   transform: translateY(-50%);
   background: url("../img/sprite-radio-map.png") 0 bottom no-repeat;
 }
-/* line 3142, ../sass/_moduls.scss */
+/* line 3150, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar .radio-block input[type=radio]:checked + label:before {
   background-position: 0 top;
 }
-/* line 3147, ../sass/_moduls.scss */
+/* line 3155, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar ul {
   margin-left: 39px;
   max-height: 279px;
@@ -11665,7 +11687,7 @@ a.mouse {
   overflow-y: auto;
   overflow-x: hidden;
 }
-/* line 3149, ../sass/_moduls.scss */
+/* line 3157, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar ul li {
   color: #373e41;
   font-family: "FedraSansProBold", sans-serif;
@@ -11675,7 +11697,7 @@ a.mouse {
   position: relative;
   cursor: pointer;
 }
-/* line 3154, ../sass/_moduls.scss */
+/* line 3162, ../sass/_moduls.scss */
 .popup-map .block2 .block2-sidebar ul li:before {
   content: '';
   width: 8px;
@@ -11689,7 +11711,7 @@ a.mouse {
   transform: translateY(-50%);
   background: url("../img/sprite-radio-map.png") -6px -29px no-repeat;
 }
-/* line 3162, ../sass/_moduls.scss */
+/* line 3170, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map {
   width: 774px;
   height: 100%;
@@ -11698,7 +11720,7 @@ a.mouse {
   background: #ffffff;
   cursor: move;
 }
-/* line 3167, ../sass/_moduls.scss */
+/* line 3175, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map .bounding_box {
   width: 1026px;
   height: 1421px;
@@ -11706,7 +11728,7 @@ a.mouse {
   left: -126px;
   top: -460px;
 }
-/* line 3170, ../sass/_moduls.scss */
+/* line 3178, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map .bounding_box .metro-map {
   position: relative;
   width: 900px;
@@ -11714,14 +11736,14 @@ a.mouse {
   left: 126px;
   top: 460px;
 }
-/* line 3173, ../sass/_moduls.scss */
+/* line 3181, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map .bounding_box .metro-map img {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0.3;
 }
-/* line 3178, ../sass/_moduls.scss */
+/* line 3186, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map .bounding_box .metro-map > div {
   background-image: url(../img/metro_t.png);
   text-indent: -9999px;
@@ -11729,20 +11751,20 @@ a.mouse {
   opacity: 0;
   cursor: pointer;
 }
-/* line 3184, ../sass/_moduls.scss */
+/* line 3192, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map .bounding_box .metro-map > div.active {
   opacity: 1;
 }
-/* line 3185, ../sass/_moduls.scss */
+/* line 3193, ../sass/_moduls.scss */
 .popup-map .block2 .wrapper-map .bounding_box .metro-map > div:hover {
   opacity: 1;
 }
-/* line 3193, ../sass/_moduls.scss */
+/* line 3201, ../sass/_moduls.scss */
 .popup-map .block3 {
   position: relative;
   background: #ffffff url("../img/district.png") 43.7% 46% no-repeat;
 }
-/* line 3197, ../sass/_moduls.scss */
+/* line 3205, ../sass/_moduls.scss */
 .popup-map .block3 .selectedDistrict {
   width: 245px;
   position: absolute;
@@ -11752,7 +11774,7 @@ a.mouse {
   overflow-y: auto;
   overflow-x: hidden;
 }
-/* line 3199, ../sass/_moduls.scss */
+/* line 3207, ../sass/_moduls.scss */
 .popup-map .block3 .selectedDistrict h4 {
   color: #999999;
   font-family: "FedraSansProBold", sans-serif;
@@ -11764,15 +11786,15 @@ a.mouse {
   margin-left: 13px;
   border-bottom: solid 1px #f7f7f7;
 }
-/* line 3204, ../sass/_moduls.scss */
+/* line 3212, ../sass/_moduls.scss */
 .popup-map .block3 .selectedDistrict div {
   margin-bottom: 20px;
 }
-/* line 3206, ../sass/_moduls.scss */
+/* line 3214, ../sass/_moduls.scss */
 .popup-map .block3 .selectedDistrict div:last-child {
   margin-bottom: 0;
 }
-/* line 3208, ../sass/_moduls.scss */
+/* line 3216, ../sass/_moduls.scss */
 .popup-map .block3 .selectedDistrict div ul li {
   color: #999999;
   font-family: "FedraSansProMedium", sans-serif;
@@ -11783,17 +11805,17 @@ a.mouse {
   position: relative;
   padding-left: 14px;
 }
-/* line 3211, ../sass/_moduls.scss */
+/* line 3219, ../sass/_moduls.scss */
 .popup-map .block3 .selectedDistrict div ul li a {
   position: absolute;
   left: 0;
   top: 5px;
 }
-/* line 3222, ../sass/_moduls.scss */
+/* line 3230, ../sass/_moduls.scss */
 .popup-map .block3 .districts {
   position: absolute;
 }
-/* line 3224, ../sass/_moduls.scss */
+/* line 3232, ../sass/_moduls.scss */
 .popup-map .block3 .districts span {
   color: #ffffff;
   font-family: "FedraSansProMedium", sans-serif;
@@ -11808,7 +11830,7 @@ a.mouse {
   border-radius: 3px;
   cursor: pointer;
 }
-/* line 3231, ../sass/_moduls.scss */
+/* line 3239, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict {
   display: none;
   width: 286px;
@@ -11819,13 +11841,13 @@ a.mouse {
   padding: 27px 18px 0;
   background: #f2f2f2;
 }
-/* line 3235, ../sass/_moduls.scss */
+/* line 3243, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict ul {
   height: 321px;
   overflow-x: hidden;
   overflow-y: auto;
 }
-/* line 3242, ../sass/_moduls.scss */
+/* line 3250, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict a {
   color: #999999;
   font-family: "FedraSansProMedium", sans-serif;
@@ -11838,22 +11860,22 @@ a.mouse {
   position: relative;
   cursor: pointer;
 }
-/* line 3247, ../sass/_moduls.scss */
+/* line 3255, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict a i {
   display: none;
   position: absolute;
   left: 7px;
   top: 3px;
 }
-/* line 3251, ../sass/_moduls.scss */
+/* line 3259, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict a.active {
   color: #00add4;
 }
-/* line 3253, ../sass/_moduls.scss */
+/* line 3261, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict a.active i {
   display: inline-block;
 }
-/* line 3256, ../sass/_moduls.scss */
+/* line 3264, ../sass/_moduls.scss */
 .popup-map .block3 .districts .microdistrict a.allMDistrict {
   width: 100%;
   display: block;
@@ -11861,112 +11883,112 @@ a.mouse {
   padding-top: 9px;
   border-top: solid 1px #eaebeb;
 }
-/* line 3263, ../sass/_moduls.scss */
+/* line 3271, ../sass/_moduls.scss */
 .popup-map .block3 .districts.NE-AD {
   top: 206px;
   left: 509px;
 }
-/* line 3265, ../sass/_moduls.scss */
+/* line 3273, ../sass/_moduls.scss */
 .popup-map .block3 .districts.NE-AD .microdistrict {
   bottom: -210px;
 }
-/* line 3267, ../sass/_moduls.scss */
+/* line 3275, ../sass/_moduls.scss */
 .popup-map .block3 .districts.E-AD {
   top: 301px;
   left: 520px;
 }
-/* line 3269, ../sass/_moduls.scss */
+/* line 3277, ../sass/_moduls.scss */
 .popup-map .block3 .districts.E-AD .microdistrict {
   bottom: -115px;
 }
-/* line 3271, ../sass/_moduls.scss */
+/* line 3279, ../sass/_moduls.scss */
 .popup-map .block3 .districts.SE-AD {
   top: 364px;
   left: 465px;
 }
-/* line 3273, ../sass/_moduls.scss */
+/* line 3281, ../sass/_moduls.scss */
 .popup-map .block3 .districts.SE-AD .microdistrict {
   bottom: -70px;
 }
-/* line 3275, ../sass/_moduls.scss */
+/* line 3283, ../sass/_moduls.scss */
 .popup-map .block3 .districts.S-AD {
   bottom: 190px;
   left: 401px;
 }
-/* line 3277, ../sass/_moduls.scss */
+/* line 3285, ../sass/_moduls.scss */
 .popup-map .block3 .districts.S-AD .microdistrict {
   bottom: -94px;
 }
-/* line 3279, ../sass/_moduls.scss */
+/* line 3287, ../sass/_moduls.scss */
 .popup-map .block3 .districts.SW-AD {
   top: 281px;
   left: 362px;
 }
-/* line 3281, ../sass/_moduls.scss */
+/* line 3289, ../sass/_moduls.scss */
 .popup-map .block3 .districts.SW-AD .microdistrict {
   bottom: -130px;
 }
-/* line 3283, ../sass/_moduls.scss */
+/* line 3291, ../sass/_moduls.scss */
 .popup-map .block3 .districts.W-AD {
   top: 206px;
   left: 353px;
 }
-/* line 3285, ../sass/_moduls.scss */
+/* line 3293, ../sass/_moduls.scss */
 .popup-map .block3 .districts.W-AD .microdistrict {
   bottom: -200px;
 }
-/* line 3287, ../sass/_moduls.scss */
+/* line 3295, ../sass/_moduls.scss */
 .popup-map .block3 .districts.NW-AD {
   top: 173px;
   left: 394px;
 }
-/* line 3289, ../sass/_moduls.scss */
+/* line 3297, ../sass/_moduls.scss */
 .popup-map .block3 .districts.NW-AD .microdistrict {
   bottom: -235px;
 }
-/* line 3291, ../sass/_moduls.scss */
+/* line 3299, ../sass/_moduls.scss */
 .popup-map .block3 .districts.N-AD {
   top: 153px;
   left: 452px;
 }
-/* line 3293, ../sass/_moduls.scss */
+/* line 3301, ../sass/_moduls.scss */
 .popup-map .block3 .districts.N-AD .microdistrict {
   bottom: -260px;
 }
-/* line 3295, ../sass/_moduls.scss */
+/* line 3303, ../sass/_moduls.scss */
 .popup-map .block3 .districts.C-AD {
   top: 245px;
   left: 446px;
 }
-/* line 3297, ../sass/_moduls.scss */
+/* line 3305, ../sass/_moduls.scss */
 .popup-map .block3 .districts.C-AD .microdistrict {
   bottom: -165px;
 }
-/* line 3299, ../sass/_moduls.scss */
+/* line 3307, ../sass/_moduls.scss */
 .popup-map .block3 .districts.Zel-AD {
   top: 113px;
   left: 259px;
 }
-/* line 3301, ../sass/_moduls.scss */
+/* line 3309, ../sass/_moduls.scss */
 .popup-map .block3 .districts.Zel-AD span {
   padding: 0 19px 0 9px;
 }
-/* line 3302, ../sass/_moduls.scss */
+/* line 3310, ../sass/_moduls.scss */
 .popup-map .block3 .districts.Zel-AD .microdistrict {
   bottom: -278px;
   right: -280px;
   left: auto;
 }
-/* line 3306, ../sass/_moduls.scss */
+/* line 3314, ../sass/_moduls.scss */
 .popup-map .block3 .districts:hover span {
   color: #00add4;
   background: #f2f2f2;
 }
-/* line 3310, ../sass/_moduls.scss */
+/* line 3318, ../sass/_moduls.scss */
 .popup-map .block3 .districts:hover .microdistrict {
   display: block;
 }
-/* line 3316, ../sass/_moduls.scss */
+/* line 3324, ../sass/_moduls.scss */
 .popup-map a.submit {
   color: #ffffff;
   font-family: "FedraSansProMedium", sans-serif;
@@ -11990,14 +12012,14 @@ a.mouse {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 3321, ../sass/_moduls.scss */
+/* line 3329, ../sass/_moduls.scss */
 .popup-map a.submit:hover {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg2ZDdlOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwYWJkMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background: -moz-linear-gradient(90deg, #86d7e9 0%, #00abd1 100%);
   background: -webkit-linear-gradient(90deg, #86d7e9 0%, #00abd1 100%);
   background: linear-gradient(0deg, #86d7e9 0%, #00abd1 100%);
 }
-/* line 3326, ../sass/_moduls.scss */
+/* line 3334, ../sass/_moduls.scss */
 .popup-map a.close {
   display: block;
   position: absolute;
@@ -12006,19 +12028,19 @@ a.mouse {
   z-index: 5;
 }
 
-/* line 3331, ../sass/_moduls.scss */
+/* line 3339, ../sass/_moduls.scss */
 .yandex-map-popup {
   width: 600px;
   height: 400px;
   position: relative;
   display: none;
 }
-/* line 3334, ../sass/_moduls.scss */
+/* line 3342, ../sass/_moduls.scss */
 .yandex-map-popup #yandex-map {
   width: 600px;
   height: 400px;
 }
-/* line 3338, ../sass/_moduls.scss */
+/* line 3346, ../sass/_moduls.scss */
 .yandex-map-popup .close-button {
   padding: 15px;
   position: absolute;
@@ -12031,18 +12053,18 @@ a.mouse {
   cursor: pointer;
 }
 
-/* line 3344, ../sass/_moduls.scss */
+/* line 3352, ../sass/_moduls.scss */
 .gallery-image-popup {
   display: none;
   width: 600px;
   height: 342px;
   position: relative;
 }
-/* line 3347, ../sass/_moduls.scss */
+/* line 3355, ../sass/_moduls.scss */
 .gallery-image-popup img {
   width: 100%;
 }
-/* line 3349, ../sass/_moduls.scss */
+/* line 3357, ../sass/_moduls.scss */
 .gallery-image-popup .close-button {
   padding: 15px;
   position: absolute;
@@ -12055,7 +12077,7 @@ a.mouse {
   cursor: pointer;
 }
 
-/* line 3360, ../sass/_moduls.scss */
+/* line 3368, ../sass/_moduls.scss */
 .b-modal {
   background: #373e41 !important;
   opacity: 0.89 !important;
