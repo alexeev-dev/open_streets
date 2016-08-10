@@ -12471,7 +12471,8 @@ textarea {
     text-indent: -9999px;
 }
 
-.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.active {opacity: 1;}
+.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.active,
+.popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.active ~ div {opacity: 1;}
 
 .popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.one-station {
   background-image: url("../img/metro_t.png");
@@ -12479,6 +12480,7 @@ textarea {
 
 .popup-map .block2 .wrapper-map .bounding_box .metro-map .wr-station > div.one-galka {
   background-image: url("../img/station_selected.png");
+  background-position: 0 0 !important;
 }
 
 .owl-carousel .owl-wrapper, .owl-carousel .owl-item:hover {cursor: pointer;}

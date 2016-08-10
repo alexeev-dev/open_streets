@@ -1076,7 +1076,7 @@ function initStations() {
 			if (stations[i][1] == true) {
 				dataRing = ' data-ring="1"';
 			}
-			$('.metro-map').append('<div class="wr-station"><div class="one-galka" style="' + stations[i][4] + '"></div><div' + dataCenter + dataRing + ' class="one-station" style="' + stations[i][3] + '">' + stations[i][2] + '</div></div>');
+			$('.metro-map').append('<div class="wr-station"><div' + dataCenter + dataRing + ' class="one-station" style="' + stations[i][3] + '">' + stations[i][2] + '</div><div class="one-galka" style="' + stations[i][4] + '"></div></div>');
 		}
 	}
 
