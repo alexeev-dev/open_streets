@@ -5,7 +5,7 @@ $mysprite-layout:smart;
 @import "icons/*.png";
 @include all-icons-sprites;
 
-$icons: ('socials-ok','socials-vk','socials-fb','close-popup','close-popup-2','clock','gallery-mark','gallery-mark-big','gallery-play','gallery-resize','map-delete-district-1','map-delete-district-2');
+$icons: ('cabinet-sidebar-pencil-active','cabinet-sidebar-pencil-inactive','cabinet-mail','cabinet-phone','socials-ok','socials-vk','socials-fb','close-popup','close-popup-2','clock','gallery-mark','gallery-mark-big','gallery-play','gallery-resize','map-delete-district-1','map-delete-district-2');
 
 @each $icons in $icons {
 	.icons-#{$icons} {

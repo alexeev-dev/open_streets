@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- SEO -->
+	<meta name="Description" content="">
+	<meta name="Rating" content="">
+	<meta name="Autor" content="">
+	<meta name="Robots" content="index,follow">
+
+	<!-- CONFIG -->
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/libs/animate.css">
+	<link rel="stylesheet" href="css/libs/owl.carousel.css">
+	<link rel="stylesheet" href="css/libs/chosen.css">
+	<link rel="stylesheet" href="css/libs/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/libs/jquery.ui.slider.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- JS -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- FONTS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+	<title>Open Streets</title>
+	
+	
+	
+	
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+	
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+	<style>
+		.blur-control {
+			background-color: #fff;
+			box-shadow: rgba(0, 0, 0, 0.65) 0px 1px 5px 0px;
+		}
+		.dropdown-control {
+			box-shadow: rgba(0, 0, 0, 0.65) 0px 1px 5px 0px;
+			background-color: #fff;		
+		}
+		.dropdown-control > label {
+			background-color: #fff;
+			border-radius: 4px;
+			padding: 4px;
+			display: block;
+		}
+		.blur-control > label {
+			background-color: #fff;
+			border-radius: 4px;
+			cursor: pointer;
+			display: block;
+			padding: 4px;
+		}
+		.blur-control input {
+			vertical-align: bottom;
+		}
+	</style>	
+	
+	
+	
+</head>
+<body>
+	<div class="app">
+
+		<!-- HEADER -->
+		<header class="wr-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+
+						<div class="header-block-wrap">
+							<!-- Logo -->
+							<a href="#" class="logo">Open<span>Streets</span></a>
+
+							<p class="logo">Аренда коммерческой недвижимости без комиссии</p>
+							<a href="#" class="userInfo js-show-popup1">МА</a>
+							<div class="header-buttons">
+								<a href="#" class="button-header">Разместить предложение</a>
+								<a href="#" class="button-header js-settings">Настроить уведомления</a>
+							</div>
+
+							<!-- POPUPS -->
+							<div class="popup1">
+								<a href="#" class="name">Виноградов Олег</a>
+								<p>Vinogradov@gmail.com</p>
+								<p>+7 922 - 633 - 1010</p>
+								<a href="#" class="edit">Редактировать</a>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- SEARCH RESULT -->
+		<section class="wr-search_result">
+			<div class="container">
+				<div class="row table-row">
+					<div class="col-md-4 col-lg-3 nopadding table-cell seacrhSidebar_bg">
+
+						<!-- RESULT SIDEBAR -->
+						<div class="cabinet-sidebar">
+
+							<!-- CABINET NAVIGATION -->
+							<ul class="cabinet-nav">
+								<li class="active">Мои объекты</li>
+								<li>Просмотренные объекты</li>
+								<li>Скрытые объекты</li>
+							</ul>
+
+							<!-- PERSON INFO -->
+							<div class="cabinet-person_info">
+								<h3>Мой профиль</h3>
+								<ul>
+									<li><span>Ма</span>Александр<br>Виноградов</li>
+									<li><i class="icons-cabinet-phone"></i>+7(945)-4455-555</li>
+									<li><i class="icons-cabinet-mail"></i>vinogradov@gmail.com</li>
+								</ul>
+								<a href="">Изменить</a>
+							</div>
+
+							<!-- PERSON ROLE -->
+							<div class="cabinet-person_role">
+								<h3>В какой роли вы себя видите?</h3>
+								<ul>
+									<li><input type="radio" name="person_role" id="personal_info-radio-1"><label for="personal_info-radio-1">Арендатор</label></li>
+									<li><input type="radio" name="person_role" id="personal_info-radio-2"><label for="personal_info-radio-2">Арендадатель</label></li>
+									<li><input type="radio" name="person_role" id="personal_info-radio-3"><label for="personal_info-radio-3">Агент</label></li>
+								</ul>
+							</div>
+
+							<!-- BRAND INFO -->
+							<div class="cabinet-brand_info">
+								<h3>Сфера деятельности</h3>
+								<div class="sidebar-input-wr">
+									<input type="text" placeholder="Не задано" disabled><a><i class="icons-cabinet-sidebar-pencil-inactive"></i></a>
+								</div>
+								<h3>Название бренда</h3>
+								<div class="sidebar-input-wr">
+									<input class="active" type="text" placeholder="Не задано"><a><i class="icons-cabinet-sidebar-pencil-active"></i></a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="col-md-8 col-lg-9 nopadding table-cell overflowHidden">
+
+						<!-- RESULT BODY -->
+						<div class="infocard-body">
+
+							<!-- BODY HEADER -->
+							<div class="infocard-header">
+								<a href="#" class="prev">Предыдущее <span>4</span></a>
+								<a href="#" class="next">Следующее <span>20</span></a>
+								<a href="#" class="closeInfo">Закрыть<i class="fa fa-times" aria-hidden="true"></i></a>
+								<div class="clear"></div>
+							</div>
+
+							<div class="js-result-wrapper-infocard">
+								<div class="infocard-item">
+
+									<!-- RESULT ITEM HEADER -->
+									<div class="infocard-item-header">
+										<h3>Б. Дмитровка, 11</h3>
+									</div>
+
+									<div class="infocard-gallery">
+										<p class="area">Аренда 351,4м<span>2</span></p>
+										<p class="price">1 500 000 руб./мес.</p>
+										<div class="search_rating">
+											<ul class="rating_list-9">
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span>9/10</span>
+
+											<div class="popup-hoverStarLine">
+												<h4>Рейтинг
+													<div class="search_rating">
+														<ul class="rating_list-9">
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+															<li><i class="fa fa-star"></i></li>
+														</ul>
+													</div>
+												</h4>
+
+												<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												<ul>
+													<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+													<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+												</ul>
+											</div>
+											
+										</div>
+										<div class="clear"></div>
+										<div class="gallery-2">
+
+											<div class="big-gallery">
+												<div class="owl-big2 owl-carousel">
+													<img src="img/gallery-2-foto.png">
+													<img src="img/gallery-2-foto.png">
+													<img src="img/gallery-2-foto.png">
+													<img src="img/gallery-2-foto.png">
+													<img src="img/gallery-2-foto.png">
+													<img src="img/gallery-2-foto.png">
+												</div>
+												<a href="#" class="markplace"><i class="icons-gallery-mark-big"></i></a>
+												<a href="#" class="resize"><i class="icons-gallery-resize"></i></a>
+												<a href="#" class="threeD">3D</a>
+												<a href="#" class="play"><i class="icons-gallery-play"></i></a>
+											</div>
+											<div class="small-gallery">
+												<ul class="gallery-slider">
+													<li class="active">
+														<a href="#"><img src="img/gallery-2-smallfoto-2.png"></a>
+													</li>
+													<li>
+														<a href="#"><img src="img/gallery-2-smallfoto-1.png"></a>
+													</li>
+													<li>
+														<a href="#"><img src="img/gallery-2-smallfoto-3.png"></a>
+													</li>
+													<li>
+														<a href="#"><img src="img/gallery-2-smallfoto-4.png"></a>
+													</li>
+													<li>
+														<a href="#"><img src="img/gallery-2-smallfoto-4.png"></a>
+													</li>
+													<li>
+														<a href="#"><img src="img/gallery-2-smallfoto-4.png"></a>
+													</li>
+												</ul>
+												<ul class="gallery-nav">
+													<li class="nav-up"><i class="fa fa-angle-up" aria-hidden="true"></i></li>
+													<li class="nav-down"><i class="fa fa-angle-down" aria-hidden="true"></i></li>
+												</ul>
+											</div>
+											<div class="clear"></div>
+
+										</div>
+									</div>
+
+									<div class="left infocard-item-param">
+										<div class="search_ratingbar">
+											<div class="wr-ratingbar">
+												<h4>Пешеходный трафик</h4>
+												<div class="progressbar2">
+													<progress max="100" value="98"></progress>
+													<div class="progBar_bg">
+														<div class="progBar"></div>
+													</div>
+												</div>
+												<!-- POPUP HOVER SLIDER LINE -->
+												<div class="popup-hoverSliderLine">
+													<h4>Пешеходный трафик</h4>
+													<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												</div>
+											</div>
+											<div class="wr-ratingbar">
+												<h4>Автомобильный трафик</h4>
+												<div class="progressbar2">
+													<progress max="100" value="56"></progress>
+													<div class="progBar_bg">
+														<div class="progBar"></div>
+													</div>
+												</div>
+												<!-- POPUP HOVER SLIDER LINE -->
+												<div class="popup-hoverSliderLine">
+													<h4>Автомобильный трафик</h4>
+													<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												</div>
+											</div>
+											<div class="wr-ratingbar">
+												<h4>Доля 1-го этажа</h4>
+												<div class="progressbar2">
+													<progress max="100" value="10"></progress>
+													<div class="progBar_bg">
+														<div class="progBar"></div>
+													</div>
+												</div>
+												<!-- POPUP HOVER SLIDER LINE -->
+												<div class="popup-hoverSliderLine">
+													<h4>Доля 1-го этажа</h4>
+													<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												</div>
+											</div>
+											<div class="wr-ratingbar">
+												<h4>Элю мощность от 25кВт</h4>
+												<div class="progressbar2">
+													<progress max="100" value="74"></progress>
+													<div class="progBar_bg">
+														<div class="progBar"></div>
+													</div>
+												</div>
+												<!-- POPUP HOVER SLIDER LINE -->
+												<div class="popup-hoverSliderLine">
+													<h4>Элю мощность от 25кВт</h4>
+													<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												</div>
+											</div>
+											<div class="wr-ratingbar">
+												<h4>Готовность помещения</h4>
+												<div class="progressbar2">
+													<progress max="100" value="0"></progress>
+													<div class="progBar_bg">
+														<div class="progBar"></div>
+													</div>
+												</div>
+												<!-- POPUP HOVER SLIDER LINE -->
+												<div class="popup-hoverSliderLine">
+													<h4>Готовность помещения</h4>
+													<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												</div>
+											</div>
+											<div class="wr-ratingbar">
+												<h4>Фасад</h4>
+
+												<div class="progressbar2">
+													<progress max="100" value="25"></progress>
+													<div class="progBar_bg">
+														<div class="progBar"></div>
+													</div>
+												</div>
+												<!-- POPUP HOVER SLIDER LINE -->
+												<div class="popup-hoverSliderLine">
+													<h4>Фасад</h4>
+													<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+												</div>
+											</div>
+										</div>
+										
+
+
+										<!-- ITEM CHECKBOX -->
+										<ul class="search_type2">
+											<li class="disable"><span>Парковка</span>
+											</li>
+											<li class="enable">
+												<span>Погрузка&ndash;разгрузка</span>
+											</li>
+											<li class="enable">
+												<span>Вход с первой линии</span>
+											</li>
+											<li class="enable"><span>Размещение рекламы</span>
+											</li>
+										</ul>
+									</div>
+									<div class="right infocard-item-info">
+										<div class="infocard-feedback">
+											<div class="feedback-header">
+												<h3>Без комиссии</h3>
+												<p>5 недель</p>
+												<div class="clear"></div>
+											</div>
+											<p class="price">1 500 000<span>руб./месяц</span></p>
+											<p>42 877 руб. за м<em>2</em> в год</p>
+											<div class="agent">
+												<p class="os">O<em>S</em></p>
+												<h3>Екатерина<br>Константинопольская</h3>
+												<p>Представитель собственника</p>
+												<div class="clear"></div>
+											</div>
+											<div class="feedback-buttons">
+												<a href="#" class="call">Позвонить</a>
+												<a href="#" class="js-show-popup-write send">Написать</a>
+												<div class="clear"></div>
+												<a href="#" class="chooseDate js-show-popup-choosetime"><i class="icons-clock"></i>Выбрать время просмотра</a>
+											</div>
+
+											<!-- CHOOSE TIME POPUP -->
+											<div class="popup-choose_time1">
+												<h2>Выбрать время просмотра</h2>
+
+												<div class="days js-days-wrapper">
+													<span class="active">Пт</span>
+													<span>Сб</span>
+													<span>Вс</span>
+													<span>Пн</span>
+												</div>
+
+												<a href="#" class="timelist-up"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+												<div class="wr-table-time">
+													<table class="js-book-table time">
+														<tr>
+															<td class="current-time inactive">13:24</td>
+															<td>15:00</td>
+															<td>15:00</td>
+															<td>15:00</td>
+														</tr>
+														<tr>
+															<td class="inactive">15:30</td>
+															<td>15:30</td>
+															<td>15:30</td>
+															<td>15:30</td>
+														</tr>
+														<tr>
+															<td class="inactive">16:00</td>
+															<td class="inactive">16:00</td>
+															<td>16:00</td>
+															<td>16:00</td>
+														</tr>
+														<tr>
+															<td class="inactive">16:30</td>
+															<td>16:30</td>
+															<td>16:30</td>
+															<td>16:30</td>
+														</tr>
+														<tr>
+															<td class="inactive">17:00</td>
+															<td>17:00</td>
+															<td>17:00</td>
+															<td>17:00</td>
+														</tr>
+														<tr>
+															<td>17:30</td>
+															<td>17:30</td>
+															<td>17:30</td>
+															<td>17:30</td>
+														</tr>
+														<tr>
+															<td class="inactive">18:00</td>
+															<td>18:00</td>
+															<td>18:00</td>
+															<td>18:00</td>
+														</tr>
+														<tr>
+															<td>18:30</td>
+															<td>18:30</td>
+															<td>18:30</td>
+															<td>18:30</td>
+														</tr>
+														<tr>
+															<td class="inactive">19:00</td>
+															<td>19:00</td>
+															<td>19:00</td>
+															<td>19:00</td>
+														</tr>
+														<tr>
+															<td>19:30</td>
+															<td>19:30</td>
+															<td>19:30</td>
+															<td>19:30</td>
+														</tr>
+														<tr>
+															<td>20:00</td>
+															<td>20:00</td>
+															<td>20:00</td>
+															<td>20:00</td>
+														</tr>
+													</table>
+												</div>
+
+												<a href="#" class="timelist-down"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+
+												<button class="choose-button js-book-button"><span></span> - Забронировать</button>
+
+											</div>
+
+											<!-- SEND LETTER POPUP -->
+											<div class="popup-write_letter">
+												<p>Арендадателю Сергею Ивановичу<br>от Ивана Максимовича:</p>
+												<form class="js-validate-no-message">
+													<textarea class="required minLength-5" name="message" id="" cols="30" rows="10"></textarea>
+													<button>Отправить</button>
+													<div class="clear"></div>
+												</form>
+											</div>
+
+										</div>
+										<p>Дополнительные условия</p>
+										<ul>
+											<li>Коммунальные платежи оплачиваются арендатором по факту потребления.</li>
+											<li>Срок договора: короткий, средний, длинный</li>
+											<li>Ежегодная индексация 10%</li>
+										</ul>
+									</div>
+									<div class="clear"></div>
+								</div>
+								<div class="infocard-info">
+									<div class="left">
+										<h3>Характеристики помещения</h3>
+										<dl>
+											<dt>Общая площадь</dt>
+											<dd>419,8 м<em>2</em></dd>
+											<dt>1-й этаж</dt>
+											<dd>177,6 м<em>2</em> </dd>
+											<dt>2-й этаж</dt>
+											<dd>159,9 м<em>2</em></dd>
+										</dl>
+										<dl>
+											<dt>Высота потолка</dt>
+											<dd>3,1 м</dd>
+											<dt>1-й этаж</dt>
+											<dd>3,1 м</dd>
+											<dt>2-й этаж</dt>
+											<dd>3,1 м</dd>
+										</dl>
+										<h3>Место</h3>
+										<p>Б. Дмитровка — одна из самых востребованных ритейлом улиц Москвы. После недавней реконструкции улицы увеличились и пешеходный, и автомобильный трафики. </p>
+										<h3>Ключевые параметры</h3>
+										<dl>
+											<dt>Отдельный вход</dt>
+											<dd>с Большой Дмитровки</dd>
+											<dt>Служебный вход</dt>
+											<dd>со двора</dd>
+											<dt>Соседи</dt>
+											<dd>ClubMed, ресторан  «Фреш», Louis Vuitton, Prada</dd>
+											<dt>Алкогольная лицензия</dt>
+											<dd>да</dd>
+											<dt>Круглосуточный режим работы</dt>
+											<dd>да</dd>
+										</dl>
+										<h3>Информация о здании</h3>
+										<dl>
+											<dt>Тип здания</dt>
+											<dd>административное здание</dd>
+											<dt>Год постройки</dt>
+											<dd>1905 г., архитектор А. В. Иванов</dd>
+											<dt>Памятник истории и архитектуры</dt>
+											<dd>нет</dd>
+										</dl>
+										<h3>Информация о последнем арендаторе</h3>
+										<dl>
+											<dt>2013-2015<br>Магазин-бар «Олдич»</dt>
+											<dd>арендная ставка<br>60 000 евро/месяц</dd>
+										</dl>
+									</div>
+									<div class="right">
+										<h3>Документы</h3>
+										<dl>
+											<dt>Поэтажный план<br>1-этаж<br>2-этаж<br>3-этаж</dt>
+											<dd>
+												<a class="file" href="#" class="download">PDF, 635КБ</a>
+												<a class="file" href="#" class="download">PDF, 635КБ</a>
+												<a class="file" href="#" class="download">PDF, 635КБ</a>
+											</dd>
+										</dl>
+										<dl>
+											<dt>Экспликации</dt>
+											<dd><a class="file" href="#" class="download">PDF, 635КБ</a></dd>
+										</dl>
+										<dl>
+											<dt>Кадастровый паспорт</dt>
+											<dd><a class="file" href="#" class="download">PDF, 635КБ</a></dd>
+										</dl>
+										<dl>
+											<dt>Справка БТИ о состоянии здания</dt>
+											<dd><a class="file" href="#" class="download">PDF, 635КБ</a></dd>
+										</dl>
+										<dl>
+											<dt>Договор аренды земли</dt>
+											<dd><a class="file" href="#" class="download">PDF, 635КБ</a></dd>
+										</dl>
+										<dl>
+											<dt>Выписка из техпаспорта на здание</dt>
+											<dd><a class="file" href="#" class="download">PDF, 635КБ</a></dd>
+										</dl>
+									</div>
+									<div class="clear"></div>
+								</div>	
+							</div>
+
+						</div>
+
+						<style>
+							.owl-inner2 .owl-item img {width:100%}
+						</style>
+						
+						<!-- CABINET BODY -->
+						<div class="cabinet-body">
+
+							<!-- BODY HEADER -->
+							<div class="cabinet-item-header select_style">
+								<h2>Скрытые объекты</h2>
+								<select name="prop_type" id="" class="js-chosen select_style">
+									<option>Офис продаж</option>
+									<option>Ресторан</option>
+									<option>Магазин</option>
+									<option>Банк</option>
+									<option>Другое</option>
+								</select>
+								<div class="clear"></div>
+							</div>
+
+							<div class="cabinet-hidden_items">
+								<figure>
+									<img src="img/gallery-foto.png">
+								</figure>
+								<h3>Б. Дмитровка, 11</h3>
+								<ul>
+									<li>351,4м<em>2</em></li>
+									<li>1500000 руб./мес.</li>
+									<li>2499 руб./м<em>2</em></li>
+								</ul>
+								<!-- RATING BAR -->
+								<div class="search_rating">
+									<ul class="rating_list-9">
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+									</ul>
+									<span>9/10</span>
+
+									<div class="popup-hoverStarLine">
+										<h4>Рейтинг
+											<div class="search_rating">
+												<ul class="rating_list-9">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+												</ul>
+											</div>
+										</h4>
+
+										<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+										<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+										<ul>
+											<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+											<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+										</ul>
+									</div>
+								</div>
+								<a class="deleteItems">Убрать из скрытых</a>
+								<div class="clear"></div>
+							</div>
+
+							<div class="cabinet-hidden_items">
+								<figure>
+									<img src="img/gallery-foto.png">
+								</figure>
+								<h3>Б. Дмитровка, 11</h3>
+								<ul>
+									<li>351,4м<em>2</em></li>
+									<li>1500000 руб./мес.</li>
+									<li>2499 руб./м<em>2</em></li>
+								</ul>
+								<!-- RATING BAR -->
+								<div class="search_rating">
+									<ul class="rating_list-9">
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+									</ul>
+									<span>9/10</span>
+
+									<div class="popup-hoverStarLine">
+										<h4>Рейтинг
+											<div class="search_rating">
+												<ul class="rating_list-9">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+												</ul>
+											</div>
+										</h4>
+
+										<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+										<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+										<ul>
+											<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+											<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+										</ul>
+									</div>
+								</div>
+								<a class="deleteItems">Убрать из скрытых</a>
+								<div class="clear"></div>
+							</div>
+
+							<div class="cabinet-hidden_items">
+								<figure>
+									<img src="img/gallery-foto.png">
+								</figure>
+								<h3>Б. Дмитровка, 11</h3>
+								<ul>
+									<li>351,4м<em>2</em></li>
+									<li>1500000 руб./мес.</li>
+									<li>2499 руб./м<em>2</em></li>
+								</ul>
+								<!-- RATING BAR -->
+								<div class="search_rating">
+									<ul class="rating_list-9">
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+										<li><i class="fa fa-star"></i></li>
+									</ul>
+									<span>9/10</span>
+
+									<div class="popup-hoverStarLine">
+										<h4>Рейтинг
+											<div class="search_rating">
+												<ul class="rating_list-9">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+												</ul>
+											</div>
+										</h4>
+
+										<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+										<p>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</p>
+										<ul>
+											<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+											<li>Пояснение, это окошко появляется если навести мышкой на один из параметров рейтинга, всего 4 строчки.</li>
+										</ul>
+									</div>
+								</div>
+								<a class="deleteItems">Убрать из скрытых</a>
+								<div class="clear"></div>
+							</div>
+
+							<!-- RESULT PAGINATOR -->
+								<div class="result_body-paginator">
+									<ul>
+										<li class="prev">
+											<a href="#">
+												<i class="fa fa-chevron-left" aria-hidden="true"></i>
+												Назад
+											</a>
+										</li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">10</a></li>
+										<li><a href="#" class="active">15</a></li>
+										<li><a href="#">20</a></li>
+										<li><a href="#">25</a></li>
+										<li><a href="#">30</a></li>
+										<li><a href="#">35</a></li>
+										<li><a href="#">40</a></li>
+										<li><a href="#">...</a></li>
+										<li><a href="#">253</a></li>
+										<li class="next">
+											<a href="#">
+												Вперед
+												<i class="fa fa-chevron-right" aria-hidden="true"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="wr-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+
+						<a href="#" class="logo">Open<span>Streets</span></a>
+						<p class="logo">Аренда коммерческой недвижимости без комиссии</p>
+
+						<p>Мы работаем 24/7, чтобы представлять все 100% объектов<br/>коммерческой недвижимости, сдаваемой в аренду.</p>
+
+					</div>
+					<div class="col-md-3">
+
+						<a href="#" class="phone">+7 495 645-75-76</a>
+						<a href="#" class="mail">info@openstreets.ru</a>
+						<ul class="socials">
+							<li><a href="#"><i class="icons-socials-fb"></i></a></li>
+							<li><a href="#"><i class="icons-socials-vk"></i></a></li>
+							<li><a href="#"><i class="icons-socials-ok"></i></a></li>
+						</ul>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9">
+
+						<div class="footer-menu">
+							<a href="#">О проекте</a>
+							<a href="#">Часто задаваемые вопросы</a>
+							<a href="#">Политика конфиденциальности</a>
+							<a href="#">Контактная информация</a>
+						</div>
+
+					</div>
+					<div class="col-md-3">
+
+						<small>&copy; <span>2015</span> OpenStreets</small>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- POPUPS -->
+	<!-- POPUP SEARCH PARAM -->
+	<div class="popup-search_param">
+		<form>
+			<h2>1. Какое помещение вы ищете?</h2>
+			<div class="room-type">
+				<input type="radio" id="radio-room_type1" name="room_type">
+				<label for="radio-room_type1">Магазин</label>
+				<input type="radio" id="radio-room_type2" name="room_type">
+				<label for="radio-room_type2">Ресторан</label>
+				<input type="radio" id="radio-room_type3" name="room_type">
+				<label for="radio-room_type3">Офис продаж</label>
+				<input type="radio" id="radio-room_type4" name="room_type">
+				<label for="radio-room_type4">Банк</label>
+				<input type="radio" id="radio-room_type5" name="room_type">
+				<label for="radio-room_type5">Другое</label>
+			</div>
+			<h2>2. Помещение какой площади вам нужно?</h2>
+			<div class="room-size js-change-slider-values">
+				<input data-minval="0" data-maxval="150" type="radio" id="radio-room_size1" name="room_size">
+				<label for="radio-room_size1">до 150 м<span>2</span></label>
+				<input data-minval="150" data-maxval="300" type="radio" id="radio-room_size2" name="room_size">
+				<label for="radio-room_size2">от 150 до 300 м<span>2</span></label>
+				<input data-minval="300" data-maxval="500" type="radio" id="radio-room_size3" name="room_size">
+				<label for="radio-room_size3">от 300 до 500 м<span>2</span></label>
+				<input data-minval="500" data-maxval="3000" type="radio" id="radio-room_size4" name="room_size">
+				<label for="radio-room_size4">от 500 м<span>2</span></label>
+
+				<div class="double-range js-double-slider-range"></div>
+				<input class="slider-param" type="hidden" name="param-double">
+
+			</div>
+			<h2>3. Какие результаты поиска вас интересуют?</h2>
+			<div class="search-res">
+				<input type="checkbox" id="search-res1" name="searchParam">
+				<label for="search-res1">Все</label>
+				<p>, или выберите из следующих вариантов.</p><br>
+				<input type="checkbox" id="search-res2" name="searchParam">
+				<label for="search-res2">Новые</label>
+				<input type="checkbox" id="search-res3" name="searchParam">
+				<label for="search-res3">В торговых центрах</label>
+				<input type="checkbox" id="search-res4" name="searchParam">
+				<label for="search-res4">Стоимость снижена</label>
+			</div>
+			<h2>4. Выберите минимальный рейтинг искомых предложений.</h2>
+			<div class="search_rating">
+				<ul class="rating_list-9 js-stars-popup">
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+					<li><i class="fa fa-star"></i></li>
+				</ul>
+				<span class="js-stars-count-popup">9/10</span>
+			</div>
+			<h2>5. Выберите минимальное значение параметров объекта.</h2>
+			<div class="search_parambar rating">
+				<div class="floats">
+					<h4 class="most">Пешеходный трафик</h4>
+					<div class="progressbar js-slider-range-popup progBar_bg">
+						<div class="progBar"><div class="progVal"></div></div>
+					</div>
+				</div>
+				<div class="floats">
+					<h4>Автомобильный трафик</h4>
+					<div class="progressbar js-slider-range-popup progBar_bg">
+						<div class="progBar"><div class="progVal"></div></div>
+					</div>
+				</div>
+				<div class="floats">
+					<h4>Доля 1-го этажа</h4>
+					<div class="progressbar js-slider-range-popup progBar_bg">
+						<div class="progBar"><div class="progVal"></div></div>
+					</div>
+				</div>
+				<div class="floats">
+					<h4>Эл. мощность от 25кВт</h4>
+					<div class="progressbar js-slider-range-popup progBar_bg">
+						<div class="progBar"><div class="progVal"></div></div>
+					</div>
+				</div>
+				<div class="floats">
+					<h4>Готовность помещения</h4>
+					<div class="progressbar js-slider-range-popup progBar_bg">
+						<div class="progBar"><div class="progVal"></div></div>
+					</div>
+				</div>
+				<div class="floats">
+					<h4>Фасад</h4>
+					<div class="progressbar js-slider-range-popup progBar_bg">
+						<div class="progBar"><div class="progVal"></div></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<h2>6. Выберите минимальное значение параметров объекта.</h2>
+			<div class="search-type_checkbox">
+				<ul class="search_type1">
+					<li>
+						<input type="checkbox" id="sidebar_checkbox1-popup">
+						<label for="sidebar_checkbox1-popup">Парковка</label>
+					</li>
+					<li>
+						<input type="checkbox" id="sidebar_checkbox2-popup" checked>
+						<label for="sidebar_checkbox2-popup">Размещение рекламы</label>
+					</li>
+					<li>
+						<input type="checkbox" id="sidebar_checkbox3-popup">
+						<label for="sidebar_checkbox3-popup">Погрузка&ndash;разгрузка</label>
+					</li>
+					<li>
+						<input type="checkbox" id="sidebar_checkbox4-popup">
+						<label for="sidebar_checkbox4-popup">Вход с первой линии</label>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+	<!-- LOGIN POPUP -->
+	<div class="popup-logIn">
+		<h2>Вход</h2>
+		<form class="">
+			<input type="text" class="mail" placeholder="Email">
+			<a href="#" class="user-not-found">Нет такого пользователя</a>
+			<input type="text" placeholder="Пароль">
+			<p class="invalid-password">Пароль не подходит, вы можете <a href="#">пройти процедуру восстановления</a></p>
+			<button>Войти</button>
+		</form>
+		<p>или пройти <a href="#">регистрацию</a></p>
+		<a href="#" class="close-popup b-close"><i class="icons-close-popup"></i></a>
+	</div>
+	<!-- Yandex POPUP -->
+	<div class="yandex-map-popup">
+		<div id="yandex-map"></div>
+		<a class="close-button"><i class="icons-close-popup"></i></a>
+	</div>
+	<!-- Galeery Image POPUP -->
+	<div class="gallery-image-popup">
+		<img src="img/gallery-foto.png">
+		<a class="close-button"><i class="icons-close-popup"></i></a>
+	</div>
+
+
+	<!-- SCRIPTS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/chosen.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.core.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.widget.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.mouse.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.slider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+	<script type="text/javascript" src="js/feelform.min.js"></script>
+	<script type="text/javascript" src="js/jquery.bpopup.min.js"></script>
+	
+	<script type="text/javascript" src="js/ui/jquery.ui.core.min.js"></script>
+	<script type="text/javascript" src="js/ui/jquery.ui.mouse.min.js"></script>
+	<script type="text/javascript" src="js/ui/jquery.ui.widget.min.js"></script>
+	<script type="text/javascript" src="js/ui/jquery.ui.draggable.min.js"></script>
+
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
