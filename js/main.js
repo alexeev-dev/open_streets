@@ -1,3 +1,7 @@
+$('.js-chosen').chosen({
+	disable_search_threshold: 10
+});
+	
 $(document).ready(function() {
 	// ************ map tabs in popup
 	// карта
@@ -5,7 +9,9 @@ $(document).ready(function() {
 		$('.block1, .block2, .block3').removeClass('active');
 		$('.block1').addClass('active');
 		
-		map.invalidateSize();
+		if (map !== undefined) {
+			map.invalidateSize();
+		}
 	});
 	$('.popup-map #map-tab2').click(function() {
 		$('.block1, .block2, .block3').removeClass('active');
@@ -153,9 +159,9 @@ $(document).ready(function() {
 	});
 	
 	// 1. Дизайн селекта
-	$('.js-chosen').chosen({
-		disable_search_threshold: 10
-	});
+	//$('.js-chosen').chosen({
+//		disable_search_threshold: 10
+//	});
 	
 	// 2.  При клике меняется направление сктрелочки вверх-вниз
 	$('.js-sort a').click(function() {
@@ -425,8 +431,8 @@ $(document).ready(function() {
 			values: [0, 2000],
 			slide: function(ev, ui) {
 				inp.val(ui.value);
-				$('.double-val1').text('от ' + ui.values[0]).append(' м<em>2</em>');
-				$('.double-val2').text('до ' + ui.values[1]).append(' м<em>2</em>');
+				el.find('.double-val1').text('от ' + ui.values[0]).append(' м<em>2</em>');
+				el.find('.double-val2').text('до ' + ui.values[1]).append(' м<em>2</em>');
 			}		
 		});
 		el.find('.ui-slider-handle').eq(0).append('<span class="double-val1">от 0 м<em>2</em></span>');
