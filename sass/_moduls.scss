@@ -983,86 +983,111 @@ hr.devider {
 
 
 /* ABOUT */
-// INTRO
-.about-intro {
+.about-header {
+	margin-bottom: 41px;
+
 	h2 {
-		color: #373e41; font-family: $FSP-Bold; font-size: 32px; letter-spacing: -0.5px; text-align: center;
+		color: #464646; font-family: $FSP-Bold; font-size: 32px; letter-spacing: -0.5px; text-align: center;
 		margin-bottom: 19px;
 	}
+
 	p {
-		color: #373e41; font-family: $FSP-Light; font-size: 16px; letter-spacing: -0.4px; text-align: center;
-		margin-bottom: 40px;
-		opacity: 0.7;
+		color: #464646; font-family: $FSP-Medium; font-size: 15px; letter-spacing: -0.35px; line-height: 18px; text-align: center;
 	}
 }
-// BODY
 .about-body {
-	padding-right: 50px; padding-top: 14px;
-	h2 {
-		color: #464646; font-family: $FSP-Medium; font-size: 32px; letter-spacing: -0.8px; text-transform: uppercase;
-		margin-bottom: 71px; padding-left: 11px;
-
-		@include respond-to(sm) {font-size: 28px;}
-		@include respond-to(xs) {font-size: 24px;}
-	}
-	h3 {
-		color: #464646; font-family: $FSP-Medium; font-size: 24px; line-height: 29px; letter-spacing: -0.6px;
-		margin-bottom: 25px;
-
-		@include respond-to(sm) {font-size: 20px;}
-		@include respond-to(xs) {font-size: 16px;}
-	}
+	margin-bottom: 41px;
+	
 	p {
-		color: #464646; font-family: $FSP-Normal; font-size: 18px; line-height: 22px; letter-spacing: 0.04px;
-		margin-bottom: 61px;
+		color: #464646; font-family: $FSP-Normal; font-size: 15px; line-height: 18px; letter-spacing: -0.4px;
 
-		@include respond-to(sm) {font-size: 14px;}
-		@include respond-to(xs) {font-size: 12px;}
+		span {
+			font-family: $FSP-Medium; 
+			display: block;
+		}
 	}
 }
-// SIDEBAR
-.about-sidebar {
-	padding-left: 50px; position: relative;
-	h3 {
-		color: #464646; font-family: $FSP-Medium; font-size: 18px; line-height: 22px; letter-spacing: -0.4px;
-		margin-bottom: 21px;
 
-		@include respond-to(sm) {font-size: 14px;}
-		@include respond-to(xs) {font-size: 12px;}
-	}
-	p {
-		color: #373e41; font-family: $FSP-Normal; font-size: 18px; line-height: 22px; letter-spacing: -0.45px;
-		margin-bottom: 21px;
+// INTRO
+// .about-intro {
+// 	h2 {
+// 		color: #373e41; font-family: $FSP-Bold; font-size: 32px; letter-spacing: -0.5px; text-align: center;
+// 		margin-bottom: 19px;
+// 	}
+// 	p {
+// 		color: #373e41; font-family: $FSP-Light; font-size: 16px; letter-spacing: -0.4px; text-align: center;
+// 		margin-bottom: 40px;
+// 		opacity: 0.7;
+// 	}
+// }
+// // BODY
+// .about-body {
+// 	padding-right: 50px; padding-top: 14px;
+// 	h2 {
+// 		color: #464646; font-family: $FSP-Medium; font-size: 32px; letter-spacing: -0.8px; text-transform: uppercase;
+// 		margin-bottom: 71px; padding-left: 11px;
 
-		@include respond-to(sm) {font-size: 14px;}
-		@include respond-to(xs) {font-size: 12px;}
+// 		@include respond-to(sm) {font-size: 28px;}
+// 		@include respond-to(xs) {font-size: 24px;}
+// 	}
+// 	h3 {
+// 		color: #464646; font-family: $FSP-Medium; font-size: 24px; line-height: 29px; letter-spacing: -0.6px;
+// 		margin-bottom: 25px;
 
-		span {font-family: $FSP-Medium;}
-	}
+// 		@include respond-to(sm) {font-size: 20px;}
+// 		@include respond-to(xs) {font-size: 16px;}
+// 	}
+// 	p {
+// 		color: #464646; font-family: $FSP-Normal; font-size: 18px; line-height: 22px; letter-spacing: 0.04px;
+// 		margin-bottom: 61px;
 
-	&:before {
-		content: '';
-		display: block; height: 100%; position: absolute; left: -4px; top: 29px;
-		border-left: solid 1px #cdcdcd;
-	}
+// 		@include respond-to(sm) {font-size: 14px;}
+// 		@include respond-to(xs) {font-size: 12px;}
+// 	}
+// }
+// // SIDEBAR
+// .about-sidebar {
+// 	padding-left: 50px; position: relative;
+// 	h3 {
+// 		color: #464646; font-family: $FSP-Medium; font-size: 18px; line-height: 22px; letter-spacing: -0.4px;
+// 		margin-bottom: 21px;
 
-	@include respond-to(md) {
-		padding-left: 0;
-		&:before {display: none;}
-	}
-}
-// ITEM
-.about-item {
-	span {
-		color: #373e41; font-family: $FSP-Normal; font-size: 43px; letter-spacing: 3px;
-		display: block; width: 100%; margin-bottom: -1px;
-		opacity: 0.3;
-	}
-	p {
-		color: #373e41; font-family: $FSP-Normal; font-size: 14px; line-height: 22px; letter-spacing: -0.34px;
-		margin: 0 0 10px 37px;
-	}
-}
+// 		@include respond-to(sm) {font-size: 14px;}
+// 		@include respond-to(xs) {font-size: 12px;}
+// 	}
+// 	p {
+// 		color: #373e41; font-family: $FSP-Normal; font-size: 18px; line-height: 22px; letter-spacing: -0.45px;
+// 		margin-bottom: 21px;
+
+// 		@include respond-to(sm) {font-size: 14px;}
+// 		@include respond-to(xs) {font-size: 12px;}
+
+// 		span {font-family: $FSP-Medium;}
+// 	}
+
+// 	&:before {
+// 		content: '';
+// 		display: block; height: 100%; position: absolute; left: -4px; top: 29px;
+// 		border-left: solid 1px #cdcdcd;
+// 	}
+
+// 	@include respond-to(md) {
+// 		padding-left: 0;
+// 		&:before {display: none;}
+// 	}
+// }
+// // ITEM
+// .about-item {
+// 	span {
+// 		color: #373e41; font-family: $FSP-Normal; font-size: 43px; letter-spacing: 3px;
+// 		display: block; width: 100%; margin-bottom: -1px;
+// 		opacity: 0.3;
+// 	}
+// 	p {
+// 		color: #373e41; font-family: $FSP-Normal; font-size: 14px; line-height: 22px; letter-spacing: -0.34px;
+// 		margin: 0 0 10px 37px;
+// 	}
+// }
 
 
 /* REGISTRATION */
