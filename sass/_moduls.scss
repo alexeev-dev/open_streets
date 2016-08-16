@@ -1332,8 +1332,11 @@ hr.devider {
 /* SEARCH RESULT */
 // SIDEBAR
 .search_result-sidebar {
-	padding: 12px 21px;
+	padding: 12px 21px; width: 285px;
 	background-color: #ffffff;
+
+	@include respond-to(lg) {width: 313px;}
+	@include respond-to(md) {width: 100%;}
 
 	.search_sidebar-item {
 
