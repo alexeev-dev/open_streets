@@ -997,10 +997,14 @@
 	<div class="popup-logIn">
 		<h2>Вход</h2>
 		<form class="">
-			<input type="text" class="mail" placeholder="Email">
-			<a href="#" class="user-not-found">Нет такого пользователя</a>
-			<input type="text" placeholder="Пароль">
-			<p class="invalid-password">Пароль не подходит, вы можете <a href="#">пройти процедуру восстановления</a></p>
+			<div>
+				<input type="text" class="mail" placeholder="Email">
+				<a href="#" class="user-not-found">Нет такого пользователя</a>
+			</div>
+			<div>
+				<input type="text" placeholder="Пароль">
+				<p class="invalid-password">Пароль не подходит, вы можете <a href="#">пройти процедуру восстановления</a></p>
+			</div>
 			<button>Войти</button>
 		</form>
 		<p>или пройти <a href="#">регистрацию</a></p>
@@ -1029,6 +1033,7 @@
 	<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
 	<script type="text/javascript" src="js/feelform.min.js"></script>
 	<script type="text/javascript" src="js/jquery.bpopup.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox.js"></script>
 	
 	<script type="text/javascript" src="js/ui/jquery.ui.core.min.js"></script>
 	<script type="text/javascript" src="js/ui/jquery.ui.mouse.min.js"></script>
