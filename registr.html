@@ -21,9 +21,11 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/libs/owl.carousel.css">
 	<link rel="stylesheet" href="css/libs/animate.css">
+	<link rel="stylesheet" href="css/libs/owl.carousel.css">
 	<link rel="stylesheet" href="css/libs/chosen.css">
+	<link rel="stylesheet" href="css/libs/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/libs/jquery.ui.slider.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- JS -->
@@ -33,6 +35,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 
 	<title>Open Streets</title>
+
+
+	
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+	
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+
 </head>
 <body>
 	<div class="app">
@@ -202,7 +214,7 @@
 				<label for="radio-room_size2">от 150 до 300 м<span>2</span></label>
 				<input data-minval="300" data-maxval="500" type="radio" id="radio-room_size3" name="room_size">
 				<label for="radio-room_size3">от 300 до 500 м<span>2</span></label>
-				<input data-minval="500" data-maxval="2000" type="radio" id="radio-room_size4" name="room_size">
+				<input data-minval="500" data-maxval="3000" type="radio" id="radio-room_size4" name="room_size">
 				<label for="radio-room_size4">от 500 м<span>2</span></label>
 
 				<div class="double-range js-double-slider-range"></div>

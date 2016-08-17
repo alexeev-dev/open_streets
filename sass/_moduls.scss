@@ -41,6 +41,15 @@ hr.devider {
 .ajax-preloader{background:url(../img/preloader.gif) center top no-repeat;min-width:100%}
 
 .select_style {
+
+	select {
+		color: #727779; font-family: $FSP-Medium; font-size: 15px;
+		height: 36px; padding-left: 15px; @include box-shadow(none); float: right; width: 160px;
+		background: url("../img/select_arrow.png") 95% 50% no-repeat; border: solid 1px #a2d0e5; @include border-radius(3px);
+
+		@include respond-to(lg) {width: 193px;}
+	}
+
 	div.chosen-container {
 		float: right; min-width: 193px;
 
@@ -50,7 +59,7 @@ hr.devider {
 			@include box-shadow(none);
 
 			background: url('../img/select_arrow.png') 95% 50% no-repeat;border: solid 1px #a2d0e5; @include border-radius(3px);
-			
+
 			span {
 				line-height: 36px;
 			}
@@ -583,7 +592,7 @@ hr.devider {
 					background: #373e41;
 
 					img {
-						width: auto; position: absolute; left: 50%; top: 50%; @include transform(translate(-50%, -50%));
+						width: 100%; position: absolute; left: 50%; top: 50%; @include transform(translate(-50%, -50%));
 						opacity: 0.5;
 					}
 
@@ -1033,6 +1042,8 @@ hr.devider {
 	p {
 		color: #464646; font-family: $FSP-Normal; font-size: 15px; line-height: 18px; letter-spacing: -0.4px;
 
+		@include respond-to(md) {margin-bottom: 10px;}
+
 		span {
 			font-family: $FSP-Medium; 
 			display: block;
@@ -1260,8 +1271,16 @@ hr.devider {
 		div.phoneNumb {
 
 			&.select_style {
+
+				select {
+					float: left; width: 34%;
+
+					@include respond-to(sm) {margin-bottom: 30px;}					
+					@include respond-to(xs) {min-width: 100%;}
+				}
+
 				.chosen-container {
-					min-width: 34%; float: left;
+					min-width: 34%; max-width: 34%; float: left;
 
 					@include respond-to(sm) {margin-bottom: 30px;}					
 					@include respond-to(xs) {min-width: 100%;}
@@ -1373,8 +1392,8 @@ hr.devider {
 	.search_sidebar-item {
 
 		h2 {
-			color: #373e41; font-family: $FSP-Normal; font-size: 24px; letter-spacing: -0.5px;
-			display: inline-block; float: left; padding-top: 7px;
+			color: #373e41; font-family: $FSP-Normal; font-size: 24px; letter-spacing: -0.5px; line-height: 36px;
+			display: inline-block; float: left;
 		}
 
 		form {
@@ -2514,7 +2533,7 @@ a.mouse {
 
 // CABINET PAGE
 .cabinet-sidebar {
-	padding: 38px 16px 0 14px;
+	padding: 38px 16px 20px 14px;
 
 	h3 {
 		color: #363636; font-family: $FSP-Medium; font-size: 14px; letter-spacing: -0.3px; text-transform: uppercase;
@@ -2614,35 +2633,40 @@ a.mouse {
 
 		h3 {margin-bottom: 13px;}
 
-		input {
-			color: #464646; font-family: $FSP-Normal; font-size: 14px;
-			height: 28px; padding: 0 13px; margin-bottom: 11px;
-			background: #ffffff; border: solid 1px #464646; @include border-radius(3px);
+		.sidebar-input-wr {
+			position: relative; padding-right: 40px;
 
-			&:last-child {margin-bottom: 0;}
+			input {
+				color: #464646; font-family: $FSP-Normal; font-size: 14px;
+				height: 28px; padding: 0 13px; margin-bottom: 11px; width: 100%;
+				background: #ffffff; border: solid 1px #464646; @include border-radius(3px);
 
-			&::-webkit-input-placeholder {
-				color:#d04b4b; text-align: center;
+				&:last-child {margin-bottom: 0;}
 
+				&::-webkit-input-placeholder {
+					color:#d04b4b; text-align: center;
+
+				}
+				&::-moz-placeholder {
+					color:#d04b4b; text-align: center;
+
+				}
+				&:-moz-placeholder {
+					color:#d04b4b; text-align: center;
+
+				}
+				&:-ms-input-placeholder {
+					color:#d04b4b; text-align: center;
+
+				}
+
+				&.active {border-color: #4aa6d0;}
 			}
-			&::-moz-placeholder {
-				color:#d04b4b; text-align: center;
 
-			}
-			&:-moz-placeholder {
-				color:#d04b4b; text-align: center;
-
-			}
-			&:-ms-input-placeholder {
-				color:#d04b4b; text-align: center;
-
+			a {
+				cursor: pointer; position: absolute; top: 6px; right: 15px;
 			}
 
-			&.active {border-color: #4aa6d0;}
-		}
-
-		a {
-			cursor: pointer; position: relative; top: 6px; left: 5px;
 		}
 	}
 
@@ -2652,10 +2676,21 @@ a.mouse {
 
 	.cabinet-item-header {
 		position: relative;
+		@include respond-to(xs) {text-align: center;}
 
 		h2 {
 			color: #373e41; font-family: $FSP-Bold; font-size: 24px; line-height: 36px; letter-spacing: -0.5px;
 			display: inline-block; float: left; margin-right: 16px;
+
+			@include respond-to(sm) {font-size: 18px;}
+			@include respond-to(xs) {margin-right: 0; float: none;display: block;}
+		}
+
+		&.select_style {
+			select {
+				float: none; display: inline-block;
+				background-color: #ffffff;
+			}
 		}
 
 		.chosen-container {
@@ -2701,6 +2736,22 @@ a.mouse {
 					}
 
 					em {font-size: 9px; position: relative; bottom: 5px;}
+				}
+
+				&.item-price {
+
+					li {
+						@include respond-to(lg) {margin-bottom: 5px; display: block;}
+						@include respond-to(md) {display: inline-block;}
+						@include respond-to(xs) {display: block;}
+
+						&:after {
+							@include respond-to(lg) {display: none;}
+							@include respond-to(md) {display: block;}
+							@include respond-to(xs) {display: none;}
+						}
+					}
+
 				}
 
 				&.search_type2 {
@@ -2828,15 +2879,7 @@ a.mouse {
 	}
 
 	.cabinet-hidden_items {
-		position: relative; padding-bottom: 16px; margin-bottom: 20px;
-
-		@include respond-to(sm) {padding-bottom: 46px;}
-
-		&:after {
-			content: '';
-			display: block; width: 100%; height: 1px; position: absolute; bottom: 0; left: 0;
-			background: #e3e4e4;
-		}
+		position: relative;
 
 		figure {
 			height: 96px; float: left; margin-right: 21px;
@@ -3270,6 +3313,21 @@ a.mouse {
 
 				.metro-map {
 					position: relative; width:900px; height:961px; left:126px; top:460px;
+
+					.one-station, .one-galka {position: absolute; opacity: 0;}
+
+					.one-station {
+						background-image: url(../img/metro_t.png);
+						&:hover {opacity: 1;}
+					}
+
+					.one-galka {
+						background-image: url(../img/station_selected.png);
+						background-position: 0 0 !important;
+					}
+					.active {opacity: 1;}
+
+					.active + div {opacity: 1;}
 					
 					img {
 						position: absolute; top:0; left: 0;
@@ -3277,13 +3335,9 @@ a.mouse {
 					}
 
 					&  > div {
-						background-image: url(../img/metro_t.png);
 						text-indent: -9999px;
 						position: absolute;
-						opacity: 0; cursor: pointer;
-
-						&.active {opacity: 1;}
-						&:hover {opacity: 1;}
+						cursor: pointer;
 					}
 				}
 
