@@ -607,6 +607,21 @@ hr.devider {
 
 			&.play {
 				right: 0; padding-top: 15px;
+
+				i {
+					&.pause-img {
+						color: #ffffff; font-size: 29px;
+						position: absolute; left: 15px; top: 13px;
+						display: none;
+					}
+				}
+
+				&.active {
+					i {
+						&.play-img {display: none;}
+						&.pause-img {display: block;}
+					}
+				}
 			}
 
 			&:hover {background: rgba(55, 62, 65, 1);}
@@ -666,6 +681,23 @@ hr.devider {
 			&.play {
 				left: 0; bottom: 0; padding-top: 28px; padding-left: 31px;
 				@include respond-to(xs) {padding-top: 20px; padding-left: 20px;}
+
+				i {
+					&.pause-img {
+						color: #ffffff; font-size: 28px;
+						position: absolute; left: 32px; top: 26px; display: none;
+
+						@include respond-to(xs) {
+							font-size: 29px;
+							left: 20px; top: 18px;
+						}
+					}
+				}
+
+				&.active {
+					i.play-img {display: none;}
+					i.pause-img {display: block;}
+				}
 			}
 			&.resize, &.play {
 				i {@include transform(scale(1.25));}
@@ -1332,8 +1364,11 @@ hr.devider {
 /* SEARCH RESULT */
 // SIDEBAR
 .search_result-sidebar {
-	padding: 12px 21px;
+	padding: 12px 21px; width: 285px;
 	background-color: #ffffff;
+
+	@include respond-to(lg) {width: 313px;}
+	@include respond-to(md) {width: 100%;}
 
 	.search_sidebar-item {
 
@@ -1462,6 +1497,17 @@ hr.devider {
 				color: #373e41; font-family: $FSP-Medium; font-size: 15px; line-height: 30px;
 				position: relative; display: inline-block; margin-bottom: 18px; height: 30px;
 				opacity: 0.7;
+
+				@include respond-to(lg) {
+					margin-bottom: 10px; display: block; height: auto; line-height: 15px;
+				}
+				@include respond-to(sm) {
+					margin-bottom: 18px; display: inline-block; height: 30px; line-height: 30px;
+				}
+				@include respond-to(xs) {
+					margin-bottom: 10px; display: block; height: auto; line-height: 15px; text-align: center;
+				}
+
 				span {
 					font-size: 11px;
 					position: relative; top: -5px;
@@ -1469,8 +1515,30 @@ hr.devider {
 
 				&.area {
 					float: left;
+
+					@include respond-to(lg) {
+						float: none;
+					}
+					@include respond-to(sm) {
+						float: left;
+					}
+					@include respond-to(xs) {
+						float: none;
+					}
 				}
-				&.price {float: right; border-left: solid 1px #dfe0e0; padding-left: 14px;}
+				&.price {
+					float: right; border-left: solid 1px #dfe0e0; padding-left: 14px;
+
+					@include respond-to(lg) {
+						float: none; border: none; padding: 0;
+					}
+					@include respond-to(sm) {
+						float: right; border-left: solid 1px #dfe0e0; padding-left: 14px;
+					}
+					@include respond-to(xs) {
+						float: none; border: none; padding: 0;
+					}
+				}
 			}
 
 			@include respond-to(sm) {
@@ -1612,7 +1680,9 @@ hr.devider {
 			h3 {
 				color: #373e41; font-family: $FSP-Bold; font-size: 36px; letter-spacing: -0.7px;
 				
-				@include respond-to(sm) {font-size:30px;}
+				@include respond-to(lg) {margin-bottom: 10px;}
+				@include respond-to(sm) {font-size:30px; margin-bottom: 0;}
+				@include respond-to(xs) {margin-bottom: 10px;}
 			}
 		}
 
@@ -1623,12 +1693,35 @@ hr.devider {
 				color: #373e41; font-family: $FSP-Medium; font-size: 15px; line-height: 30px;
 				float: left; position: relative; display: inline-block; margin-bottom: 18px; height: 30px;
 				opacity: 0.7;
+
+				@include respond-to(lg) {
+					margin-bottom: 10px; display: block; height: auto; line-height: 15px;
+				}
+				@include respond-to(sm) {
+					margin-bottom: 18px; display: inline-block; height: 30px; line-height: 30px;
+				}
+				@include respond-to(xs) {
+					margin-bottom: 10px; display: block; height: auto; line-height: 15px; text-align: center;
+				}
+
 				span {
 					font-size: 11px;
 					position: relative; top: -5px;
 				}
 
-				&.price {border-left: solid 1px #dfe0e0; padding-left: 14px; margin-left: 14px;}
+				&.price {
+					border-left: solid 1px #dfe0e0; padding-left: 14px; margin-left: 14px;
+
+					@include respond-to(lg) {
+						float: none; border: none; padding: 0; margin-left: 0;
+					}
+					@include respond-to(sm) {
+						float: right; border-left: solid 1px #dfe0e0; margin-left: 14px; padding-left: 14px;
+					}
+					@include respond-to(xs) {
+						float: none; border: none; padding: 0; margin-left: 0;
+					}
+				}
 
 				@include respond-to(lg) {float: none;}
 				@include respond-to(sm) {font-size: 13px;}
@@ -3362,9 +3455,6 @@ a.mouse {
 }
 
 
-// FEELFORM
-// USER NOT FOUN
-
 .b-modal {
-	background: #373e41 !important; opacity: 0.89 !important; z-index: 10000 !important;
+	background: #373e41 !important; opacity: 0.89 !important;
 }
