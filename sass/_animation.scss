@@ -1,8 +1,11 @@
 @import 'settings';
 
-.js-validate{
-	input.invalid {
-		@include animation(invalid-input1 2s);
+.registration-body {
+	form.js-validate{
+		input.error {
+			@include animation(invalid-input1 2s);
+			border-color: #fe0101;
+		}
 	}
 }
 .js-validate-house-sett {
@@ -13,17 +16,17 @@
 
 @include keyframes(invalid-input1) {
 	0% {border-color: #e6e7e7;}
-	20% {border-color: #ff0000;}
+	20% {border-color: #fe0101;}
 	40% {border-color: #e6e7e7;}
-	60% {border-color: #ff0000;}
+	60% {border-color: #fe0101;}
 	80% {border-color: #e6e7e7;}
-	100% {border-color: #ff0000;}
+	100% {border-color: #fe0101;}
 }
 @include keyframes(invalid-input2) {
 	0% {border-color: #4aa6d0;}
-	20% {border-color: #ff0000;}
+	20% {border-color: #fe0101;}
 	40% {border-color: #4aa6d0;}
-	60% {border-color: #ff0000;}
+	60% {border-color: #fe0101;}
 	80% {border-color: #4aa6d0;}
-	100% {border-color: #ff0000;}
+	100% {border-color: #fe0101;}
 }

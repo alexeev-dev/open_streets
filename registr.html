@@ -105,23 +105,35 @@
 							
 							<form class="js-validate">
 								<div class="fullName">
-									<input type="text" name="name" class="required minLength-5 surname" placeholder="Фамилия*">
-									<input type="text" name="name2" class="required minLength-5 name" placeholder="Имя*">
+									<div class="wr-input surname">
+										<input type="text" name="name" class="required minLength-5" placeholder="Фамилия*">
+									</div>
+									<div class="wr-input name">
+										<input type="text" name="name2" class="required minLength-5" placeholder="Имя*">
+									</div>
 									<div class="clear"></div>
 								</div>
-								<input type="text" name="email" class="required email" placeholder="Email*">
+								<div class="wr-input mail">
+									<input type="text" name="email" class="required email" placeholder="Email*">
+								</div>
 								<div class="phoneNumb select_style">
 									<select name="prop_type" id="" class="js-chosen select_style">
 										<option>Россия(+7)</option>
 										<option>Россия(+7)</option>
 										<option>Россия(+7)</option>
 									</select>
-									<input type="text" class="required phone" placeholder="Телефон*">
+									<div class="wr-input telephone">
+										<input type="text" class="required phone" placeholder="Телефон*">
+									</div>
 									<div class="clear"></div>
 								</div>
 								<div class="password">
-									<input type="text" name="pass1" name="password" class="pass required minLength-5" placeholder="Пароль*">
-									<input type="text" name="pass2" class="checkpass equalTo-password minLength-5" placeholder="Повторите пароль*">
+									<div class="wr-input pass">
+										<input type="text" name="pass1" name="password" class="required minLength-5" placeholder="Пароль*">
+									</div>
+									<div class="wr-input checkpass">
+										<input type="text" name="pass2" class="equalTo-password minLength-5" placeholder="Повторите пароль*">
+									</div>
 									<div class="clear"></div>
 								</div>
 								<h4>Укажите тип пользователя</h4>

@@ -1178,14 +1178,23 @@ hr.devider {
 			display: block; width: 100%; position: absolute; bottom: 4px; left: 0;
 		}
 
-		input.email {
+		div.mail {
 			display: inline-block; width: 100%; height: 36px; margin-bottom: 20px;
 
 			@include respond-to(sm) {margin-bottom: 30px;}
 		}
 
+		.wr-input {
+			position: relative; float: left;
+
+			.error-text {
+				color: #fe0101; font-family: $FSP-LightItalic; font-size: 11px;
+				position: absolute; left: 19px; top: 37px;
+			}
+		}
+
 		.email-wr {
-			position: relative;
+			position: relative; float: none;
 			label {
 				color: #373e41;	font-family: $FSP-Medium; font-size: 15px;letter-spacing: -0.4px; line-height: 36px;
 				position: absolute; left: 17px; top: 0; height: 36px;
@@ -1205,7 +1214,7 @@ hr.devider {
 		
 		input {
 			color:#373e41; font-family: $FSP-Medium; font-size: 15px; letter-spacing: -0.4px;
-			margin-bottom: 20px; height: 36px; padding-left: 16px; padding-right: 16px;
+			margin-bottom: 20px; height: 36px; padding-left: 16px; padding-right: 16px; width: 100%;
 
 			@include respond-to(sm) {margin-bottom: 30px;}
 
@@ -1286,7 +1295,7 @@ hr.devider {
 					@include respond-to(xs) {min-width: 100%;}
 				}
 
-				.phone {
+				.telephone {
 					width: 61%; float: right;
 
 					@include respond-to(xs) {width: 100%;}
