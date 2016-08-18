@@ -10,6 +10,7 @@ $(document).ready(function() {
 		$('.block1').addClass('active');
 		
 		if (map !== undefined) {
+			console.log(map);
 			map.invalidateSize();
 		}
 	});
@@ -40,6 +41,7 @@ $(document).ready(function() {
 		//////// send ajax or smthn
 		console.log(coordsToSend);
 		
+		$('.popup-map').bPopup().close();
 		return false;
 	});
 	
@@ -138,24 +140,13 @@ $(document).ready(function() {
 	
 	//
 	$(".carousel").owlCarousel({
-		loop:true,
-		responsive:{
-			320:{
-				items:1
-			},
-			479:{
-				items:2
-			},
-			768:{
-				items:2
-			},
-			980:{
-				items:4
-			},
-			1199:{
-				items:6
-			}
-		}
+		loop: true,
+		items: 6,
+		itemsDesktop: 6,
+		itemsDesktopSmall: 4,
+		itemsTablet: 2,
+		itemsTabletSmall: 2,
+		itemsMobile: 1,
 	});
 	
 	// 1. Дизайн селекта
@@ -277,6 +268,7 @@ $(document).ready(function() {
 	*/
 	
 	// валидация регистрации
+	/*
 	$('.js-validate').feelform({
 		notificationType: 'message, class, border',
 		errorMessages: {
@@ -297,6 +289,8 @@ $(document).ready(function() {
 		gravity: 'bottom',
 		errorClass: 'invalid'
 	});
+	*/
+	validation();
 	
 	// попап логина
 	$('.js-login').click(function() {
@@ -469,8 +463,13 @@ function bindCarousels() {
 		sync1.owlCarousel({
 			loop: true,
 			items: 1,
+			itemsDesktop: 1,
+			itemsDesktopSmall: 1,
+			itemsTablet: 1,
+			itemsTabletSmall: 1,
+			itemsMobile: 1,
 			afterAction: syncPosition,
-			autoPlay: true
+			autoPlay: true			
 		});
 		sync1.data('owlCarousel').stop();
 		
@@ -566,6 +565,11 @@ function bindCarousels() {
 		sync2.owlCarousel({
 			loop: true,
 			items: 3,
+			itemsDesktop: 3,
+			itemsDesktopSmall: 3,
+			itemsTablet: 3,
+			itemsTabletSmall: 3,
+			itemsMobile: 3,
 			afterInit: function(el) {
 				el.find(".owl-item").eq(0).addClass("synced");
 				el.find(".owl-item > div").eq(0).addClass("active");
@@ -582,98 +586,99 @@ function bindCarousels() {
 	// **** infocard big slider
 	var isBigBusy = false;
 	var syncBig = $('.owl-big2');
-	syncBig.owlCarousel({
-		loop: true,
-		items: 1,
-		autoPlay: true,
-		afterAction: function syncBig(el) {
-			var current = this.currentItem;
-			$('.gallery-2 .gallery-slider li').removeClass('active');
-			$('.gallery-2 .gallery-slider li').eq(current).addClass('active');
-		}
-	});
-	syncBig.data('owlCarousel').stop();
-	
-	$('.infocard-gallery .play').unbind().click(function() {
-		$(this).toggleClass('active');
-		if ($(this).hasClass('active')) {
-			syncBig.data('owlCarousel').next();
-			syncBig.data('owlCarousel').play();
-		} else {
-			syncBig.data('owlCarousel').stop();
-		}
-		return false;
-	});
-	
-	$('.infocard-gallery').find('.fancybox').fancybox({nextEffect: 'fade', prevEffect: 'fade', openEffect: 'fade'});
-	
-	$('.infocard-gallery .markplace').unbind().click(function() {
-		$('.yandex-map-popup').bPopup({
-			easing: 'easeOutBack',
-			speed:'50',
-			transition: 'slideDown',
-			amsl:0
+	if (syncBig.length) {
+		syncBig.owlCarousel({
+			loop: true,
+			items: 1,
+			autoPlay: true,
+			afterAction: function syncBig(el) {
+				var current = this.currentItem;
+				$('.gallery-2 .gallery-slider li').removeClass('active');
+				$('.gallery-2 .gallery-slider li').eq(current).addClass('active');
+			}
 		});
-		return false;
-	});
-	
-	$('.infocard-gallery .threeD').unbind().click(function() {
-		$('.gallery-image-popup').bPopup({
-			easing: 'easeOutBack',
-			speed:'50',
-			transition: 'slideDown',
-			amsl:0
-		});
-		return false;
-	});
-
-	$('.gallery-2 .gallery-slider li a').unbind().click(function() {
-		if ($(this).parent().hasClass('active')) {
+		syncBig.data('owlCarousel').stop();
+		
+		$('.infocard-gallery .play').unbind().click(function() {
+			$(this).toggleClass('active');
+			if ($(this).hasClass('active')) {
+				syncBig.data('owlCarousel').next();
+				syncBig.data('owlCarousel').play();
+			} else {
+				syncBig.data('owlCarousel').stop();
+			}
 			return false;
-		}
+		});
 		
-		var i = $('.gallery-2 .gallery-slider li a').index($(this));
-		syncBig.trigger("owl.goTo", i);
+		$('.infocard-gallery').find('.fancybox').fancybox({nextEffect: 'fade', prevEffect: 'fade', openEffect: 'fade'});
 		
-		$('.gallery-2 .gallery-slider li').removeClass('active');
-		$(this).parent().addClass('active');
-		
-		if ($('.small-gallery').offset().top - $(this).offset().top > -150) {
-			$('.gallery-2 .nav-up').click();
-		} else {
-			$('.gallery-2 .nav-down').click();
-		}
-		return false;
-	});
-	$('.gallery-2 .nav-down').unbind().click(function() {
-		var sl = $('.gallery-2 .gallery-slider');
-		var slItem = $('.gallery-2 .gallery-slider li').eq(0);
-		
-		if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
-			isBigBusy = true;
-			sl.animate({top: '-=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
-				isBigBusy = false;
-				checkArrows();
+		$('.infocard-gallery .markplace').unbind().click(function() {
+			$('.yandex-map-popup').bPopup({
+				easing: 'easeOutBack',
+				speed:'50',
+				transition: 'slideDown',
+				amsl:0
 			});
-		}
+			return false;
+		});
 		
-		return false;
-	});
-	$('.gallery-2 .nav-up').unbind().click(function() {
-		var sl = $('.gallery-2 .gallery-slider');
-		var slItem = $('.gallery-2 .gallery-slider li').eq(0);
-		
-		if (!isBigBusy && sl.offset().top < sl.parent().offset().top) {
-			isBigBusy = true;
-			sl.animate({top: '+=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
-				isBigBusy = false;
-				checkArrows();
+		$('.infocard-gallery .threeD').unbind().click(function() {
+			$('.gallery-image-popup').bPopup({
+				easing: 'easeOutBack',
+				speed:'50',
+				transition: 'slideDown',
+				amsl:0
 			});
-		}
-		
-		return false;
-	});
-	
+			return false;
+		});
+
+		$('.gallery-2 .gallery-slider li a').unbind().click(function() {
+			if ($(this).parent().hasClass('active')) {
+				return false;
+			}
+			
+			var i = $('.gallery-2 .gallery-slider li a').index($(this));
+			syncBig.trigger("owl.goTo", i);
+			
+			$('.gallery-2 .gallery-slider li').removeClass('active');
+			$(this).parent().addClass('active');
+			
+			if ($('.small-gallery').offset().top - $(this).offset().top > -150) {
+				$('.gallery-2 .nav-up').click();
+			} else {
+				$('.gallery-2 .nav-down').click();
+			}
+			return false;
+		});
+		$('.gallery-2 .nav-down').unbind().click(function() {
+			var sl = $('.gallery-2 .gallery-slider');
+			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
+			
+			if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
+				isBigBusy = true;
+				sl.animate({top: '-=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
+					isBigBusy = false;
+					checkArrows();
+				});
+			}
+			
+			return false;
+		});
+		$('.gallery-2 .nav-up').unbind().click(function() {
+			var sl = $('.gallery-2 .gallery-slider');
+			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
+			
+			if (!isBigBusy && sl.offset().top < sl.parent().offset().top) {
+				isBigBusy = true;
+				sl.animate({top: '+=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
+					isBigBusy = false;
+					checkArrows();
+				});
+			}
+			
+			return false;
+		});
+	}
 	// **** infocard big slider END	
 }
 
@@ -1111,4 +1116,72 @@ function init(){
 		balloonContent: 'Столица России'
 	});
 	myMap2.geoObjects.add(myPlacemark2);
+}
+
+function validation() {
+    $('.form.feedback, .js-validate').unbind().on('click', '.btn-primary, button', function() {
+		// Текущая форма
+		var $form = $(this).parents('form');
+		// Удаляем старые ошибки
+		$form.find('.error-text').remove();
+		$form.find('.error').removeClass('error');
+
+		// ====== Проверяем параметры ====== //
+		var $inp = $form.find('[name=name], [name=name2]');
+		$inp.each(function() {
+			if (!($(this).val().length >= 4)) {
+				$(this).addClass('error').after('<span class="error-text">Заполните поле, минимум 4 символа</span>');
+			}
+		});
+		
+		var _email = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$');
+		var $email = $form.find('[name=email]');
+		if ($email.length && !_email.test($email.val())) {
+			$email.addClass('error').after('<span class="error-text">Это неправильный e-mail</span>');
+		}
+
+		var $pass1 = $form.find('[name=pass1]');
+		if ($pass1.length && !($pass1.val().length >= 4)) {
+			$pass1.addClass('error').after('<span class="error-text">Укажите пароль, минимум 4 символа</span>');
+		}
+
+		var $pass2 = $form.find('[name=pass2]');
+		if ($pass2.length && !(($pass1.val() == $pass2.val()) && ($pass2.val().length >= 4))) {
+			$pass2.addClass('error').after('<span class="error-text">Пароли должны совпадать</span>');
+		}
+
+		var $capcha = $form.find('[name=capcha]');
+		if ($capcha.length && !($capcha.val().length >= 4 )) {
+			$capcha.addClass('error');
+		}
+
+		var $agree = $form.find('[name=agree]');
+		if ($agree.length && !($agree.prop('checked'))) {
+			$agree.addClass('error');
+		}
+
+		// ====== Если ошибок нет отправляем форму ====== //
+		if ($form.find('.error').length == 0) {
+			var $CompWin = $('#lawyer-complete-win');
+			$CompWin.find('h4').html('Спасибо за регистрацию!');
+			$CompWin.find('.note').html('Форма заполнена верно.');
+			$CompWin.find('.small').html('Сейчас произойдет перезагрузка страницы.');
+			SEORegComplete();
+			$.popup({target: $CompWin, open: true});
+			if(window.sendform) clearTimeout(window.sendform);
+			window.sendform = setTimeout(function () {
+				$form.submit();
+			}, 1200);
+		}
+
+		return false;
+	}).on('click', '.captcha .refresh', function() {
+		var $this = $(this);
+		$.ajax({url: "/ajax/get.new.captcha.code.php"}).done(function (data) {
+			var capurl = '/bitrix/tools/captcha.php?captcha_code=';
+			$this.siblings('.im').find('img').attr("src", capurl + data);
+			$this.siblings('.im').find('[name=capcha_sid]').val(data);
+		});
+		return false;
+	});
 }

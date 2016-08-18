@@ -105,11 +105,11 @@
 							
 							<form class="js-validate">
 								<div class="fullName">
-									<input type="text" class="required minLength-5 surname" placeholder="Фамилия*">
-									<input type="text" class="required minLength-5 name" placeholder="Имя*">
+									<input type="text" name="name" class="required minLength-5 surname" placeholder="Фамилия*">
+									<input type="text" name="name2" class="required minLength-5 name" placeholder="Имя*">
 									<div class="clear"></div>
 								</div>
-								<input type="text" class="required email" placeholder="Email*">
+								<input type="text" name="email" class="required email" placeholder="Email*">
 								<div class="phoneNumb select_style">
 									<select name="prop_type" id="" class="js-chosen select_style">
 										<option>Россия(+7)</option>
@@ -120,8 +120,8 @@
 									<div class="clear"></div>
 								</div>
 								<div class="password">
-									<input type="text" name="password" class="pass required minLength-5" placeholder="Пароль*">
-									<input type="text" class="checkpass equalTo-password minLength-5" placeholder="Повторите пароль*">
+									<input type="text" name="pass1" name="password" class="pass required minLength-5" placeholder="Пароль*">
+									<input type="text" name="pass2" class="checkpass equalTo-password minLength-5" placeholder="Повторите пароль*">
 									<div class="clear"></div>
 								</div>
 								<h4>Укажите тип пользователя</h4>
