@@ -78,12 +78,12 @@ $(document).ready(function() {
 	initStations();
 	
 	$('.metro-map div.one-station').click(function() {
-		if (!$(this).hasClass('active')) {
-			$(this).addClass('active');
+		if (!$(this).parent().hasClass('active')) {
+			$(this).parent().addClass('active');
 			$('.block2-sidebar ul').append('<li>' + $(this).text() + '</li>');
 			rebindStations();
 		} else {
-			$(this).removeClass('active');
+			$(this).parent().removeClass('active');
 			$('.block2-sidebar ul li:contains("' + $(this).text() + '")').remove();
 		}
 	});
@@ -92,10 +92,10 @@ $(document).ready(function() {
 		$('.block2-sidebar ul').empty();
 		$('.metro-map div.one-station').each(function() {
 			if ($(this).data('center') == '1') {
-				$(this).addClass('active');
+				$(this).parent().addClass('active');
 				$('.block2-sidebar ul').append('<li>' + $(this).text() + '</li>');
 			} else {
-				$(this).removeClass('active');
+				$(this).parent().removeClass('active');
 				$('.block2-sidebar ul li:contains("' + $(this).text() + '")').remove();
 			}
 		});
@@ -105,10 +105,10 @@ $(document).ready(function() {
 		$('.block2-sidebar ul').empty();
 		$('.metro-map div.one-station').each(function() {
 			if ($(this).data('ring') == '1') {
-				$(this).addClass('active');
+				$(this).parent().addClass('active');
 				$('.block2-sidebar ul').append('<li>' + $(this).text() + '</li>');
 			} else {
-				$(this).removeClass('active');
+				$(this).parent().removeClass('active');
 				$('.block2-sidebar ul li:contains("' + $(this).text() + '")').remove();
 			}
 		});
@@ -118,7 +118,7 @@ $(document).ready(function() {
 	function rebindStations() {
 		$('.block2-sidebar ul li').click(function() {
 			$(this).remove();
-			$('.metro-map div.one-station:contains("' + $(this).text() + '")').removeClass('active');
+			$('.metro-map div.one-station:contains("' + $(this).text() + '")').parent().removeClass('active');
 		})
 	}
 	
@@ -884,7 +884,7 @@ function processSlider(ui, withAjax, inp, el) {
 function initStations() {
 	var stations = [
 		// в центре - на кольце - название - стиль надписи - стиль галки
-		[false, false, 'Борисово', 'left: 720px; top: 813px; width: 56px; height: 12px; background-position: -720px -813px', 'left: 707px; top: 811px; width: 15px; height: 15px; background-position: -707px -811px'],
+		[false, false, 'Борисово', 'left: 720px; top: 813px; width: 56px; height: 12px; background-position: -720px -813px', ['left: 707px; top: 811px; width: 15px; height: 15px; background-position: -707px -811px', 'left: 757px; top: 811px; width: 15px; height: 15px; background-position: -707px -811px',]],
 		[false, false, 'Шипиловская', 'left: 720px; top: 840px; width: 79px; height: 12px; background-position: -720px -840px;', 'left: 707px; top: 838px; width: 15px; height: 15px; background-position: -707px -838px;'],
 		[false, false, 'Зябликово', 'left: 720px; top: 865px; width: 62px; height: 12px; background-position: -720px -865px;', 'left: 707px; top: 863px; width: 15px; height: 15px; background-position: -707px -863px;'],
 		[false, false, 'Чертановская', 'left: 464px; top: 835px; width: 78px; height: 16px; background-position: -464px -835px;', 'left: 451px; top: 834px; width: 15px; height: 15px; background-position: -451px -834px;'],
@@ -1086,7 +1086,16 @@ function initStations() {
 			if (stations[i][1] == true) {
 				dataRing = ' data-ring="1"';
 			}
-			$('.metro-map').append('<div class="wr-station"><div' + dataCenter + dataRing + ' class="one-station" style="' + stations[i][3] + '">' + stations[i][2] + '</div><div class="one-galka" style="' + stations[i][4] + '"></div></div>');
+			var st;
+			if (typeof stations[i][4] === 'string') { 
+				st = '<div class="one-galka" style="' + stations[i][4] + '"></div>';
+			} else {
+				for (var j = 0; j < stations[i][4].length; j++) {
+					st += '<div class="one-galka" style="' + stations[i][4][j] + '"></div>';
+				}
+			}
+			
+			$('.metro-map').append('<div class="wr-station"><div' + dataCenter + dataRing + ' class="one-station" style="' + stations[i][3] + '">' + stations[i][2] + '</div>' + st + '</div>');
 		}
 	}
 
