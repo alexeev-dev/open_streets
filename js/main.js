@@ -308,6 +308,7 @@ $(document).ready(function() {
 	});
 
 	// валидация login
+	/*
 	$('.js-validate-login').feelform({
 		notificationType: 'message, border, class',
 		errorMessages: {
@@ -322,8 +323,10 @@ $(document).ready(function() {
 		borderProperty: '#00a8d3 2px solid',
 		errorClass: 'invalid'
 	});
-
+	*/
+	
 	// валидация house-sett 
+	/*
 	$('.js-validate-house-sett').feelform({
 		notificationType: 'message, border, class',
 		errorMessages: {
@@ -338,9 +341,10 @@ $(document).ready(function() {
 		borderProperty: '#FF0000 1px solid',
 		errorClass: 'invalid'
 	});
+	*/
 	
 	// в попапе popup-write_letter - форму проверить на заполненость
-	$('.js-validate-no-message').feelform();
+	//$('.js-validate-no-message').feelform();
 	
 	// календарь
 	var currentdate = new Date();
@@ -1128,7 +1132,7 @@ function init(){
 }
 
 function validation() {
-    $('.form.feedback, .js-validate').unbind().on('click', '.btn-primary, button', function() {
+    $('.form.feedback, .js-validate, .js-validate-house-sett, .js-validate-no-message').unbind().on('click', '.btn-primary, button', function() {
 		// Текущая форма
 		var $form = $(this).parents('form');
 		// Удаляем старые ошибки
@@ -1136,7 +1140,7 @@ function validation() {
 		$form.find('.error').removeClass('error');
 
 		// ====== Проверяем параметры ====== //
-		var $inp = $form.find('[name=name], [name=name2]');
+		var $inp = $form.find('[name=name], [name=name2], [name=phone], input.required, textarea.required');
 		$inp.each(function() {
 			if (!($(this).val().length >= 4)) {
 				$(this).addClass('error').after('<span class="error-text">Заполните поле, минимум 4 символа</span>');
