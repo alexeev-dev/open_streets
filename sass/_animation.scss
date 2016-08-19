@@ -9,8 +9,9 @@
 	}
 }
 .js-validate-house-sett {
-	input.invalid {
+	input.error {
 		@include animation(invalid-input2 2s);
+		border-color: #fe0101;
 	}
 }
 
