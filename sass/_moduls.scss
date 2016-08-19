@@ -2258,14 +2258,24 @@ hr.devider {
 	// OPTION
 	.house-sett-option {
 
+		.error-text {
+			color: #fe0101; font-family: $FSP-LightItalic; font-size: 11px; text-align: left;
+			position: absolute; left: 17px; top: 40px;
+		}
+
 		.block-type-1 {
 			h4 {width: 170px; float: left;}
-			& > input {width: 500px; float: right;}
+			.wr-input {
+				width: 500px; float: right; position: relative;
+				input {width: 100%;}
+			}
 		}
 		.block-type-2 {
 			h4 {width: 170px; float: left;}
-			& > input {
-				width: 158px; float: right;
+			.wr-input {
+				width: 158px; float: right; position: relative;
+
+				input {width: 100%;}
 
 				@include respond-to(md) {width: 140px;}
 			}
@@ -2288,26 +2298,37 @@ hr.devider {
 		}
 
 		table {
+			border-collapse: separate; border-spacing: 0 15px;
+
 			tr {
 				td {
-					text-align: right;
+					text-align: right; position: relative; padding-bottom: 17px;
 
 					&:first-child {
 						color: #434648; font-family: $FSP-Normal; font-size: 15px;
-						width: 170px;
+						width: 170px; padding-right: 25px;
 						opacity: 0.65;
 
-						@include respond-to(sm) {width: 50%; text-align: left;}
+						@include respond-to(md) {padding-right: 43px; width: auto;}
+						@include respond-to(sm) {width: 24.5%; text-align: left; padding-right: 25px;}
+						@include respond-to(xs) {width: 50%;}
+					}
+
+					&:last-child {
+						input {
+							@include respond-to(md) {width: 100%;}
+						}
+						@include respond-to(md) {width: 140px;}
 					}
 				}
 			}
 
-			@include respond-to(xs) {width: 100%;}
+			@include respond-to(sm) {width: 100%;}
 		}
 
 		.address {
 			margin-bottom: 45px;
-			input {
+			.wr-input {
 				@include respond-to(lg) {width: 528px;}
 				@include respond-to(md) {width: 455px;}
 				@include respond-to(sm) {width: 100%;}
@@ -2318,17 +2339,6 @@ hr.devider {
 			margin-bottom: 28px;
 
 			h4 {line-height: 15px; margin-bottom: 5px;}
-
-			table {
-				border-collapse: separate; border-spacing: 0 15px;
-				tr {
-					td {
-						&:first-child {
-							padding-right: 25px;
-						}
-					}
-				}
-			}
 		}
 
 		.ceiling-height {
@@ -2336,17 +2346,6 @@ hr.devider {
 
 			h4 {
 				line-height: 15px; margin-bottom: 21px;
-			}
-
-			table {
-				border-collapse: separate; border-spacing: 0 15px;
-				tr {
-					td {
-						&:first-child {
-							padding-right: 25px;
-						}
-					}
-				}
 			}
 
 		}
@@ -2358,15 +2357,10 @@ hr.devider {
 				tr {
 					td {
 						&:first-child {
-							opacity: 1; padding-right: 25px; 
-
-							@include respond-to(sm) {width: 24.5%;}
-							@include respond-to(xs) {width: 50%;}
+							opacity: 1;
 						}
 					}
 				}
-
-				@include respond-to(sm) {width: 100%;}
 			}
 
 		}
@@ -2423,7 +2417,7 @@ hr.devider {
 				@include respond-to(sm) {width: 100%;}
 			}
 
-			input {
+			.wr-input {
 				@include respond-to(lg) {width: 528px;}
 				@include respond-to(md) {width: 455px;}
 				@include respond-to(sm) {width: 100%;}
@@ -2437,7 +2431,7 @@ hr.devider {
 				@include respond-to(sm) {width: 100%;}
 			}
 
-			input {
+			.wr-input {
 				@include respond-to(sm) {width: 100%;}
 			}
 
@@ -2451,7 +2445,7 @@ hr.devider {
 				@include respond-to(sm) {width: 100%;}
 			}
 
-			input {
+			.wr-input {
 				@include respond-to(sm) {width: 100%;}
 			}
 
