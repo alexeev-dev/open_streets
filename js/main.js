@@ -3,6 +3,23 @@ $('.js-chosen').chosen({
 });
 	
 $(document).ready(function() {
+	// cabinet
+	$('.deleteItems').click(function() {
+		$(this).parents('.cabinet-hidden_items').remove();
+		return false;
+	});
+	
+	$('.cabinet-brand_info a').click(function() {
+		$('.cabinet-brand_info input').removeClass('active');
+		$(this).siblings('input').addClass('active');
+		
+		$('.cabinet-brand_info .icons-cabinet-sidebar-pencil-active').attr('class', 'icons-cabinet-sidebar-pencil-inactive');
+		$(this).find('i').attr('class', 'icons-cabinet-sidebar-pencil-active');
+		
+		return false;
+	});
+	
+	
 	// ************ map tabs in popup
 	// карта
 	$('.popup-map #map-tab1').click(function() {
@@ -431,6 +448,13 @@ $(document).ready(function() {
 				inp.val(ui.value);
 				el.find('.double-val1').text('от ' + ui.values[0]).append(' м<em>2</em>');
 				el.find('.double-val2').text('до ' + ui.values[1]).append(' м<em>2</em>');
+				
+				var d = el.find('.double-val1').offset().left - el.find('.double-val2').offset().left;
+				if (d < -90) {
+					el.find('.double-val2').removeClass('shifted');
+				} else {
+					el.find('.double-val2').addClass('shifted');
+				}
 			}		
 		});
 		el.find('.ui-slider-handle').eq(0).append('<span class="double-val1">от 0 м<em>2</em></span>');
