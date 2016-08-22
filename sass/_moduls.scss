@@ -388,16 +388,16 @@ hr.devider {
 	}
 	.double-val1, .double-val2 {
 		color: #79b8d9; font-family: $FSP-Normal; font-size: 15px; text-align: center;
-		width: 86px;position: absolute; top: 20px; left: 50%; @include transform(translateX(-50%));
+		width: 86px;position: absolute; top: 22px; left: 50%; @include transform(translateX(-50%));
 
 		&:before {
 			content: '';
-			display: block; width: 6px; height: 6px; position: absolute; top: -8px; left: 50%; @include transform(translateX(-50%) rotate(-45deg));
+			display: block; width: 6px; height: 6px; position: absolute; top: -10px; left: 50%; @include transform(translateX(-50%) rotate(-45deg));
 			background: #4aa6d0;
 		}
 		&:after {
 			content: '';
-			display: block; width: 9px; height: 8px; position: absolute; top: -5px; left: 50%; @include transform(translateX(-50%));
+			display: block; width: 9px; height: 8px; position: absolute; top: -7px; left: 50%; @include transform(translateX(-50%));
 			background: #4aa6d0;
 		}
 		
@@ -408,10 +408,11 @@ hr.devider {
 		}
 	}
 	.double-val2 {
-		top:35px;
-
-		&:before {top: -23px;}
-		&:after {top: -20px;}
+		&.shifted {
+			top:35px;
+			&:before {top: -23px;}
+			&:after {top: -20px;}
+		}
 	}
 }
 
@@ -2995,9 +2996,16 @@ a.mouse {
 	width: 649px; padding: 50px 20px 71px 45px;z-index: 10001 !important;
 	background-color: #f7f7f7;
 
+	@include respond-to(sm) {width: 90%; padding: 50px 45px 71px 45px;}
+	@include respond-to(xs) {padding: 40px 15px 55px 15px;}
+
 	h2 {
 		color: #434648; font-family: $FSP-Normal; font-size: 15px; letter-spacing: -0.35px;
 		margin-bottom: 15px;
+
+		@include respond-to(xs) {
+			font-size: 12px;
+		}
 	}
 
 	.room-type {
@@ -3010,6 +3018,8 @@ a.mouse {
 			display: inline-block; height: 37px; padding-left: 7px; padding-right: 7px; min-width: 109px;
 			background-color: #ffffff; border:solid 1px #ffffff; @include border-radius(3px);
 			cursor: pointer;
+
+			@include respond-to(sm) {display: block; margin-bottom: 5px;}
 		}
 
 		input:checked + label {
@@ -3028,6 +3038,8 @@ a.mouse {
 			background-color: #ffffff; border:solid 1px #ffffff; @include border-radius(3px);
 			cursor: pointer;
 
+			@include respond-to(sm) {width: 100%; display: block; margin-bottom: 5px;}
+
 			span {
 				font-size: 11px;
 				position: relative; top:-5px;
@@ -3037,6 +3049,25 @@ a.mouse {
 		input:checked + label {
 			color: #ffffff;
 			background-color: #00a8d3; border-color: #00a8d3;
+		}
+
+		.double-range {
+			@include respond-to(sm) {
+				width: 100%; margin-top: 40px;
+			}
+			@include respond-to(xs) {width: 77%; display: block; margin: 30px auto 80px; height: 10px;}
+
+			.ui-slider-range {
+				@include respond-to(xs) {height: 10px;}
+			}
+
+			.ui-slider-handle {
+				width: 15px; height: 15px;
+			}
+
+			.double-val1, .double-val2 {
+				@include respond-to(xs) {top: 27px;}
+			}
 		}
 	}
 
@@ -3050,6 +3081,10 @@ a.mouse {
 			display: inline-block; height: 37px; padding-left: 20px; padding-right: 20px; min-width:143px;
 			background-color: #ffffff; border:solid 1px #ffffff; @include border-radius(3px);
 			cursor: pointer;
+
+			@include respond-to(sm) {
+				width: 100%; display: block; margin-bottom: 5px;
+			}
 		}
 
 		input:checked + label {
@@ -3076,6 +3111,32 @@ a.mouse {
 
 				&:nth-child(even) {float: left;}
 				&:nth-child(odd) {float: right;}
+
+				&:nth-child(even), &:nth-child(odd) {
+					@include respond-to(sm) {
+						float: none;
+					}
+				}
+
+				@include respond-to(sm) {
+					width: 100%;
+				}
+			}
+
+			.progressbar {
+				@include respond-to(xs) {height: 10px;}
+
+				.progBar {
+					@include respond-to(xs) {height: 10px;}
+
+					.progVal {
+						@include respond-to(xs) {height: 10px;}
+					}
+				}
+
+				.ui-corner-all {
+					@include respond-to(xs) {height: 18px; width: 18px;}
+				}
 			}
 		}
 	}
@@ -3090,14 +3151,28 @@ a.mouse {
 			li {
 				display: inline-block; width: 48%;
 
+				@include respond-to(sm) {
+					width: 100%; display: block;
+				}
+
 				&:nth-child(odd) {
 					float: left;
 				}
 				&:nth-child(even) {
 					float: right;
 				}
+
+				&:nth-child(even), &:nth-child(odd) {
+					@include respond-to(sm) {
+						float: none;
+					}
+				}
 			}
 		}
+	}
+
+	.close-popup {
+		position: absolute; top: 20px; right: 30px;
 	}
 
 	display: none;
@@ -3317,7 +3392,9 @@ a.mouse {
 				.metro-map {
 					position: relative; width:900px; height:961px; left:126px; top:460px;
 
-					.one-station, .one-galka {position: absolute; opacity: 0;}
+					.wr-station {opacity: 0;}
+
+					.one-station, .one-galka {position: absolute;}
 
 					.one-station {
 						background-image: url(../img/metro_t.png);
@@ -3329,8 +3406,6 @@ a.mouse {
 						background-position: 0 0 !important;
 					}
 					.active {opacity: 1;}
-
-					.active + div {opacity: 1;}
 					
 					img {
 						position: absolute; top:0; left: 0;
