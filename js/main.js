@@ -1114,7 +1114,7 @@ function initStations() {
 			if (stations[i][1] == true) {
 				dataRing = ' data-ring="1"';
 			}
-			var = st;
+			var st = "";
 			if (typeof stations[i][4] === 'string') { 
 				st = '<div class="one-galka" style="' + stations[i][4] + '"></div>';
 			} else {
