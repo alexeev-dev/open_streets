@@ -156,14 +156,8 @@ $(document).ready(function() {
 	});
 	
 	//
-	$(".carousel").owlCarousel({
-		loop: true,
-		items: 6,
-		itemsDesktop: 6,
-		itemsDesktopSmall: 4,
-		itemsTablet: 2,
-		itemsTabletSmall: 2,
-		itemsMobile: 1,
+	$(".js-carousel").owlCarousel({
+		loop: true
 	});
 	
 	// 1. Дизайн селекта
