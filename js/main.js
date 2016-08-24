@@ -155,14 +155,8 @@ $(document).ready(function() {
 	});
 	
 	//
-	$(".carousel").owlCarousel({
-		loop: true,
-		items: 6,
-		itemsDesktop: 6,
-		itemsDesktopSmall: 4,
-		itemsTablet: 2,
-		itemsTabletSmall: 2,
-		itemsMobile: 1,
+	$(".js-carousel").owlCarousel({
+		loop: true
 	});
 	
 	// 1. Дизайн селекта
@@ -1118,7 +1112,7 @@ function initStations() {
 			if (stations[i][1] == true) {
 				dataRing = ' data-ring="1"';
 			}
-			var st;
+			var st = "";
 			if (typeof stations[i][4] === 'string') { 
 				st = '<div class="one-galka" style="' + stations[i][4] + '"></div>';
 			} else {
