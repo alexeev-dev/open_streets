@@ -19,7 +19,6 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	
 	// ************ map tabs in popup
 	// карта
 	$('.popup-map #map-tab1').click(function() {
@@ -235,6 +234,11 @@ $(document).ready(function() {
 			}
 		});
 		return false;
+	});
+
+	// Вызов попапа с видео
+	$('.js-video-popup-button').click(function() {
+		$('.item-video-popup').bPopup();
 	});
 	
 	// fake ajax
