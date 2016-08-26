@@ -1,30 +1,30 @@
 $('.js-chosen').chosen({
 	disable_search_threshold: 10
 });
-	
+
 $(document).ready(function() {
 	// cabinet
 	$('.deleteItems').click(function() {
 		$(this).parents('.cabinet-hidden_items').remove();
 		return false;
 	});
-	
+
 	$('.cabinet-brand_info a').click(function() {
 		$('.cabinet-brand_info input').removeClass('active');
 		$(this).siblings('input').addClass('active');
-		
+
 		$('.cabinet-brand_info .icons-cabinet-sidebar-pencil-active').attr('class', 'icons-cabinet-sidebar-pencil-inactive');
 		$(this).find('i').attr('class', 'icons-cabinet-sidebar-pencil-active');
-		
+
 		return false;
 	});
-	
+
 	// ************ map tabs in popup
 	// карта
 	$('.popup-map #map-tab1').click(function() {
 		$('.block1, .block2, .block3').removeClass('active');
 		$('.block1').addClass('active');
-		
+
 		if (map !== undefined) {
 			console.log(map);
 			map.invalidateSize();
@@ -38,10 +38,10 @@ $(document).ready(function() {
 		$('.block1, .block2, .block3').removeClass('active');
 		$('.block3').addClass('active');
 	});
-	
+
 	$('.popup-map .submit').click(function() {
 		var coordsToSend = [];
-		
+
 		if (map !== undefined) {
 			for (var property in map._layers) {
 				if (map._layers.hasOwnProperty(property)) {
@@ -53,34 +53,34 @@ $(document).ready(function() {
 				}
 			}
 		}
-		
+
 		//////// send ajax or smthn
 		console.log(coordsToSend);
-		
+
 		$('.popup-map').bPopup().close();
 		return false;
 	});
-	
+
 	// районы
 	$('.microdistrict ul li a').click(function() {
 		if (!$(this).hasClass('active')) {
 			$(this).addClass('active')
-			
+
 			var title = $(this).parents('.districts').children('span').text();
 			var titleEl = $('.selectedDistrict h4:contains("' + title + '")');
-			
+
 			if (titleEl.length == 0) {
 				$('.selectedDistrict').append('<div><h4>' + title + '</h4><ul></ul>');
 				titleEl = $('.selectedDistrict h4:contains("' + title + '")');
 			}
-			
+
 			titleEl.siblings('ul').append('<li><a href="#"><i class="icons-map-delete-district-2"></i></a>' + $(this).text() + '</li>');
 		} else {
 			$(this).removeClass('active')
-			
+
 			var thisTitle = $(this).text();
 			$('.selectedDistrict ul li:contains("' + thisTitle + '")').remove();
-			
+
 			$('.selectedDistrict ul').each(function() {
 				if ($(this).find('li').length == 0) {
 					$(this).parent().remove();
@@ -89,10 +89,10 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// метро
 	initStations();
-	
+
 	$('.metro-map div.one-station').click(function() {
 		if (!$(this).parent().hasClass('active')) {
 			$(this).parent().addClass('active');
@@ -103,7 +103,7 @@ $(document).ready(function() {
 			$('.block2-sidebar ul li:contains("' + $(this).text() + '")').remove();
 		}
 	});
-	
+
 	$('.radio-block label').eq(0).click(function() {
 		$('.block2-sidebar ul').empty();
 		$('.metro-map div.one-station').each(function() {
@@ -130,20 +130,20 @@ $(document).ready(function() {
 		});
 		rebindStations();
 	});
-	
+
 	function rebindStations() {
 		$('.block2-sidebar ul li').click(function() {
 			$(this).remove();
 			$('.metro-map div.one-station:contains("' + $(this).text() + '")').parent().removeClass('active');
 		})
 	}
-	
+
 	$('.draggable').draggable({
 		containment: "parent"
 	});
-	
+
 	// ******* map tabs END
-	
+
 	// главная - табы в слайдере
 	$('.slider .button-slider').click(function() {
 		$('.slider').addClass('animated bounceOutLeft').css('position','absolute');
@@ -153,17 +153,17 @@ $(document).ready(function() {
 		$('.slider2 .js-chosen').trigger('chosen:updated');
 		return false;
 	});
-	
+
 	//
 	$(".js-carousel").owlCarousel({
 		loop: true
 	});
-	
+
 	// 1. Дизайн селекта
 	//$('.js-chosen').chosen({
 //		disable_search_threshold: 10
 //	});
-	
+
 	// 2.  При клике меняется направление сктрелочки вверх-вниз
 	$('.js-sort a').click(function() {
 		if ($(this).hasClass('active')) {
@@ -174,7 +174,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// 4. Сделать чтобы при клике на раздел - он становился активным
 	$('.js-search a').click(function() {
 		if ($(this).hasClass('active')) {
@@ -185,22 +185,22 @@ $(document).ready(function() {
 			$(this).addClass('active');
 			$('.offer_type').val($(this).text());
 		}
-		
+
 		doAjaxSearch();
-		
+
 		return false;
 	});
-	
+
 	// 5. Сделать возможность выбора звездочек
 	$('.js-stars li').click(function() {
 		$('.js-stars li i').css('color', '#cdcfcf');
 		var el = $(this).prevAll().add($(this));
 		el.find('i').css('color', '#f5984b');
 		$('.js-stars-count').text(el.length + '/10');
-		
+
 		doAjaxSearch();
 	});
-	
+
 	// 6. Сделать возможность листание слайдеров
 	$('.js-slider-range').each(function() {
 		var el = $(this);
@@ -214,14 +214,14 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	// 7. Сделать выпадающий блок по клику
 	$('.js-show-popup1').click(function() {
 		$('.popup1').toggle();
 		return false;
 	});
 
-	// 8. 
+	// 8.
 	$('.js-show-map-popup').click(function() {
 		$('.popup-map').bPopup({
 			easing: 'easeOutBack',
@@ -236,23 +236,18 @@ $(document).ready(function() {
 		return false;
 	});
 
-	// Вызов попапа с видео
-	$('.js-video-popup-button').click(function() {
-		$('.item-video-popup').bPopup();
-	});
-	
 	// fake ajax
 	fakeAjaxResult = $('.search_result-item').eq(0).clone();
 	fakeAjaxPagination = $('.result_body-paginator').clone();
 	fakeAjaxInfocardItem = $('.infocard-item').clone();
-	fakeAjaxInfocardInfo = $('.infocard-info').clone();	
-	
+	fakeAjaxInfocardInfo = $('.infocard-info').clone();
+
 	$('.js-ajax-form input, .js-ajax-form select').change(function() {
 		doAjaxSearch();
 	});
-	
-	// 
-	bindInfocard();	
+
+	//
+	bindInfocard();
 
 	/*
 	$('.infocard-header a').click(function() {
@@ -281,7 +276,7 @@ $(document).ready(function() {
 		return false;
 	});
 	*/
-	
+
 	// валидация регистрации
 	/*
 	$('.js-validate').feelform({
@@ -306,7 +301,7 @@ $(document).ready(function() {
 	});
 	*/
 	validation();
-	
+
 	// попап логина
 	$('.js-login').click(function() {
 		$('.popup-logIn').bPopup({
@@ -339,8 +334,8 @@ $(document).ready(function() {
 		errorClass: 'invalid'
 	});
 	*/
-	
-	// валидация house-sett 
+
+	// валидация house-sett
 	/*
 	$('.js-validate-house-sett').feelform({
 		notificationType: 'message, border, class',
@@ -357,10 +352,10 @@ $(document).ready(function() {
 		errorClass: 'invalid'
 	});
 	*/
-	
+
 	// в попапе popup-write_letter - форму проверить на заполненость
 	//$('.js-validate-no-message').feelform();
-	
+
 	// календарь
 	var currentdate = new Date();
 	$('.js-book-table td').eq(0).text(currentdate.getHours() + ":" + currentdate.getMinutes());
@@ -369,10 +364,10 @@ $(document).ready(function() {
 			var i = $(this).index();
 			$('.js-book-table td.active').removeClass('active');
 			$(this).addClass('active');
-			
+
 			$('.js-days-wrapper span').removeClass('active');
 			$('.js-days-wrapper span').eq(i).addClass('active');
-			
+
 			var dayStr = '';
 			if (i == 0) {
 				dayStr = 'сегодня';
@@ -383,7 +378,7 @@ $(document).ready(function() {
 			} else {
 				dayStr = 'через день';
 			}
-			
+
 			$('.js-book-button span').text($(this).text() + ', ' + dayStr);
 		}
 	});
@@ -405,7 +400,7 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	
+
 	// ******* настроить уведомления - попап
 	$('.js-subscribe').click(function() {
 		$('.popup-subscribe').bPopup({
@@ -431,7 +426,7 @@ $(document).ready(function() {
 			},
 			change: function(ev, ui) {
 				processSlider(ui, false, inp, el);
-			}		
+			}
 		});
 	});
 	$('.js-double-slider-range').each(function() {
@@ -446,14 +441,14 @@ $(document).ready(function() {
 				inp.val(ui.value);
 				el.find('.double-val1').text('от ' + ui.values[0]).append(' м<em>2</em>');
 				el.find('.double-val2').text('до ' + ui.values[1]).append(' м<em>2</em>');
-				
+
 				var d = el.find('.double-val1').offset().left - el.find('.double-val2').offset().left;
 				if (d < -90) {
 					el.find('.double-val2').removeClass('shifted');
 				} else {
 					el.find('.double-val2').addClass('shifted');
 				}
-			}		
+			}
 		});
 		el.find('.ui-slider-handle').eq(0).append('<span class="double-val1">от 0 м<em>2</em></span>');
 		el.find('.ui-slider-handle').eq(1).append('<span class="double-val2">до 2000 м<em>2</em></span>');
@@ -465,7 +460,7 @@ $(document).ready(function() {
 			$('.double-val2').text('до ' + $(this).data('maxval')).append(' м<em>2</em>');
 		}
 	});
-	
+
 	$('#search-res1').click(function() {
 		if ($(this).prop('checked')) {
 			$('#search-res2, #search-res3, #search-res4').prop('checked', false);
@@ -484,7 +479,7 @@ function bindCarousels() {
 		var curEl = $(this);
 		var sync1 = $(this).find('.gallery-slider');
 		var sync2 = $(this).find('.owl-inner2');
-		
+
 		// 1
 		sync1.owlCarousel({
 			loop: true,
@@ -495,10 +490,10 @@ function bindCarousels() {
 			itemsTabletSmall: 1,
 			itemsMobile: 1,
 			afterAction: syncPosition,
-			autoPlay: true			
+			autoPlay: true
 		});
 		sync1.data('owlCarousel').stop();
-		
+
 		$(this).find('.play').unbind().click(function() {
 			$(this).toggleClass('active');
 			if ($(this).hasClass('active')) {
@@ -509,7 +504,7 @@ function bindCarousels() {
 			}
 			return false;
 		});
-		
+
 		$(this).find('.fancybox').fancybox({nextEffect: 'fade', prevEffect: 'fade', openEffect: 'fade'});
 
 		$(this).find('.markplace').unbind().click(function() {
@@ -521,7 +516,7 @@ function bindCarousels() {
 			});
 			return false;
 		});
-		
+
 		$(this).find('.threeD').unbind().click(function() {
 			$('.gallery-image-popup').bPopup({
 				easing: 'easeOutBack',
@@ -531,7 +526,7 @@ function bindCarousels() {
 			});
 			return false;
 		});
-	
+
 		$(this).find('.nav-left').unbind().click(function() {
 			sync1.trigger('owl.prev');
 			return false;
@@ -540,7 +535,7 @@ function bindCarousels() {
 			sync1.trigger('owl.next');
 			return false;
 		});
-		
+
 		function syncPosition(el) {
 			if (this.owl.currentItem == 0) {
 				curEl.find('.nav-left').addClass('last-active');
@@ -552,7 +547,7 @@ function bindCarousels() {
 			} else {
 				curEl.find('.nav-right').removeClass('last-active');
 			}
-			
+
 			var current = this.currentItem;
 			sync2.find(".owl-item").removeClass("synced").eq(current).addClass("synced");
 			sync2.find(".owl-item > div").removeClass('active');
@@ -586,7 +581,7 @@ function bindCarousels() {
 				sync2.trigger("owl.goTo", num-1);
 			}
 		}
-		
+
 		// 2
 		sync2.owlCarousel({
 			loop: true,
@@ -601,14 +596,14 @@ function bindCarousels() {
 				el.find(".owl-item > div").eq(0).addClass("active");
 			}
 		});
-		
+
 		sync2.on("click", ".owl-item", function(e) {
 			var number = $(this).data("owlItem");
 			sync1.trigger("owl.goTo", number);
 			return false;
 		});
 	});
-	
+
 	// **** infocard big slider
 	var isBigBusy = false;
 	var syncBig = $('.owl-big2');
@@ -624,7 +619,7 @@ function bindCarousels() {
 			}
 		});
 		syncBig.data('owlCarousel').stop();
-		
+
 		$('.infocard-gallery .play').unbind().click(function() {
 			$(this).toggleClass('active');
 			if ($(this).hasClass('active')) {
@@ -635,9 +630,9 @@ function bindCarousels() {
 			}
 			return false;
 		});
-		
+
 		$('.infocard-gallery').find('.fancybox').fancybox({nextEffect: 'fade', prevEffect: 'fade', openEffect: 'fade'});
-		
+
 		$('.infocard-gallery .markplace').unbind().click(function() {
 			$('.yandex-map-popup').bPopup({
 				easing: 'easeOutBack',
@@ -647,7 +642,7 @@ function bindCarousels() {
 			});
 			return false;
 		});
-		
+
 		$('.infocard-gallery .threeD').unbind().click(function() {
 			$('.gallery-image-popup').bPopup({
 				easing: 'easeOutBack',
@@ -662,13 +657,13 @@ function bindCarousels() {
 			if ($(this).parent().hasClass('active')) {
 				return false;
 			}
-			
+
 			var i = $('.gallery-2 .gallery-slider li a').index($(this));
 			syncBig.trigger("owl.goTo", i);
-			
+
 			$('.gallery-2 .gallery-slider li').removeClass('active');
 			$(this).parent().addClass('active');
-			
+
 			if ($('.small-gallery').offset().top - $(this).offset().top > -150) {
 				$('.gallery-2 .nav-up').click();
 			} else {
@@ -679,7 +674,7 @@ function bindCarousels() {
 		$('.gallery-2 .nav-down').unbind().click(function() {
 			var sl = $('.gallery-2 .gallery-slider');
 			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
-			
+
 			if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
 				isBigBusy = true;
 				sl.animate({top: '-=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
@@ -687,13 +682,13 @@ function bindCarousels() {
 					checkArrows();
 				});
 			}
-			
+
 			return false;
 		});
 		$('.gallery-2 .nav-up').unbind().click(function() {
 			var sl = $('.gallery-2 .gallery-slider');
 			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
-			
+
 			if (!isBigBusy && sl.offset().top < sl.parent().offset().top) {
 				isBigBusy = true;
 				sl.animate({top: '+=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
@@ -701,11 +696,16 @@ function bindCarousels() {
 					checkArrows();
 				});
 			}
-			
+
 			return false;
 		});
 	}
-	// **** infocard big slider END	
+	// **** infocard big slider END
+
+	// Вызов попапа с видео
+	$('.js-video-popup-button').click(function() {
+		$('.item-video-popup').bPopup();
+	});
 }
 
 function checkArrows() {
@@ -727,19 +727,19 @@ var th;
 function doAjaxSearch() {
 	$('.infocard-body').removeClass('animated bounceInLeft').hide();
 	$('.js-result-wrapper-infocard').removeClass('animated bounceInLeft');
-	
+
 	$('.search_result-body').removeClass('animated bounceOutLeft').show();
 	$('.js-result-wrapper').empty().append('<div class="ajax-preloader"><p>&nbsp;</p><p>&nbsp;</p></div>').show();
-	
+
 	clearTimeout(th);
 	th = setTimeout(function() {
 		var data = $('.js-ajax-form').serialize();
 		console.log(data);
-		
+
 		// fake ajax
 		$('.js-result-wrapper').empty().append(fakeAjaxResult.clone()).append(fakeAjaxResult.clone()).append(fakeAjaxPagination);
 		$('.js-result-wrapper .search_result-item').addClass('animated fadeInUp');
-		
+
 		bindInfocard();
 	}, 2000);
 }
@@ -747,30 +747,30 @@ function doAjaxSearch() {
 var isAjaxBusy = false;
 function bindInfocard() {
 	bindCarousels();
-	
+
 	$('.js-delete').unbind().click(function() {
 		$(this).parents('.search_result-item').remove();
 		return false;
 	});
-	
+
 	// infocard binds
 	$('.js-result-wrapper .search_result-item .result_item-header h3').unbind().click(function() {
 		if (!isAjaxBusy) {
 			isAjaxBusy = true;
-			
+
 			$('.search_result-body').removeClass('fadeInRight').addClass('animated fadeOutLeft');
 			setTimeout(function() {
 				$('.search_result-body').removeClass('fadeOutLeft').hide();
 				$('.infocard-body').show();
 				$('.infocard-body').removeClass('fadeOutLeft').addClass('animated fadeInRight');
 				bindInfocard();
-				
+
 				isAjaxBusy = false;
 			}, 800);
 		}
 		return false;
 	});
-	
+
 	$('.infocard-body .closeInfo').unbind().click(function() {
 		$('.infocard-body').removeClass('fadeInRight').addClass('fadeOutLeft');
 		setTimeout(function() {
@@ -780,58 +780,58 @@ function bindInfocard() {
 		}, 800);
 		return false;
 	});
-	
+
 	$('.infocard-header .prev').unbind().click(function() {
 		// fake ajax
 		var el = $(this);
 		var prevNum = el.find('span').text();
 		var nextNum = el.siblings('.next').find('span').text();
-		
+
 		if (!isAjaxBusy && prevNum > 0) {
 			isAjaxBusy = true;
-			
+
 			$('.js-result-wrapper-infocard').removeClass('animated fadeInRight fadeInLeft').addClass('animated fadeOutRight');
 			setTimeout(function() {
 				$('.js-result-wrapper-infocard').empty();
 				$('.infocard-header').after('<div class="ajax-preloader"><p>&nbsp;</p><p>&nbsp;</p></div>')
 				$('.ajax-preloader').show();
-				
+
 				prevNum--;
 				nextNum++;
-				
+
 				// тут должен быть реальный ajax
 				// .......
-				// 
-				
+				//
+
 				// результаты якобы приходят через 2с
 				setTimeout(function() {
 					$('.ajax-preloader').remove();
 					$('.js-result-wrapper-infocard').empty().append(fakeAjaxInfocardItem.clone()).append(fakeAjaxInfocardInfo.clone());
-					
+
 					// это удалить, т.к. новые номера придут уже с сервера и их не надо менять скриптом
 					$('.infocard-header .prev span').text(prevNum);
 					$('.infocard-header .next span').text(nextNum);
 					// -----------
-					
+
 					$('.js-result-wrapper-infocard').removeClass('animated fadeOutRight').addClass('animated fadeInLeft');
 					bindInfocard();
-					
+
 					isAjaxBusy = false;
 				}, 2000);
 			}, 800);
 		}
 		return false;
 	});
-	
+
 	$('.infocard-header .next').unbind().click(function() {
 		// fake ajax
 		var el = $(this);
 		var nextNum = el.find('span').text();
 		var prevNum = el.siblings('.prev').find('span').text();
-		
+
 		if (!isAjaxBusy && nextNum > 0) {
 			isAjaxBusy = true;
-			
+
 			$('.js-result-wrapper-infocard').removeClass('animated fadeInLeft fadeInRight').addClass('animated fadeOutLeft');
 			setTimeout(function() {
 				$('.js-result-wrapper-infocard').empty()
@@ -840,55 +840,55 @@ function bindInfocard() {
 
 				prevNum++;
 				nextNum--;
-				
+
 				// тут должен быть реальный ajax
 				// .......
-				// 
-				
+				//
+
 				// результаты якобы приходят через 2с
 				setTimeout(function() {
 					$('.ajax-preloader').remove();
 					$('.js-result-wrapper-infocard').empty().append(fakeAjaxInfocardItem.clone()).append(fakeAjaxInfocardInfo.clone());
-					
+
 					// это удалить, т.к. новые номера придут уже с сервера и их не надо менять скриптом
 					$('.infocard-header .prev span').text(prevNum);
 					$('.infocard-header .next span').text(nextNum);
 					// -----------
-					
+
 					$('.js-result-wrapper-infocard').removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
 					bindInfocard();
-					
+
 					isAjaxBusy = false;
 				}, 2000);
 			}, 800);
 		}
 		return false;
 	});
-	
+
 	$('.js-show-popup-write').unbind().click(function() {
 		console.log('write');
 
 		$('.popup-write_letter').toggle();
 		return false;
 	});
-	
+
 	$('.js-show-popup-choosetime').unbind().click(function() {
 		console.log('choose time');
-		
+
 		$('.popup-choose_time1').toggle();
 		return false;
 	});
-	
+
 	console.log('binds');
 	// ***** END infocard binds
 }
 
 function processSlider(ui, withAjax, inp, el) {
 	inp.val(ui.value);
-	
+
 	var tmp = el.find('.ui-slider-handle').attr('style').split(':');
 	var percent = parseInt(tmp[1]);
-	
+
 	var ps;
 	if (percent < 30) {
 		ps = 'w-30';
@@ -898,10 +898,10 @@ function processSlider(ui, withAjax, inp, el) {
 		ps = 'w-100';
 	}
 	el.find('.progVal').removeClass('w-30 w-60 w-100').addClass(ps).attr('style', 'width:' + tmp[1]);
-	
+
 	el.parents('.search_parambar').find('.wr-sliderParam').removeClass('active');
 	el.parents('.wr-sliderParam').addClass('active');
-	
+
 	if (withAjax) {
 		doAjaxSearch();
 	}
@@ -1113,44 +1113,49 @@ function initStations() {
 				dataRing = ' data-ring="1"';
 			}
 			var st = "";
-			if (typeof stations[i][4] === 'string') { 
+			if (typeof stations[i][4] === 'string') {
 				st = '<div class="one-galka" style="' + stations[i][4] + '"></div>';
 			} else {
 				for (var j = 0; j < stations[i][4].length; j++) {
 					st += '<div class="one-galka" style="' + stations[i][4][j] + '"></div>';
 				}
 			}
-			
+
 			$('.metro-map').append('<div class="wr-station"><div' + dataCenter + dataRing + ' class="one-station" style="' + stations[i][3] + '">' + stations[i][2] + '</div>' + st + '</div>');
 		}
 	}
 
 // yandex карта
 ymaps.ready(init);
-var myMap, myMap2, 
+
+var myMap, myMap2,
 	myPlacemark, myPlacemark2;
 
-function init(){ 
-	myMap = new ymaps.Map("yandex-map", {
-		center: [55.76, 37.64],
-		zoom: 10
-	}); 
-	myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-		hintContent: 'Москва!',
-		balloonContent: 'Столица России'
-	});
-	myMap.geoObjects.add(myPlacemark);
-	
-	//
-	myMap2 = new ymaps.Map("yandex-map2", {
-		center: [55.76, 37.64],
-		zoom: 10
-	}); 
-	myPlacemark2 = new ymaps.Placemark([55.76, 37.64], {
-		hintContent: 'Москва!',
-		balloonContent: 'Столица России'
-	});
-	myMap2.geoObjects.add(myPlacemark2);
+function init(){
+	if ($("#yandex-map").length > 0) {
+		myMap = new ymaps.Map("yandex-map", {
+			center: [55.76, 37.64],
+			zoom: 10
+		});
+		myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+			hintContent: 'Москва!',
+			balloonContent: 'Столица России'
+		});
+		myMap.geoObjects.add(myPlacemark);
+	}
+
+	if ($("#yandex-map2").length > 0) {
+		myMap2 = new ymaps.Map("yandex-map2", {
+			center: [55.76, 37.64],
+			zoom: 10,
+			controls: []
+		});
+		myPlacemark2 = new ymaps.Placemark([55.76, 37.64], {
+			hintContent: 'Москва!',
+			balloonContent: 'Столица России'
+		});
+		myMap2.geoObjects.add(myPlacemark2);
+	}
 }
 
 function validation() {
@@ -1168,7 +1173,7 @@ function validation() {
 				$(this).addClass('error').after('<span class="error-text">Заполните поле, минимум 4 символа</span>');
 			}
 		});
-		
+
 		var _email = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$');
 		var $email = $form.find('[name=email]');
 		if ($email.length && !_email.test($email.val())) {
