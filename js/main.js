@@ -1159,7 +1159,10 @@ function init(){
 }
 
 function validation() {
-    $('.form.feedback, .js-validate, .js-validate-house-sett, .js-validate-no-message').unbind().on('click', '.btn-primary, button', function() {
+    $('form button').unbind().on('click', function(e) {
+
+    	e.preventDefault();
+
 		// Текущая форма
 		var $form = $(this).parents('form');
 		// Удаляем старые ошибки
@@ -1178,6 +1181,15 @@ function validation() {
 		var $email = $form.find('[name=email]');
 		if ($email.length && !_email.test($email.val())) {
 			$email.addClass('error').after('<span class="error-text">Это неправильный e-mail</span>');
+		}
+		var $email = $form.find('[name=email_login]');
+		if ($email.length && !_email.test($email.val())) {
+			$email.addClass('error').after('<a href="#" class="error-text user-not-found">Нет такого пользователя</a>');
+		}
+
+		var $pass0 = $form.find('[name=pass_login]');
+		if ($pass0.length && !($pass0.val().length >= 4)) {
+			$pass0.addClass('error').after('<p class="error-text invalid-password">Пароль не подходит, вы можете <a href="#">пройти процедуру восстановления</a></p>');
 		}
 
 		var $pass1 = $form.find('[name=pass1]');
