@@ -2,30 +2,6 @@
 @import "compass";
 @import "compass/reset";
 
-/* Включаем спрайты и загружаем иконки */
-//$mysprite-layout:smart;
-//@import "icons/*.png";
-//@include all-icons-sprites;
-//
-//$icons: ('picture1','picture2');
-//
-//@each $icons in $icons {
-//  .icons-#{$icons} {
-//    display: inline-block;
-//    position: relative;
-//    width: icons-sprite-width(#{$icons});
-//    height: icons-sprite-height(#{$icons});
-//    
-//    vertical-align: top;
-//    display: -moz-inline-stack;
-//    zoom: 1;
-//        *display: inline;
-//  }
-//}
-
-/* Импортируем гугл-шрифты */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic);
-
 /* Импортируем локальные шрифты */
 @mixin font-face($font-family, $file-path) {
   
@@ -51,11 +27,6 @@
     }
   }
 }
-
-// Подключаем локальный шрифты из Миксина
-@include font-face(DroidSerifRegular, 'DroidSerifRegular');
-@include font-face(RalewayExtraBold, 'RalewayExtraBold');
-
 
 // Используй это миксин для всего конфига!
 @mixin font($color, $font-family, $font-size, $line-height, $letter-spacing) {
