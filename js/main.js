@@ -613,6 +613,7 @@ function bindCarousels() {
 		syncBig.owlCarousel({
 			loop: true,
 			items: 1,
+			lazyLoad: true,
 			autoPlay: true,
 			afterAction: function syncBig(el) {
 				var current = this.currentItem;
