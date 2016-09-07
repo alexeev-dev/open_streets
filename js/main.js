@@ -490,7 +490,8 @@ function bindCarousels() {
 			itemsTabletSmall: 1,
 			itemsMobile: 1,
 			afterAction: syncPosition,
-			autoPlay: true
+			autoPlay: true,
+			lazyLoad: true
 		});
 		sync1.data('owlCarousel').stop();
 
@@ -591,6 +592,7 @@ function bindCarousels() {
 			itemsTablet: 3,
 			itemsTabletSmall: 3,
 			itemsMobile: 3,
+			lazyLoad: true,
 			afterInit: function(el) {
 				el.find(".owl-item").eq(0).addClass("synced");
 				el.find(".owl-item > div").eq(0).addClass("active");
