@@ -61,6 +61,24 @@ $(document).ready(function() {
 		return false;
 	});
 
+	$(".block3").addClass('block3_state_clear');
+
+	$(".districts").click(function (event) {
+		event.stopPropagation();
+		$(this).find(".microdistrict")
+		.addClass("microdistrict_state_open");
+		$(".block3").removeClass('block3_state_clear');
+	});
+
+	$(".microdistrict").click(function (event) {
+		event.stopPropagation();
+	})
+
+	$(".block3").click(function (event) {
+		$(".microdistrict").removeClass('microdistrict_state_open')
+		$(".block3").addClass('block3_state_clear');
+	});
+
 	// районы
 	$('.microdistrict ul li a').click(function() {
 		if (!$(this).hasClass('active')) {
@@ -615,11 +633,7 @@ function bindCarousels() {
 			items: 1,
 			lazyLoad: true,
 			autoPlay: true,
-			itemsDesktop : [1199,1],
-			itemsDesktopSmall : [980,1],
-			itemsTablet: [768,1],
-			itemsTabletSmall: false,
-			itemsMobile : [479,1],
+			responsive: false,
 			afterAction: function syncBig(el) {
 				var current = this.currentItem;
 				$('.gallery-2 .gallery-slider li').removeClass('active');
