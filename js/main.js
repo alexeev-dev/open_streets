@@ -615,6 +615,11 @@ function bindCarousels() {
 			items: 1,
 			lazyLoad: true,
 			autoPlay: true,
+			itemsDesktop : [1199,1],
+			itemsDesktopSmall : [980,1],
+			itemsTablet: [768,1],
+			itemsTabletSmall: false,
+			itemsMobile : [479,1],
 			afterAction: function syncBig(el) {
 				var current = this.currentItem;
 				$('.gallery-2 .gallery-slider li').removeClass('active');
