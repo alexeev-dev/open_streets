@@ -65,6 +65,7 @@ $(document).ready(function() {
 
 	$(".districts").click(function (event) {
 		event.stopPropagation();
+		$(".microdistrict").removeClass('microdistrict_state_open')
 		$(this).find(".microdistrict")
 		.addClass("microdistrict_state_open");
 		$(".block3").removeClass('block3_state_clear');
