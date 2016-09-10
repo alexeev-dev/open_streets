@@ -12123,9 +12123,14 @@ a.mouse {
   background: #f2f2f2;
 }
 /* line 3545, ../sass/_moduls.scss */
-.popup-map .block3 .districts:hover .microdistrict {
+.block3_state_clear .districts:hover .microdistrict {
   display: block;
 }
+
+.microdistrict_state_open {
+  display: block !important;
+}
+
 /* line 3551, ../sass/_moduls.scss */
 .popup-map a.submit {
   color: #ffffff;
