@@ -1,5 +1,5 @@
 $('.js-chosen').chosen({
-	disable_search_threshold: 10
+	disable_search: true
 });
 
 $(document).ready(function() {
@@ -61,27 +61,20 @@ $(document).ready(function() {
 		return false;
 	});
 
+	// районы
 	$(".block3").addClass('block3_state_clear');
-
+	/*
 	$(".districts").click(function (event) {
-		event.stopPropagation();
 		$(".microdistrict").removeClass('microdistrict_state_open')
-		$(this).find(".microdistrict")
-		.addClass("microdistrict_state_open");
+		$(this).find(".microdistrict").addClass("microdistrict_state_open");
 		$(".block3").removeClass('block3_state_clear');
 	});
-
-	$(".microdistrict").click(function (event) {
-		event.stopPropagation();
-	})
-
-	$(".block3").click(function (event) {
+	$(".block3").on('touchstart', function (event) {
 		$(".microdistrict").removeClass('microdistrict_state_open')
 		$(".block3").addClass('block3_state_clear');
 	});
-
-	// районы
-	$('.microdistrict ul li a').click(function() {
+	*/
+	$('.microdistrict ul li a').on('click touchstart', function() {
 		if (!$(this).hasClass('active')) {
 			$(this).addClass('active')
 
@@ -94,6 +87,7 @@ $(document).ready(function() {
 			}
 
 			titleEl.siblings('ul').append('<li><a href="#"><i class="icons-map-delete-district-2"></i></a>' + $(this).text() + '</li>');
+			bindDistrict();
 		} else {
 			$(this).removeClass('active')
 
@@ -106,6 +100,26 @@ $(document).ready(function() {
 				}
 			});
 		}
+		return false;
+	});
+	
+	function bindDistrict() {
+		$('.selectedDistrict ul li a').unbind().on('click touchstart', function() {
+			var thisTitle = $(this).parent().text();
+			$('.microdistrict ul li a:contains("' + thisTitle + '")').removeClass('active');
+			$(this).parent().remove();
+			
+			$('.selectedDistrict ul').each(function() {
+				if ($(this).find('li').length == 0) {
+					$(this).parent().remove();
+				}
+			});
+			return false;
+		});
+	}
+	
+	$('.allMDistrict').on('click touchstart', function() {
+		$(this).siblings('ul').find('a:not(".active")').click();
 		return false;
 	});
 
@@ -684,27 +698,47 @@ function bindCarousels() {
 			var i = $('.gallery-2 .gallery-slider li a').index($(this));
 			syncBig.trigger("owl.goTo", i);
 
+			var sl = $('.gallery-2 .gallery-slider');
+			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
+
 			$('.gallery-2 .gallery-slider li').removeClass('active');
 			$(this).parent().addClass('active');
 
 			if ($('.small-gallery').offset().top - $(this).offset().top > -150) {
-				$('.gallery-2 .nav-up').click();
+				if (!isBigBusy && sl.offset().top < sl.parent().offset().top) {
+					isBigBusy = true;
+					sl.animate({top: '+=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
+						isBigBusy = false;
+						checkArrows();
+					});
+				}
 			} else {
-				$('.gallery-2 .nav-down').click();
+				if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
+					isBigBusy = true;
+					sl.animate({top: '-=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
+						isBigBusy = false;
+						checkArrows();
+					});
+				}
 			}
 			return false;
 		});
+		
 		$('.gallery-2 .nav-down').unbind().click(function() {
 			var sl = $('.gallery-2 .gallery-slider');
 			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
 
-			if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
-				isBigBusy = true;
-				sl.animate({top: '-=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
-					isBigBusy = false;
-					checkArrows();
-				});
+			if ($('.small-gallery').offset().top - $('.gallery-2 .gallery-slider li.active a').offset().top < -3 * slItem.height()) {
+				if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
+					isBigBusy = true;
+					sl.animate({top: '-=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
+						isBigBusy = false;
+						checkArrows();
+					});
+				}
 			}
+			
+			$('.gallery-2 .gallery-slider li.active').next('li').find('a').click();
 
 			return false;
 		});
@@ -712,13 +746,17 @@ function bindCarousels() {
 			var sl = $('.gallery-2 .gallery-slider');
 			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
 
-			if (!isBigBusy && sl.offset().top < sl.parent().offset().top) {
-				isBigBusy = true;
-				sl.animate({top: '+=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
-					isBigBusy = false;
-					checkArrows();
-				});
+			if ($('.small-gallery').offset().top - $('.gallery-2 .gallery-slider li.active a').offset().top > -1 * slItem.height()) {
+				if (!isBigBusy && sl.offset().top < sl.parent().offset().top) {
+					isBigBusy = true;
+					sl.animate({top: '+=' + (slItem.outerHeight() + 1) + 'px'}, 500, function() {
+						isBigBusy = false;
+						checkArrows();
+					});
+				}
 			}
+			
+			$('.gallery-2 .gallery-slider li.active').prev('li').find('a').click();
 
 			return false;
 		});

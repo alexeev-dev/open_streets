@@ -4828,6 +4828,7 @@ hr.devider.style5 {
   width: 170px;
   height: 50px;
   margin: 0 2px;
+  margin-bottom: 8px;
   background-color: #67a8b6;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -12129,6 +12130,7 @@ a.mouse {
 
 .microdistrict_state_open {
   display: block !important;
+  z-index: 999 !important;
 }
 
 /* line 3551, ../sass/_moduls.scss */
