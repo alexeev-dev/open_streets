@@ -728,6 +728,10 @@ function bindCarousels() {
 			var sl = $('.gallery-2 .gallery-slider');
 			var slItem = $('.gallery-2 .gallery-slider li').eq(0);
 
+			if(!isBigBusy) {
+				$('.gallery-2 .gallery-slider li.active').next('li').find('a').click();
+			}
+
 			if ($('.small-gallery').offset().top - $('.gallery-2 .gallery-slider li.active a').offset().top < -3 * slItem.height()) {
 				if (!isBigBusy && sl.offset().top + sl.height() > sl.parent().offset().top + sl.parent().height()) {
 					isBigBusy = true;
@@ -737,8 +741,6 @@ function bindCarousels() {
 					});
 				}
 			}
-			
-			$('.gallery-2 .gallery-slider li.active').next('li').find('a').click();
 
 			return false;
 		});
